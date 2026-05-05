@@ -1693,8 +1693,6 @@
 
       // --- Team Carousel ---
       (function () {
-        var CARD_W = { sm: 220, md: 280 };
-        var CARD_GAP = 16;
         var members = [
           { name: "Roberto Cortez",   role: "Founder & CMO",        photo: "https://www.spartads.pt/hosted/images/64/d50b6e9c6c4ee09445dad7e919cce7/rob.png",      bio: "Com 12 anos de experiência em marketing digital, Roberto é um dos maiores nomes do setor em Portugal. Mentor da maior comunidade de marketing digital do país, o PAD." },
           { name: "Andreia Rocha",    role: "CEO",                   photo: "https://www.spartads.pt/hosted/images/41/e6e0d4db754cda90911e6a2555743d/andreia.png",   bio: "Especialista em gestão empresarial, Andreia combina mais de 10 anos de experiência com uma visão estratégica clara e determinação." },
@@ -1744,16 +1742,10 @@
           dotsEl.appendChild(d);
         });
 
-        function cw() { return window.innerWidth >= 768 ? CARD_W.md : CARD_W.sm; }
-
         function render() {
-          var W    = cw();
-          var step = W + CARD_GAP;
-          var vpW  = viewport.offsetWidth;
-          var tx   = vpW / 2 - W / 2 - active * step;
-          track.style.transform = "translateX(" + tx + "px)";
+          var cards = track.querySelectorAll(".tcard");
 
-          track.querySelectorAll(".tcard").forEach(function (c, i) {
+          cards.forEach(function (c, i) {
             var diff = Math.abs(i - active);
             c.classList.remove("is-active", "is-adj1", "is-adj2", "is-hidden");
             if      (diff === 0) c.classList.add("is-active");
@@ -1761,6 +1753,13 @@
             else if (diff === 2) c.classList.add("is-adj2");
             else                 c.classList.add("is-hidden");
           });
+
+          var card = cards[active];
+          if (card) {
+            var vpW = viewport.offsetWidth;
+            var tx  = vpW / 2 - card.offsetLeft - card.offsetWidth / 2;
+            track.style.transform = "translateX(" + tx + "px)";
+          }
 
           dotsEl.querySelectorAll(".tcarousel-dot").forEach(function (d, i) {
             d.classList.toggle("is-active", i === active);
