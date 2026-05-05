@@ -413,6 +413,7 @@
         display: flex;
         align-items: center;
         gap: 16px;
+        width: max-content;
         transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         will-change: transform;
       }
@@ -1766,7 +1767,23 @@
           });
         }
 
-        function goTo(idx) { active = ((idx % N) + N) % N; render(); }
+        function goTo(idx) {
+          var next = ((idx % N) + N) % N;
+          var dist = Math.abs(next - active);
+          var isWrap = dist > 1 && dist > N / 2;
+          active = next;
+          if (isWrap) {
+            track.style.transition = 'none';
+            render();
+            track.getBoundingClientRect();
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () { track.style.transition = ''; });
+            });
+          } else {
+            track.style.transition = '';
+            render();
+          }
+        }
 
         if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
         if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
@@ -1785,7 +1802,12 @@
         });
 
         render();
-        window.addEventListener("resize", render);
+        window.addEventListener("resize", function () {
+          track.style.transition = 'none';
+          render();
+          track.getBoundingClientRect();
+          requestAnimationFrame(function () { track.style.transition = ''; });
+        });
       })();
     </script>
   </body>
