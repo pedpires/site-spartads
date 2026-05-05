@@ -1,0 +1,1792 @@
+---
+---
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpartAds · Marketing Estratégico & Publicidade Online</title>
+    <meta
+      name="description"
+      content="Agência portuguesa founder-led de paid media. +€20M em campanhas geridas, +300 projetos, 13 anos de experiência. Google Ads, Meta Ads, TikTok. Agende uma sessão estratégica."
+    />
+    <meta property="og:title" content="SpartAds · Marketing Estratégico & Publicidade Online" />
+    <meta property="og:description" content="+€20M em media gerido. +300 projetos. ROAS 6x, 10x, 17x. Agência portuguesa founder-led." />
+    <meta property="og:image" content="https://www.spartads.pt/hosted/images/0c/56e49829ed49ef8881d3fefd058ca1/thumbnail-LP.png" />
+    <link rel="icon" href="https://d2saw6je89goi1.cloudfront.net/uploads/digital_asset/file/1213866/favicon.png" />
+    <meta name="theme-color" content="#000000" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #000000;
+        --bg-2: #090f16;
+        --bg-3: #0d1624;
+        --surface: #0f1626;
+        --surface-2: #141d30;
+        --border: #1b2535;
+        --border-soft: #121a28;
+        --text: #ffffff;
+        --text-dim: #b7b9c2;
+        --text-dimmer: #7a8293;
+        --brand: #007aff;
+        --brand-2: #3d99ff;
+        --brand-3: #bdd6f1;
+        --brand-hover: #0066d5;
+        --cta: #16a34a;
+        --cta-2: #22c55e;
+        --cta-hover: #15803d;
+      }
+
+      * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      html { scroll-behavior: smooth; background: var(--bg); }
+      body {
+        font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-weight: 400;
+        letter-spacing: -0.005em;
+      }
+      ::selection { background: var(--brand); color: #ffffff; }
+
+      .font-display {
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 0.96;
+      }
+      .font-display-xl {
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 0.92;
+      }
+      .font-head {
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        line-height: 1;
+      }
+      .font-mono-ish { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
+
+      /* ===== HERO ===== */
+      .hero-bg {
+        background:
+          radial-gradient(1300px 780px at 15% 0%, rgba(0, 122, 255, 0.24), transparent 60%),
+          radial-gradient(900px 520px at 92% 18%, rgba(22, 163, 74, 0.12), transparent 60%),
+          radial-gradient(700px 520px at 50% 100%, rgba(0, 122, 255, 0.10), transparent 60%),
+          linear-gradient(180deg, #000000 0%, #020711 100%);
+      }
+
+      .grain {
+        position: absolute; inset: 0; pointer-events: none;
+        opacity: 0.4; mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      /* cursor spotlight */
+      .spotlight {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(350px 350px at var(--mx, 50%) var(--my, 30%), rgba(0,122,255,0.22), transparent 60%);
+        transition: opacity 0.35s ease;
+      }
+
+      .dotted {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+        background-size: 22px 22px;
+      }
+      .grid-bg {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        background-size: 56px 56px;
+      }
+
+      /* ===== BUTTONS ===== */
+      .btn-cta {
+        background: linear-gradient(180deg, var(--cta-2) 0%, var(--cta) 100%);
+        color: #ffffff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        box-shadow: 0 10px 30px -8px rgba(22,163,74,0.55), inset 0 1px 0 rgba(255,255,255,0.15);
+        font-weight: 600;
+      }
+      .btn-cta:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px -10px rgba(22,163,74,0.7), inset 0 1px 0 rgba(255,255,255,0.2);
+      }
+      .btn-cta:active { transform: translateY(0); }
+
+      .btn-brand {
+        background: var(--brand);
+        color: #ffffff;
+        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 10px 30px -10px rgba(0,122,255,0.55);
+        font-weight: 600;
+      }
+      .btn-brand:hover { background: var(--brand-hover); transform: translateY(-1px); box-shadow: 0 16px 40px -12px rgba(0,122,255,0.75); }
+
+      .btn-ghost {
+        background: rgba(255,255,255,0.04);
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.14);
+        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      }
+      .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.24); transform: translateY(-1px); }
+
+      .btn-whatsapp {
+        background: #25d366;
+        color: #07120a;
+        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 10px 30px -10px rgba(37,211,102,0.5);
+        font-weight: 600;
+      }
+      .btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-1px); }
+
+      /* Magnetic CTA wrapper (JS-driven) */
+      .magnetic { transition: transform 0.2s cubic-bezier(0.2,0.7,0.2,1); will-change: transform; }
+
+      /* Reveal */
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.9s cubic-bezier(0.2,0.7,0.2,1), transform 0.9s cubic-bezier(0.2,0.7,0.2,1); will-change: opacity, transform; }
+      .reveal.on { opacity: 1; transform: none; }
+      .reveal-delay-1 { transition-delay: 0.08s; }
+      .reveal-delay-2 { transition-delay: 0.16s; }
+      .reveal-delay-3 { transition-delay: 0.24s; }
+      .reveal-delay-4 { transition-delay: 0.32s; }
+      .reveal-delay-5 { transition-delay: 0.40s; }
+
+      @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .live-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+      @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .marquee-track { animation: marquee 55s linear infinite; }
+      .marquee-track-slow { animation: marquee 80s linear infinite; }
+
+      /* Cards */
+      .card {
+        background: linear-gradient(180deg, var(--surface) 0%, #0b1220 100%);
+        border: 1px solid var(--border);
+        transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: #2a3a55;
+        box-shadow: 0 30px 60px -25px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,122,255,0.08) inset;
+      }
+      .card-brand {
+        background:
+          radial-gradient(500px 360px at 80% 0%, rgba(0,122,255,0.22), transparent 60%),
+          linear-gradient(180deg, var(--surface) 0%, #0b1220 100%);
+        border: 1px solid rgba(0,122,255,0.35);
+      }
+      .card-cta {
+        background:
+          radial-gradient(500px 360px at 80% 0%, rgba(22,163,74,0.18), transparent 60%),
+          linear-gradient(180deg, var(--surface) 0%, #0b1220 100%);
+        border: 1px solid rgba(22,163,74,0.32);
+      }
+
+      .cta-glow {
+        background:
+          radial-gradient(600px 320px at 25% 10%, rgba(0, 122, 255, 0.32), transparent 60%),
+          radial-gradient(600px 320px at 85% 90%, rgba(22, 163, 74, 0.22), transparent 60%),
+          linear-gradient(180deg, #000000, #060d1a);
+      }
+      .ring-edge { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 40px 80px -40px rgba(0,0,0,1); }
+
+      .nav-blur { backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); }
+
+      .soft-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent); }
+
+      .metric-white {
+        background: linear-gradient(180deg, #ffffff 0%, #7a8293 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .metric-brand {
+        background: linear-gradient(180deg, #6aadff 0%, #007aff 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .metric-cta {
+        background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+
+      .bar { background: linear-gradient(180deg, #2a3a55, #111a2b); border-radius: 4px; }
+      .bar-brand { background: linear-gradient(180deg, #3d99ff, #007aff); border-radius: 4px; box-shadow: 0 0 14px rgba(0,122,255,0.5); }
+      .bar-cta { background: linear-gradient(180deg, #22c55e, #16a34a); border-radius: 4px; box-shadow: 0 0 16px rgba(22,163,74,0.55); }
+
+      /* 3D tilt on mockup */
+      .tilt-wrap { perspective: 1200px; }
+      .tilt-el { transform-style: preserve-3d; transition: transform 0.15s cubic-bezier(0.2,0.7,0.2,1); }
+
+      /* FAQ */
+      details.faq[open] .faq-icon { transform: rotate(45deg); }
+      .faq-icon { transition: transform 0.3s ease; }
+      details.faq > summary { list-style: none; cursor: pointer; }
+      details.faq > summary::-webkit-details-marker { display: none; }
+
+      @keyframes pulseBorder {
+        0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.45); }
+        50% { box-shadow: 0 0 0 8px rgba(22,163,74,0); }
+      }
+      .pulse-border { animation: pulseBorder 2.4s ease-in-out infinite; }
+
+      .sticky-cta {
+        position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+        transform: translateY(120%);
+        transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1);
+      }
+      .sticky-cta.visible { transform: translateY(0); }
+
+      /* Team photos */
+      .team-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 14px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #1b2535, #0b1220);
+        position: relative;
+      }
+      .team-photo img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.2,0.7,0.2,1), filter 0.4s ease;
+        filter: grayscale(25%) contrast(1.02);
+      }
+      .card:hover .team-photo img { transform: scale(1.06); filter: grayscale(0%) contrast(1.05); }
+
+      /* Client logos */
+      .client-logo {
+        height: 38px;
+        width: auto;
+        max-width: 160px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        opacity: 0.55;
+        transition: opacity 0.3s ease, filter 0.3s ease;
+      }
+      .client-logo:hover { opacity: 1; filter: brightness(0) invert(1); }
+
+      /* Certification badges */
+      .cert-badge {
+        height: 64px;
+        width: auto;
+        opacity: 0.88;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      .cert-badge:hover { transform: scale(1.05); opacity: 1; }
+
+      /* ===== HORIZONTAL SCROLL SERVICES ===== */
+      .hscroll-wrap { position: relative; height: 560vh; }
+      .hscroll-sticky {
+        position: sticky; top: 0; height: 100vh; overflow: hidden;
+        background:
+          radial-gradient(900px 500px at 20% 50%, rgba(0,122,255,0.14), transparent 60%),
+          radial-gradient(700px 400px at 90% 70%, rgba(22,163,74,0.08), transparent 60%),
+          #000000;
+      }
+      .hscroll-track {
+        position: absolute; top: 0; left: 0; height: 100%;
+        display: flex; align-items: center; gap: 2rem;
+        padding-left: 6vw; padding-right: 20vw;
+        will-change: transform;
+      }
+      .hcard {
+        position: relative; flex: 0 0 auto;
+        width: 78vw; max-width: 1100px;
+        height: 70vh; max-height: 680px;
+        border-radius: 28px; overflow: hidden;
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, var(--surface) 0%, #060c18 100%);
+        display: flex; flex-direction: column; padding: 3.5rem;
+        transition: border-color 0.4s ease;
+      }
+      .hcard:hover { border-color: #2a3a55; }
+      .hcard-num {
+        position: absolute; top: 2rem; right: 2.5rem;
+        font-family: "Outfit", sans-serif; font-weight: 300;
+        font-size: 9rem; line-height: 1; letter-spacing: -0.05em;
+        color: rgba(255,255,255,0.04); pointer-events: none;
+      }
+      .hcard-brand {
+        background:
+          radial-gradient(600px 400px at 90% 0%, rgba(0,122,255,0.28), transparent 60%),
+          linear-gradient(180deg, var(--surface) 0%, #060c18 100%);
+        border: 1px solid rgba(0,122,255,0.35);
+      }
+      .hcard-cta {
+        background:
+          radial-gradient(600px 400px at 90% 0%, rgba(22,163,74,0.22), transparent 60%),
+          linear-gradient(180deg, var(--surface) 0%, #060c18 100%);
+        border: 1px solid rgba(22,163,74,0.32);
+      }
+      @media (max-width: 768px) {
+        .hcard { width: 86vw; padding: 2rem; height: 78vh; }
+        .hcard-num { font-size: 6rem; top: 1rem; right: 1.5rem; }
+      }
+
+      .hscroll-header {
+        position: absolute; top: 0; left: 0; right: 0;
+        padding: 2rem 0 1rem; z-index: 10;
+        background: linear-gradient(180deg, rgba(0,0,0,0.9), transparent);
+        pointer-events: none;
+      }
+      .hscroll-header > * { pointer-events: auto; }
+      .hscroll-progress { position: absolute; bottom: 2.5rem; left: 6vw; right: 6vw; z-index: 10; }
+      .hscroll-progress-bar { height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+      .hscroll-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--brand), var(--cta));
+        width: 0%;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 12px rgba(0,122,255,0.6);
+      }
+      .hint-scroll {
+        position: absolute; bottom: 5rem; right: 6vw; z-index: 10;
+        display: flex; align-items: center; gap: 0.5rem;
+        font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em;
+        color: var(--text-dimmer); opacity: 0.6;
+      }
+
+      /* Count-up */
+      .count-up { font-variant-numeric: tabular-nums; }
+
+      /* Modal */
+      .modal-overlay {
+        position: fixed; inset: 0; z-index: 100;
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        display: flex; align-items: center; justify-content: center;
+        padding: 1rem;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.35s cubic-bezier(0.2,0.7,0.2,1);
+      }
+      .modal-overlay.open { opacity: 1; pointer-events: auto; }
+      .modal-content {
+        position: relative;
+        width: 100%; max-width: 760px; height: 85vh; max-height: 720px;
+        background: #0a0f1a;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        overflow: hidden;
+        transform: scale(0.96) translateY(12px);
+        transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1);
+        box-shadow: 0 40px 120px -20px rgba(0,122,255,0.4);
+      }
+      .modal-overlay.open .modal-content { transform: none; }
+      .modal-close {
+        position: absolute; top: 1rem; right: 1rem; z-index: 2;
+        width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(0,0,0,0.6); color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.15);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease;
+      }
+      .modal-close:hover { background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.3); }
+      .modal-iframe { width: 100%; height: 100%; border: 0; }
+
+      .logo-wordmark {
+        display: flex; align-items: center; gap: 0.5rem;
+      }
+
+      /* ── Team Carousel ─────────────────────── */
+      .tcarousel-viewport {
+        position: relative;
+        overflow: hidden;
+        height: 480px;
+      }
+      @media (max-width: 767px) {
+        .tcarousel-viewport { height: 390px; }
+      }
+      .tcarousel-track {
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+      }
+      .tcard {
+        flex-shrink: 0;
+        position: relative;
+        width: 280px;
+        height: 420px;
+        border-radius: 22px;
+        overflow: hidden;
+        cursor: pointer;
+        transform: scale(0.86);
+        opacity: 0.45;
+        transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.55s ease,
+                    box-shadow 0.55s ease;
+        transform-origin: center center;
+      }
+      @media (max-width: 767px) {
+        .tcard { width: 220px; height: 340px; }
+      }
+      .tcard.is-active {
+        transform: scale(1.06);
+        opacity: 1;
+        box-shadow: 0 32px 64px -16px rgba(0,0,0,0.95),
+                    0 0 0 1px rgba(61,153,255,0.3);
+        cursor: default;
+      }
+      .tcard.is-adj1 { transform: scale(0.92); opacity: 0.7; }
+      .tcard.is-adj2 { transform: scale(0.8);  opacity: 0.38; }
+      .tcard.is-hidden { opacity: 0; pointer-events: none; }
+      .tcard-img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        filter: grayscale(22%);
+        transition: filter 0.55s ease;
+      }
+      .tcard.is-active .tcard-img { filter: grayscale(0%); }
+      .tcard-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 18px 18px 20px;
+        background: linear-gradient(to top,
+          rgba(4,7,14,0.98) 0%,
+          rgba(4,7,14,0.86) 32%,
+          rgba(4,7,14,0.35) 62%,
+          transparent 100%);
+        transition: padding 0.5s ease;
+      }
+      .tcard.is-active .tcard-overlay { padding: 22px 22px 26px; }
+      .tcard-name {
+        font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3;
+      }
+      .tcard-role {
+        font-size: 10.5px; color: var(--brand-2); font-weight: 500;
+        text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px;
+      }
+      .tcard-bio {
+        font-size: 12.5px; color: var(--text-dim); line-height: 1.65;
+        max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
+        transition: max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
+                    opacity 0.4s ease 0.12s,
+                    margin-top 0.5s ease;
+      }
+      .tcard.is-active .tcard-bio { max-height: 120px; opacity: 1; margin-top: 10px; }
+      .tcarousel-btn {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        width: 44px; height: 44px; border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(9,15,22,0.85);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        color: rgba(255,255,255,0.8);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; z-index: 10;
+        transition: background 0.25s, border-color 0.25s, transform 0.25s;
+      }
+      .tcarousel-btn:hover {
+        background: rgba(0,122,255,0.22);
+        border-color: rgba(61,153,255,0.5);
+        transform: translateY(-50%) scale(1.1);
+      }
+      .tcarousel-btn-prev { left: 10px; }
+      .tcarousel-btn-next { right: 10px; }
+      .tcarousel-dots {
+        display: flex; justify-content: center; align-items: center;
+        gap: 6px; margin-top: 20px; flex-wrap: wrap; padding: 0 16px;
+      }
+      .tcarousel-dot {
+        flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
+        background: rgba(255,255,255,0.18); border: none; padding: 0;
+        cursor: pointer;
+        transition: background 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+      }
+      .tcarousel-dot.is-active {
+        width: 22px; border-radius: 3px; background: var(--brand-2);
+      }
+
+      /* ── Results Bento ──────────────────────── */
+      .res-bento {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "hero" "ferro" "suppl" "mold" "fpt" "fes";
+        gap: 10px;
+      }
+      @media (min-width: 640px) {
+        .res-bento {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-areas:
+            "hero hero ferro"
+            "hero hero suppl"
+            "mold fpt   fes";
+        }
+      }
+      .res-card {
+        position: relative;
+        border-radius: 18px;
+        padding: 22px 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .res-card:hover {
+        border-color: rgba(61,153,255,0.2);
+        box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6);
+      }
+      .res-card--hero {
+        padding: 28px 30px;
+        border-color: rgba(34,197,94,0.15);
+        background:
+          radial-gradient(circle at 80% 85%, rgba(22,163,74,0.1) 0%, transparent 55%),
+          var(--surface);
+      }
+      .res-card--hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+          repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(255,255,255,0.016) 32px),
+          repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(255,255,255,0.016) 32px);
+        pointer-events: none;
+      }
+      .res-card--hero:hover {
+        border-color: rgba(34,197,94,0.3);
+        box-shadow: 0 28px 56px -16px rgba(0,0,0,0.75), 0 0 0 1px rgba(34,197,94,0.08) inset;
+      }
+      .res-card--lead {
+        background:
+          radial-gradient(circle at 85% 90%, rgba(0,122,255,0.07) 0%, transparent 55%),
+          var(--surface);
+      }
+      .res-tag {
+        display: inline-block;
+        font-size: 10px; font-weight: 500;
+        text-transform: uppercase; letter-spacing: 0.12em;
+        color: var(--text-dimmer);
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.07);
+        padding: 3px 9px; border-radius: 20px;
+      }
+      .res-badge {
+        font-size: 10px; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        color: var(--cta-2);
+        background: rgba(34,197,94,0.12);
+        border: 1px solid rgba(34,197,94,0.22);
+        padding: 3px 9px; border-radius: 20px;
+      }
+      .res-label {
+        font-size: 10.5px; font-weight: 500;
+        text-transform: uppercase; letter-spacing: 0.14em;
+        color: var(--text-dimmer); margin-bottom: 2px;
+      }
+      .res-big {
+        font-family: "Outfit", system-ui, sans-serif;
+        font-size: clamp(44px, 5vw, 58px);
+        font-weight: 800; color: #fff;
+        line-height: 1; letter-spacing: -0.025em;
+      }
+      .res-big--xl {
+        font-size: clamp(76px, 9.5vw, 112px);
+        letter-spacing: -0.035em;
+      }
+      .res-ba {
+        display: flex; align-items: center; gap: 6px; margin-top: 6px;
+      }
+      .res-ba-from { font-size: 13px; color: var(--text-dimmer); font-weight: 500; }
+      .res-ba-arr  { font-size: 15px; color: var(--cta-2); font-weight: 700; line-height: 1; }
+      .res-ba-to   { font-size: 13px; color: var(--cta-2); font-weight: 700; }
+      .res-desc {
+        font-size: 13px; color: var(--text-dim); line-height: 1.65;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav class="sticky top-0 z-50 nav-blur bg-black/70 border-b border-white/5">
+      <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+        <a href="#top" class="flex items-center">
+          <img src="https://www.spartads.pt/hosted/images/fc/b5b357c3c140c1808167216774338f/logo-para-fundo-escuro.png"
+               alt="SpartAds" class="h-7 w-auto" loading="eager" />
+        </a>
+        <div class="flex items-center gap-1">
+          <a href="#servicos" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Serviços</a>
+          <a href="#resultados" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Resultados</a>
+          <a href="#processo" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Processo</a>
+          <a href="#equipa" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Equipa</a>
+          <a href="#faq" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">FAQ</a>
+          <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] ml-3">
+            Agendar Sessão
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="top" class="relative hero-bg overflow-hidden">
+      <div class="absolute inset-0 grid-bg opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"></div>
+      <div class="spotlight" id="hero-spotlight"></div>
+      <div class="grain"></div>
+
+      <div class="mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-24 md:pb-32 relative text-center">
+        <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-[color:var(--text-dim)] font-medium pulse-border">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[color:var(--cta-2)] opacity-60"></span>
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-[color:var(--cta-2)]"></span>
+          </span>
+          Agência portuguesa · +€20M em media gerido
+        </div>
+
+        <h1 class="reveal reveal-delay-1 font-display-xl mt-8 text-[44px] sm:text-6xl md:text-7xl lg:text-[90px] text-white mx-auto max-w-5xl">
+          Aumente a sua faturação
+          <br class="hidden md:block" />
+          com <span class="text-[color:var(--brand-2)]">marketing estratégico</span>
+          e publicidade online.
+        </h1>
+
+        <p class="reveal reveal-delay-2 mt-8 text-lg md:text-xl text-[color:var(--text-dim)] max-w-2xl mx-auto leading-relaxed">
+          Somos especialistas em Google Ads, Meta Ads e todas as plataformas de Paid Media. Com mais de <strong class="text-white font-semibold">13 anos de experiência</strong> e <strong class="text-white font-semibold">+€20M geridos</strong>, ajudamos a sua empresa a crescer com mais leads e mais vendas.
+        </p>
+
+        <div class="reveal reveal-delay-3 mt-10 flex flex-wrap gap-3 justify-center">
+          <button type="button" data-open-modal class="magnetic btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+            Agendar Sessão Estratégica
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <a href="#resultados" class="btn-ghost inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-medium">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3v18h18M7 14l4-4 4 4 6-6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Ver resultados reais
+          </a>
+        </div>
+
+        <div class="reveal reveal-delay-4 mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-[color:var(--text-dimmer)] justify-center">
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Sessão 30min · sem custo
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            13 anos · +300 projetos
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Plano de ação incluído
+          </div>
+        </div>
+
+        <!-- Dashboard mockup with 3D tilt -->
+        <div class="reveal reveal-delay-5 mt-20 tilt-wrap mx-auto max-w-4xl">
+          <div class="tilt-el relative" id="hero-mockup">
+            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-b from-[color:var(--brand)]/30 via-transparent to-transparent blur-2xl"></div>
+            <div class="relative rounded-2xl border border-white/10 bg-[#060c18] p-1.5 shadow-[0_60px_120px_-40px_rgba(0,0,0,1)]">
+              <div class="rounded-xl bg-[#090f1c] p-6 md:p-8">
+                <div class="flex items-center justify-between mb-6">
+                  <div class="flex items-center gap-3">
+                    <div class="flex gap-1.5">
+                      <span class="h-2.5 w-2.5 rounded-full bg-red-400/60"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-amber-400/60"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-[color:var(--cta-2)]/70"></span>
+                    </div>
+                    <span class="text-[11px] text-[color:var(--text-dimmer)] font-mono-ish">dashboard.spartads.pt</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[11px] text-[color:var(--text-dim)]">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
+                    Live
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 md:gap-6">
+                  <div class="bg-[#050b17] rounded-xl border border-white/5 p-4 md:p-5 text-left">
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Receita 30d</div>
+                    <div class="mt-3 font-display text-2xl md:text-3xl text-white font-mono-ish">€ 487k</div>
+                    <div class="mt-2 text-[11px] text-[color:var(--cta-2)] font-semibold">+214%</div>
+                  </div>
+                  <div class="bg-[#050b17] rounded-xl border border-white/5 p-4 md:p-5 text-left">
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">ROAS</div>
+                    <div class="mt-3 font-display text-2xl md:text-3xl text-white font-mono-ish">6.4x</div>
+                    <div class="mt-2 text-[11px] text-[color:var(--cta-2)] font-semibold">+38% vs mês</div>
+                  </div>
+                  <div class="bg-[#050b17] rounded-xl border border-white/5 p-4 md:p-5 text-left">
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">CPL</div>
+                    <div class="mt-3 font-display text-2xl md:text-3xl text-white font-mono-ish">€ 2,80</div>
+                    <div class="mt-2 text-[11px] text-[color:var(--cta-2)] font-semibold">-62%</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex items-end gap-1 md:gap-1.5 h-20 md:h-28">
+                  <div class="bar flex-1" style="height: 22%"></div>
+                  <div class="bar flex-1" style="height: 28%"></div>
+                  <div class="bar flex-1" style="height: 24%"></div>
+                  <div class="bar flex-1" style="height: 34%"></div>
+                  <div class="bar flex-1" style="height: 38%"></div>
+                  <div class="bar flex-1" style="height: 32%"></div>
+                  <div class="bar flex-1" style="height: 42%"></div>
+                  <div class="bar-brand flex-1" style="height: 50%"></div>
+                  <div class="bar-brand flex-1" style="height: 46%"></div>
+                  <div class="bar-brand flex-1" style="height: 58%"></div>
+                  <div class="bar-brand flex-1" style="height: 66%"></div>
+                  <div class="bar-brand flex-1" style="height: 72%"></div>
+                  <div class="bar-cta flex-1" style="height: 84%"></div>
+                  <div class="bar-cta flex-1" style="height: 78%"></div>
+                  <div class="bar-cta flex-1" style="height: 92%"></div>
+                  <div class="bar-cta flex-1" style="height: 100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT LOGOS STRIP -->
+    <section class="relative border-y border-white/5 bg-[#040811]">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="text-center mb-8">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--text-dimmer)] font-medium">
+            Trabalhamos com marcas portuguesas e internacionais
+          </div>
+        </div>
+        <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+          <div class="flex gap-12 items-center marquee-track-slow whitespace-nowrap">
+            <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
+            <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
+            <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
+            <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
+            <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
+            <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
+            <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
+            <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
+            <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
+            <img class="client-logo" alt="Cozinha Sr Lisboa" src="https://www.spartads.pt/hosted/images/a2/a4333a42ce4c779e21ed7cfb631afe/cozinha-sr-lisboa.png" />
+            <img class="client-logo" alt="Yuni" src="https://www.spartads.pt/hosted/images/5d/46ee1267b04b159cef9dcf190b68cf/yuni.png" />
+            <img class="client-logo" alt="Caixilho" src="https://www.spartads.pt/hosted/images/bb/d2c16c01cd4bca9f36c7271d92a810/caixilho.png" />
+            <img class="client-logo" alt="Cuida PT" src="https://www.spartads.pt/hosted/images/bd/198b7ace444abb88ba90b62e8a1490/cuida-pt.png" />
+            <img class="client-logo" alt="Nutribio" src="https://www.spartads.pt/hosted/images/b5/c634f934694c64ac68906a8251614d/nutribio.png" />
+            <img class="client-logo" alt="Sembra" src="https://www.spartads.pt/hosted/images/6c/fa4cd75294484abab8ca0ebb424a9a/sembra.png" />
+            <img class="client-logo" alt="3xP Global" src="https://www.spartads.pt/hosted/images/0d/c6b6b434254c6aa1fd345fff710f55/3xPGlobal.png" />
+            <img class="client-logo" alt="EV Espaço Visual" src="https://www.spartads.pt/hosted/images/5c/fa68a0e6894268972dc7dc00905cae/ev-espaco-visual.png" />
+            <!-- Duplicate for loop -->
+            <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
+            <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
+            <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
+            <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
+            <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
+            <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
+            <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
+            <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
+            <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
+          </div>
+        </div>
+
+        <!-- Certifications row -->
+        <div class="mt-10 pt-8 border-t border-white/5 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div class="text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Certificados:</div>
+          <img class="cert-badge" alt="Google Partner" src="https://www.spartads.pt/hosted/images/20/f748f083dc4ba89e9783ca563263aa/Partner-RGB.png" />
+          <img class="cert-badge" alt="Media Buying Pro" src="https://www.spartads.pt/hosted/images/ea/c113a7d45e483bbfaf4b49bf28b2e6/Cert_Media_Buying_Pro_800.png" />
+          <img class="cert-badge" alt="Media Planning Pro" src="https://www.spartads.pt/hosted/images/4d/e079c088f548f9a68e83adda4917e5/Cert_Media_Planning_Pro_800.png" />
+          <img class="cert-badge" alt="Meta Business Partner" src="https://www.spartads.pt/hosted/images/04/0772624a59482f9daa16e0b4c5c1ed/meta-bp.png" />
+        </div>
+      </div>
+    </section>
+
+    <!-- METRIC STRIP -->
+    <section class="relative bg-[#05080f]">
+      <div class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0">
+          <div class="reveal text-center md:border-r md:border-white/5 md:px-6">
+            <div class="font-display text-4xl md:text-5xl metric-white count-up" data-count="13">13</div>
+            <div class="mt-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Anos de experiência</div>
+          </div>
+          <div class="reveal reveal-delay-1 text-center md:border-r md:border-white/5 md:px-6">
+            <div class="font-display text-4xl md:text-5xl metric-white count-up" data-count="20" data-prefix="€" data-suffix="M+">€20M+</div>
+            <div class="mt-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Investimento gerido</div>
+          </div>
+          <div class="reveal reveal-delay-2 text-center md:border-r md:border-white/5 md:px-6">
+            <div class="font-display text-4xl md:text-5xl metric-white count-up" data-count="300" data-prefix="+">+300</div>
+            <div class="mt-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Projetos bem-sucedidos</div>
+          </div>
+          <div class="reveal reveal-delay-3 text-center md:px-6">
+            <div class="font-display text-4xl md:text-5xl metric-white count-up" data-count="15" data-prefix="+" data-suffix="k">+15k</div>
+            <div class="mt-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Alunos formados</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES · HORIZONTAL SCROLL -->
+    <section id="servicos" class="relative">
+      <div class="hscroll-wrap" id="hscroll-wrap">
+        <div class="hscroll-sticky">
+          <div class="hscroll-header">
+            <div class="mx-auto max-w-6xl px-6 flex items-end justify-between flex-wrap gap-4">
+              <div>
+                <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Serviços</div>
+                <h2 class="font-head mt-3 text-3xl md:text-5xl text-white">
+                  Uma equipa.
+                  <span class="text-[color:var(--brand-2)]">Seis disciplinas.</span>
+                </h2>
+              </div>
+              <div class="hidden md:flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[color:var(--text-dimmer)]">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Scroll para explorar
+              </div>
+            </div>
+          </div>
+
+          <div class="hscroll-track" id="hscroll-track">
+            <article class="hcard">
+              <span class="hcard-num">01</span>
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
+                Paid Search
+              </div>
+              <div class="mt-auto">
+                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
+                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Google Ads</h3>
+                <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
+                  Search, Performance Max, Shopping e YouTube. Estrutura de contas pensada para escalar com lucro, não com vaidade.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Search</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Performance Max</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Shopping</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">YouTube</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="hcard hcard-brand">
+              <span class="hcard-num">02</span>
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
+                Paid Social
+              </div>
+              <div class="mt-auto">
+                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
+                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21 12.01c0-5-4.03-9.01-9-9.01s-9 4.01-9 9.01c0 4.5 3.3 8.23 7.6 8.9v-6.3H8.4v-2.6h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.96 0 1.96.17 1.96.17v2.2h-1.1c-1.1 0-1.4.67-1.4 1.36v1.67h2.4l-.38 2.6h-2.02V21C17.7 20.24 21 16.5 21 12.01z" />
+                  </svg>
+                </div>
+                <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Meta Ads</h3>
+                <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
+                  Facebook &amp; Instagram com a estrutura que os grandes players usam. CBO, ABO, tracking CAPI server-side e testes criativos semanais.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">CBO / ABO</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">CAPI Server-Side</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Creative Testing</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="hcard">
+              <span class="hcard-num">03</span>
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
+                Short-Form
+              </div>
+              <div class="mt-auto">
+                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
+                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                  </svg>
+                </div>
+                <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">TikTok Ads</h3>
+                <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
+                  Spark Ads, UGC orientado a conversão e segmentação avançada para a plataforma que cresce mais rápido. Custo por aquisição que surpreende.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Spark Ads</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">UGC</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Creator Marketplace</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="hcard hcard-cta">
+              <span class="hcard-num">04</span>
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--cta-2)] font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)]"></span>
+                Fundação
+              </div>
+              <div class="mt-auto">
+                <div class="h-12 w-12 rounded-2xl bg-[color:var(--cta)]/15 border border-[color:var(--cta)]/30 flex items-center justify-center mb-6">
+                  <svg class="h-6 w-6 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Estratégia <br /><span class="text-[color:var(--cta-2)]">&amp; Funil</span></h3>
+                <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
+                  Antes de tocar em campanhas, olhamos para o P&amp;L. Auditoria ao funil, análise de LTV/CAC, posicionamento e mensagens por estágio do cliente.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">LTV / CAC</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Funil completo</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Persona &amp; Mensagens</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="hcard">
+              <span class="hcard-num">05</span>
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
+                Produção
+              </div>
+              <div class="mt-auto">
+                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
+                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Vídeo <br /><span class="text-[color:var(--brand-2)]">&amp; Criativo</span></h3>
+                <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
+                  UGC, edição, storyboards e hooks validados por dados. Criativos que convertem — não só criativos que ficam bonitos no portefólio.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">UGC</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Hook Library</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">8–12 creatives / mês</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="hcard hcard-brand">
+              <span class="hcard-num">06</span>
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)] live-dot"></span>
+                Web &amp; CRO
+              </div>
+              <div class="mt-auto">
+                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
+                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16v12H4zM2 20h20M8 16v4M16 16v4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Landing Pages <br /><span class="text-[color:var(--brand-2)]">&amp; CRO</span></h3>
+                <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
+                  Construímos páginas que fecham vendas. De wireframe a A/B tests, 100% focado em taxa de conversão. Heatmaps, session replays e copywriting testado.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">A/B Testing</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Heatmaps</span>
+                  <span class="text-[12px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[color:var(--text-dim)]">Copy orientado a vendas</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="hcard" style="background: linear-gradient(180deg,#007aff 0%, #0066d5 100%); border-color: rgba(255,255,255,0.18);">
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-white/85 font-semibold">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
+                Próximo passo
+              </div>
+              <div class="mt-auto">
+                <h3 class="font-display-xl text-5xl md:text-7xl text-white tracking-tight">Vamos falar.</h3>
+                <p class="mt-5 text-white/85 text-lg md:text-xl leading-relaxed max-w-xl">
+                  Sessão estratégica de 30min, sem custo e sem pitch. Sai com um plano de ação — mesmo que não trabalhemos juntos.
+                </p>
+                <button type="button" data-open-modal class="mt-8 btn-cta inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px]">
+                  Agendar Sessão Estratégica
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="hscroll-progress">
+            <div class="hscroll-progress-bar"><div class="hscroll-progress-fill" id="hscroll-progress-fill"></div></div>
+          </div>
+
+          <div class="hint-scroll hidden md:flex">
+            <span id="hscroll-counter">01 / 07</span>
+            <svg class="h-3 w-3 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY / LETTER -->
+    <section class="relative py-24 md:py-32 border-y border-white/5 bg-[#05080f]">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div class="lg:col-span-5 reveal">
+            <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Filosofia</div>
+            <h2 class="font-head mt-4 text-4xl md:text-5xl lg:text-[56px] text-white">
+              Vamos ter uma
+              <span class="text-[color:var(--brand-2)]">conversa séria</span>
+              sobre negócios?
+            </h2>
+          </div>
+          <div class="lg:col-span-7 reveal reveal-delay-1 space-y-5 text-[color:var(--text-dim)] text-lg leading-relaxed">
+            <p class="text-white font-medium">De empresário para empresário: vender online não é fácil. Acredito que é simples — mas não é fácil.</p>
+            <p>Promessas irrealistas são feitas por quem mais nada tem a acrescentar. Aqui só prometemos <strong class="text-white">trabalho</strong>. Com método, conhecimento e comprometimento. Com integridade, honestidade e total transparência.</p>
+            <p>O Digital é um campo de batalha. Nós somos os seus guerreiros da linha da frente. Sem medos, sem virar a cara aos desafios. Focados em soluções. Comprometidos com os resultados.</p>
+            <p class="text-white font-medium">Somos SpartAds. O seu parceiro de Marketing e Vendas Online.</p>
+            <div class="pt-4 flex items-center gap-3">
+              <div class="h-12 w-12 rounded-full overflow-hidden border border-white/10 bg-[#1b2535]">
+                <img src="https://www.spartads.pt/hosted/images/64/d50b6e9c6c4ee09445dad7e919cce7/rob.png" alt="Roberto Cortez" class="h-full w-full object-cover" loading="lazy" />
+              </div>
+              <div>
+                <div class="text-[14px] font-semibold text-white">Roberto Cortez</div>
+                <div class="text-[13px] text-[color:var(--text-dimmer)]">Founder &amp; CMO · SpartAds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="resultados" class="relative py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="max-w-3xl reveal">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Resultados reais</div>
+          <h2 class="font-head mt-4 text-4xl md:text-6xl text-white">
+            Números antes de
+            <span class="text-[color:var(--brand-2)]">narrativas.</span>
+          </h2>
+          <p class="mt-5 text-[color:var(--text-dim)] text-lg max-w-xl leading-relaxed">
+            Um recorte do que entregámos a clientes portugueses e espanhóis. Mesmos setores, mesmos mercados — outra escala de resultado.
+          </p>
+        </div>
+
+        <!-- E-COMMERCE BENTO -->
+        <div class="mt-16 reveal">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="inline-flex h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
+            <h3 class="text-[11px] uppercase tracking-[0.22em] text-white font-semibold">E-Commerce</h3>
+          </div>
+
+          <div class="res-bento">
+
+            <!-- HERO: Dietética España -->
+            <article class="res-card res-card--hero" style="grid-area:hero">
+              <div class="flex items-start justify-between">
+                <span class="res-tag">Dietética · Espanha</span>
+                <span class="res-badge">Top case</span>
+              </div>
+              <div class="mt-auto pt-8">
+                <p class="res-label">ROAS</p>
+                <p class="res-big res-big--xl">×10</p>
+                <div class="res-ba mt-2">
+                  <span class="res-ba-from">1.6</span>
+                  <span class="res-ba-arr">↗</span>
+                  <span class="res-ba-to">17.5</span>
+                </div>
+                <p class="res-desc mt-5">
+                  Expansão IBE + pacote completo de tracking. De conta "quase-quebrada" a líder de categoria.
+                </p>
+              </div>
+            </article>
+
+            <!-- Ferramentas -->
+            <article class="res-card" style="grid-area:ferro">
+              <span class="res-tag">Loja de Ferramentas</span>
+              <div class="mt-5">
+                <p class="res-label">Faturação</p>
+                <p class="res-big">+42%</p>
+              </div>
+              <p class="res-desc mt-3">Reestruturação Search + PMax. Crescimento mantido 7 meses consecutivos.</p>
+            </article>
+
+            <!-- Suplementação -->
+            <article class="res-card" style="grid-area:suppl">
+              <span class="res-tag">Suplementação</span>
+              <div class="mt-5">
+                <p class="res-label">ROAS</p>
+                <p class="res-big">6×</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">5</span>
+                  <span class="res-ba-arr">↗</span>
+                  <span class="res-ba-to">30</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Refresh criativo semanal. Escala para €80k/mês em ads.</p>
+            </article>
+
+            <!-- Molduras -->
+            <article class="res-card" style="grid-area:mold">
+              <span class="res-tag">Molduras</span>
+              <div class="mt-5">
+                <p class="res-big">+300%</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">ROAS 1.98</span>
+                  <span class="res-ba-arr">→</span>
+                  <span class="res-ba-to">8.39</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Creative-led strategy em nicho difícil de escalar.</p>
+            </article>
+
+            <!-- Farmácia PT -->
+            <article class="res-card" style="grid-area:fpt">
+              <span class="res-tag">Farmácia · Portugal</span>
+              <div class="mt-5">
+                <p class="res-big">+100%</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">ROAS 10</span>
+                  <span class="res-ba-arr">→</span>
+                  <span class="res-ba-to">20</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Otimização de feed, bid strategy e landing pages.</p>
+            </article>
+
+            <!-- Farmácia ES -->
+            <article class="res-card" style="grid-area:fes">
+              <span class="res-tag">Farmácia · Espanha</span>
+              <div class="mt-5">
+                <p class="res-big">+104%</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">ROAS 11</span>
+                  <span class="res-ba-arr">→</span>
+                  <span class="res-ba-to">22</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Modelo PT replicado para o mercado espanhol.</p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- LEADS -->
+        <div class="mt-10 reveal">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="inline-flex h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)]"></span>
+            <h3 class="text-[11px] uppercase tracking-[0.22em] text-white font-semibold">Geração de Leads</h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+            <article class="res-card res-card--lead">
+              <span class="res-tag">Consultora</span>
+              <div class="mt-5">
+                <p class="res-label">CPL</p>
+                <p class="res-big">-68%</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">€158</span>
+                  <span class="res-ba-arr">→</span>
+                  <span class="res-ba-to">€50</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Mais leads, mais qualificadas, menos custo.</p>
+            </article>
+
+            <article class="res-card res-card--lead">
+              <span class="res-tag">Restaurante</span>
+              <div class="mt-5">
+                <p class="res-label">Agendamentos</p>
+                <p class="res-big">+100</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">28</span>
+                  <span class="res-ba-arr">→</span>
+                  <span class="res-ba-to">128</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Mesa cheia, semana após semana.</p>
+            </article>
+
+            <article class="res-card res-card--lead">
+              <span class="res-tag">Automóvel</span>
+              <div class="mt-5">
+                <p class="res-label">Leads</p>
+                <p class="res-big">2.5×</p>
+                <div class="res-ba">
+                  <span class="res-ba-from">80</span>
+                  <span class="res-ba-arr">→</span>
+                  <span class="res-ba-to">200</span>
+                </div>
+              </div>
+              <p class="res-desc mt-3">Volume dobrado e CPL -40% em simultâneo.</p>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="processo" class="relative py-24 md:py-32 bg-[#05080f] border-y border-white/5">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="max-w-3xl reveal">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Processo</div>
+          <h2 class="font-head mt-4 text-4xl md:text-6xl text-white">
+            4 passos.
+            <span class="text-[color:var(--brand-2)]">Zero surpresas.</span>
+          </h2>
+          <p class="mt-5 text-[color:var(--text-dim)] text-lg max-w-2xl leading-relaxed">
+            Conhecer o seu negócio em detalhe é o primeiro passo. Nada é feito de forma isolada. Tudo o que é feito é em prol dos objetivos que estabelecemos em conjunto — esse é o nosso compromisso.
+          </p>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-0 relative">
+          <div class="reveal relative md:pr-8 md:border-r md:border-white/5">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center font-semibold text-[13px] text-white bg-white/5 font-mono-ish">01</div>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Diagnóstico</h3>
+            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
+              Sessão estratégica para entender o negócio, oferta, cliente ideal, margens e histórico.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-1 relative md:px-8 md:border-r md:border-white/5">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center font-semibold text-[13px] text-white bg-white/5 font-mono-ish">02</div>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Estratégia</h3>
+            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
+              Análise dos ativos digitais, plano de media, matriz criativa e KPIs — validados consigo.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-2 relative md:px-8 md:border-r md:border-white/5">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center font-semibold text-[13px] text-white bg-white/5 font-mono-ish">03</div>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Implementação</h3>
+            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
+              Criativos, aprovações e go-live. Campanhas em Meta, Google e TikTok a correr.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-3 relative md:pl-8">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-[color:var(--cta)] text-white flex items-center justify-center font-semibold text-[13px] shadow-[0_0_0_4px_rgba(22,163,74,0.25)] font-mono-ish">04</div>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Escala</h3>
+            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
+              Otimização contínua, reporting claro e crescimento consistente, mês após mês.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <!-- EQUIPA – CARROSSEL -->
+    <section id="equipa" class="relative py-24 md:py-32 overflow-hidden" style="background:#04070e;">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+           style="background:radial-gradient(ellipse 110% 45% at 50% 0%,rgba(0,122,255,0.13) 0%,transparent 65%)"></div>
+      <div class="mx-auto max-w-7xl px-4 md:px-6">
+
+        <div class="reveal text-center mb-12">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">A Equipa</div>
+          <h2 class="font-head mt-4 text-4xl md:text-6xl text-white leading-tight">
+            Os guerreiros que <span class="text-[color:var(--brand-2)]">lutam</span><br class="hidden md:block">
+            <em style="font-style:italic;font-family:Georgia,'Times New Roman',serif;font-weight:400;color:rgba(255,255,255,0.72);">pelo seu negócio.</em>
+          </h2>
+          <p class="mt-5 text-[color:var(--text-dim)] text-base max-w-lg mx-auto leading-relaxed">
+            14 especialistas dedicados: estratégia, paid media, criativo, web, vídeo e customer success.
+          </p>
+        </div>
+
+        <div class="tcarousel-viewport" id="teamViewport">
+          <div class="tcarousel-track" id="teamTrack"></div>
+          <button class="tcarousel-btn tcarousel-btn-prev" id="teamPrev" aria-label="Anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="tcarousel-btn tcarousel-btn-next" id="teamNext" aria-label="Seguinte">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="tcarousel-dots" id="teamDots"></div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="relative py-24 md:py-32 border-y border-white/5 bg-[#05080f]">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="max-w-3xl reveal mx-auto text-center">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">O que dizem os nossos clientes</div>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+          <article class="reveal card rounded-2xl p-8">
+            <div class="flex gap-0.5 mb-5">
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="text-white/90 text-[17px] leading-relaxed">
+              "Disponibilidade, profissionalismo e preocupação em atingir os melhores resultados. Uma empresa competente e interessada em fazer o melhor trabalho possível. Acreditamos que seja uma parceria a manter no futuro, agradecemos por tudo!"
+            </p>
+            <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[color:var(--brand)] to-[color:var(--brand)]/40 flex items-center justify-center font-semibold text-white text-sm">C</div>
+              <div>
+                <div class="text-[14px] font-semibold text-white">Cliente E-Commerce</div>
+                <div class="text-[13px] text-[color:var(--text-dimmer)]">Parceria ativa</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal reveal-delay-1 card rounded-2xl p-8">
+            <div class="flex gap-0.5 mb-5">
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="text-white/90 text-[17px] leading-relaxed">
+              "Temos tido a oportunidade de trabalhar com a SpartAds algumas campanhas de Google em áreas muito específicas. A agência tem demonstrado ser muito ágil e competente! Obrigada pelo apoio."
+            </p>
+            <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[color:var(--brand)] to-[color:var(--brand)]/40 flex items-center justify-center font-semibold text-white text-sm">C</div>
+              <div>
+                <div class="text-[14px] font-semibold text-white">Cliente B2B</div>
+                <div class="text-[13px] text-[color:var(--text-dimmer)]">Campanhas Google</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="relative py-24 md:py-32">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="reveal text-center">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Perguntas frequentes</div>
+          <h2 class="font-head mt-4 text-4xl md:text-5xl text-white">
+            Respostas
+            <span class="text-[color:var(--brand-2)]">diretas.</span>
+          </h2>
+        </div>
+
+        <div class="mt-14 space-y-3">
+          <details class="faq reveal group card rounded-xl overflow-hidden">
+            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
+              <span class="text-[16px] font-medium text-white">Qual o investimento mínimo recomendado?</span>
+              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </summary>
+            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
+              Trabalhamos melhor com negócios a partir de <strong class="text-white">€3.000/mês em media spend</strong>. Abaixo disto, os algoritmos não têm dados suficientes para otimizar com previsibilidade. Se ainda não está neste patamar, falamos à mesma — e dizemos-lhe honestamente se vale a pena.
+            </div>
+          </details>
+
+          <details class="faq reveal reveal-delay-1 group card rounded-xl overflow-hidden">
+            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
+              <span class="text-[16px] font-medium text-white">Em quanto tempo vejo resultados?</span>
+              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </summary>
+            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
+              As primeiras conversões aparecem tipicamente nos primeiros <strong class="text-white">14–30 dias</strong>. Resultados consistentes e escaláveis levam <strong class="text-white">60–90 dias</strong> — tempo necessário para testar criativos, audiências e calibrar o tracking. Não acreditamos em milagres de uma semana.
+            </div>
+          </details>
+
+          <details class="faq reveal reveal-delay-2 group card rounded-xl overflow-hidden">
+            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
+              <span class="text-[16px] font-medium text-white">Em que setores têm mais experiência?</span>
+              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </summary>
+            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
+              <strong class="text-white">E-Commerce</strong> (farmácia, suplementação, dietética, ferramentas, moda), <strong class="text-white">Geração de Leads</strong> (consultoria, automóvel, restauração) e <strong class="text-white">Infoprodutos</strong>. Mas o método é transferível — se o seu nicho não encaixa, dizemos-lhe logo.
+            </div>
+          </details>
+
+          <details class="faq reveal reveal-delay-3 group card rounded-xl overflow-hidden">
+            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
+              <span class="text-[16px] font-medium text-white">Como é o dia-a-dia de trabalho convosco?</span>
+              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </summary>
+            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
+              Um <strong class="text-white">PPC Manager senior</strong> dedicado, call semanal de performance, Slack/WhatsApp direto para respostas rápidas, e dashboard em tempo real. Sem intermediários — fala diretamente com quem executa.
+            </div>
+          </details>
+
+          <details class="faq reveal reveal-delay-4 group card rounded-xl overflow-hidden">
+            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
+              <span class="text-[16px] font-medium text-white">Também trabalham o mercado espanhol?</span>
+              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </summary>
+            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
+              Sim — temos experiência ativa em <strong class="text-white">Portugal, Espanha</strong> e outros mercados europeus. Alguns dos nossos melhores case studies vêm do mercado ES (ex: dietética com ROAS 1.6 → 17.5).
+            </div>
+          </details>
+
+          <details class="faq reveal reveal-delay-5 group card rounded-xl overflow-hidden">
+            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
+              <span class="text-[16px] font-medium text-white">O que acontece na sessão estratégica?</span>
+              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </summary>
+            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
+              30 minutos, sem custo e sem pitch comercial. Analisamos o seu negócio, a concorrência e identificamos 2–3 alavancas concretas para crescer. Sai com um plano de ação, mesmo que não avancemos juntos.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="agendar" class="relative py-12 md:py-20 bg-black">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="reveal relative cta-glow ring-edge rounded-[28px] overflow-hidden">
+          <div class="absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none"
+               style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%270 0 200 200%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
+
+          <div class="relative px-8 md:px-16 py-20 md:py-28 text-center">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-white/80 font-medium">
+              <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
+              Agenda aberta este mês
+            </div>
+
+            <h2 class="font-display-xl mt-7 text-4xl md:text-6xl lg:text-7xl text-white max-w-3xl mx-auto">
+              O seu negócio está prestes
+              <span class="text-[color:var(--brand-2)]">a crescer.</span>
+            </h2>
+            <p class="mt-6 text-white/60 text-lg max-w-xl mx-auto leading-relaxed">
+              Agende uma sessão estratégica de 30 minutos. Sem custo. Sem pitch. Só uma conversa séria sobre o seu próximo passo — e sai com um plano de ação, mesmo que não trabalhemos juntos.
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-3 justify-center">
+              <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+                Agendar Sessão Estratégica
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <a href="https://api.whatsapp.com/send?phone=351911901606" target="_blank" rel="noopener" class="btn-whatsapp inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.14 1.6 5.95L.08 24l6.3-1.65a11.83 11.83 0 005.68 1.45h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43z"/></svg>
+                Falar com a Beatriz
+              </a>
+            </div>
+
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px] text-white/50">
+              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Resposta em 24h</div>
+              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>100% confidencial</div>
+              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Plano de ação grátis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative border-t border-white/5 mt-12 bg-black">
+      <div class="mx-auto max-w-6xl px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="https://www.spartads.pt/hosted/images/fc/b5b357c3c140c1808167216774338f/logo-para-fundo-escuro.png" alt="SpartAds" class="h-6 w-auto opacity-80" loading="lazy" />
+          <span class="hidden sm:inline h-4 w-px bg-white/10"></span>
+          <span class="text-[12px] text-[color:var(--text-dimmer)]">Marketing estratégico &amp; publicidade online</span>
+        </div>
+        <div class="flex items-center gap-5 text-[13px] text-[color:var(--text-dimmer)]">
+          <a href="#resultados" class="hover:text-white transition">Resultados</a>
+          <a href="#servicos" class="hover:text-white transition">Serviços</a>
+          <a href="#processo" class="hover:text-white transition">Processo</a>
+          <a href="#faq" class="hover:text-white transition">FAQ</a>
+          <button type="button" data-open-modal class="hover:text-white transition">Agendar</button>
+          <span class="text-white/30">© <span id="year"></span> SpartAds</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div id="sticky-cta" class="sticky-cta md:hidden px-4 pb-4">
+      <button type="button" data-open-modal class="btn-cta flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full text-[15px]">
+        Agendar Sessão Estratégica
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- MODAL: Landbot -->
+    <div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+      <div class="modal-content">
+        <button type="button" class="modal-close" aria-label="Fechar" data-close-modal>
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6l-12 12" stroke-linecap="round"/></svg>
+        </button>
+        <iframe class="modal-iframe" id="booking-iframe" title="Agendar sessão estratégica SpartAds" loading="lazy" allow="microphone; camera"></iframe>
+      </div>
+    </div>
+
+    <script is:inline>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // --- Reveal on scroll ---
+      (function () {
+        const els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("on")); return; }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+        els.forEach((el) => io.observe(el));
+      })();
+
+      // --- Sticky mobile CTA ---
+      (function () {
+        const sticky = document.getElementById("sticky-cta");
+        const hero = document.getElementById("top");
+        if (!sticky || !hero) return;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (!e.isIntersecting) sticky.classList.add("visible"); else sticky.classList.remove("visible"); });
+        }, { threshold: 0 });
+        io.observe(hero);
+      })();
+
+      // --- Cursor spotlight + 3D tilt in hero ---
+      (function () {
+        const hero = document.getElementById("top");
+        const spot = document.getElementById("hero-spotlight");
+        const mockup = document.getElementById("hero-mockup");
+        if (!hero) return;
+        hero.addEventListener("mousemove", (e) => {
+          const rect = hero.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          if (spot) {
+            spot.style.setProperty("--mx", x + "%");
+            spot.style.setProperty("--my", y + "%");
+          }
+          if (mockup) {
+            const mRect = mockup.getBoundingClientRect();
+            const cx = mRect.left + mRect.width / 2;
+            const cy = mRect.top + mRect.height / 2;
+            const dx = (e.clientX - cx) / mRect.width;
+            const dy = (e.clientY - cy) / mRect.height;
+            const rotY = Math.max(-6, Math.min(6, dx * 8));
+            const rotX = Math.max(-6, Math.min(6, -dy * 6));
+            mockup.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+          }
+        });
+        hero.addEventListener("mouseleave", () => {
+          if (mockup) mockup.style.transform = "";
+        });
+      })();
+
+      // --- Magnetic CTA buttons ---
+      (function () {
+        const buttons = document.querySelectorAll(".magnetic");
+        buttons.forEach((btn) => {
+          btn.addEventListener("mousemove", (e) => {
+            const r = btn.getBoundingClientRect();
+            const dx = (e.clientX - (r.left + r.width / 2)) * 0.25;
+            const dy = (e.clientY - (r.top + r.height / 2)) * 0.25;
+            btn.style.transform = `translate(${dx}px, ${dy}px)`;
+          });
+          btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
+        });
+      })();
+
+      // --- Count-up ---
+      (function () {
+        const items = document.querySelectorAll(".count-up");
+        if (!items.length || !("IntersectionObserver" in window)) return;
+        function animate(el) {
+          const target = parseFloat(el.dataset.count);
+          if (isNaN(target)) return;
+          const prefix = el.dataset.prefix || "";
+          const suffix = el.dataset.suffix || "";
+          const duration = 1400;
+          const start = performance.now();
+          function frame(now) {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - t, 3);
+            const value = Math.round(target * eased);
+            el.textContent = prefix + value + suffix;
+            if (t < 1) requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.4 });
+        items.forEach((el) => io.observe(el));
+      })();
+
+      // --- Horizontal scroll for services ---
+      (function () {
+        const wrap = document.getElementById("hscroll-wrap");
+        const track = document.getElementById("hscroll-track");
+        const fill = document.getElementById("hscroll-progress-fill");
+        const counter = document.getElementById("hscroll-counter");
+        if (!wrap || !track) return;
+
+        let totalDistance = 0;
+        let sectionHeight = 0;
+        let ticking = false;
+        const cardCount = track.children.length;
+
+        function measure() {
+          const viewportWidth = window.innerWidth;
+          const trackScrollWidth = track.scrollWidth;
+          totalDistance = Math.max(0, trackScrollWidth - viewportWidth);
+          sectionHeight = wrap.offsetHeight - window.innerHeight;
+        }
+
+        function update() {
+          const rect = wrap.getBoundingClientRect();
+          const scrolled = -rect.top;
+          const progress = Math.max(0, Math.min(1, scrolled / sectionHeight));
+          const translateX = progress * totalDistance;
+          track.style.transform = `translate3d(${-translateX}px, 0, 0)`;
+          if (fill) fill.style.width = (progress * 100).toFixed(1) + "%";
+          if (counter) {
+            const idx = Math.min(cardCount, Math.floor(progress * cardCount) + 1);
+            counter.textContent = String(idx).padStart(2, "0") + " / " + String(cardCount).padStart(2, "0");
+          }
+          ticking = false;
+        }
+
+        function onScroll() { if (!ticking) { requestAnimationFrame(update); ticking = true; } }
+
+        measure();
+        update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", () => { measure(); update(); });
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(() => { measure(); update(); }); }
+      })();
+
+      // --- Booking Modal ---
+      (function () {
+        const LANDBOT_URL = "https://landbot.pro/v3/H-2753426-MGXKNJGGZIDKJG3U/index.html";
+        const modal = document.getElementById("booking-modal");
+        const iframe = document.getElementById("booking-iframe");
+        const openers = document.querySelectorAll("[data-open-modal]");
+        const closers = document.querySelectorAll("[data-close-modal]");
+        let iframeLoaded = false;
+
+        function open() {
+          if (!iframeLoaded) { iframe.src = LANDBOT_URL; iframeLoaded = true; }
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function close() {
+          modal.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
+        openers.forEach((btn) => btn.addEventListener("click", (e) => { e.preventDefault(); open(); }));
+        closers.forEach((btn) => btn.addEventListener("click", close));
+        modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
+      })();
+
+      // --- Team Carousel ---
+      (function () {
+        var CARD_W = { sm: 220, md: 280 };
+        var CARD_GAP = 16;
+        var members = [
+          { name: "Roberto Cortez",   role: "Founder & CMO",        photo: "https://www.spartads.pt/hosted/images/64/d50b6e9c6c4ee09445dad7e919cce7/rob.png",      bio: "Com 12 anos de experiência em marketing digital, Roberto é um dos maiores nomes do setor em Portugal. Mentor da maior comunidade de marketing digital do país, o PAD." },
+          { name: "Andreia Rocha",    role: "CEO",                   photo: "https://www.spartads.pt/hosted/images/41/e6e0d4db754cda90911e6a2555743d/andreia.png",   bio: "Especialista em gestão empresarial, Andreia combina mais de 10 anos de experiência com uma visão estratégica clara e determinação." },
+          { name: "Ana Leitão",       role: "Head of Operations",    photo: "https://www.spartads.pt/hosted/images/fa/2171166a8d47cb81e00ea9d13ef964/ana.png",       bio: "Engenheira de formação e líder nata, Ana traz mais de uma década de experiência a coordenar grandes equipas no setor industrial." },
+          { name: "Patrícia Silva",   role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/00/6b574d658d4055ab5cdc32649d4d3b/pat.png",       bio: "Especialista em campanhas de geração de leads e e-commerce, com 4 anos de experiência, Patrícia já geriu estratégias de marketing digital para marcas por toda a Europa." },
+          { name: "Bruno Matos",      role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/53/394babd8d3467dafa3fe53119a8931/bruno.png",     bio: "Com mais de 500 mil euros em campanhas geridas, Bruno é perito em transformar investimentos publicitários em resultados sólidos." },
+          { name: "Eduarda Vale",     role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/c7/4db12f358b43e7a8faa0085fcfdd52/edurada.png",   bio: "Natural de Vila Nova de Famalicão, licenciada em economia e apaixonada pelo marketing digital. Focada em estratégias eficazes que geram impacto." },
+          { name: "Marcelo Carvalho", role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/3f/947e9ad1384d67968f07a946b5b5c0/m.png",        bio: "Natural de Barcelos e apaixonado por inteligência artificial e automações. Focado em processos inovadores e eficientes." },
+          { name: "David Enes",       role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/20/e31868243f40628420de6ebc8d94fb/david-e.png",   bio: "Com 3 anos de experiência em e-commerce, o David combina pensamento analítico e foco em performance para criar campanhas que geram retornos reais." },
+          { name: "Jeferson Pereira", role: "Growth Hacker",         photo: "https://www.spartads.pt/hosted/images/d1/dcdb3278b64fb69f6f3f5335c830ac/jef.png",      bio: "Profissional com 4 anos de experiência, já gerou mais de 20.000 leads e geriu orçamentos superiores a 60.000€. Estratégia digital é a sua praia." },
+          { name: "Beatriz Teixeira", role: "Commercial Assistant",  photo: "https://www.spartads.pt/hosted/images/2d/e60f75f8e245b6b1e5e3ab94bb2d6f/bea.png",     bio: "Natural de Fafe, Beatriz é apaixonada por vendas e pela conexão com pessoas. Especialista em servir os clientes e encontrar a melhor solução." },
+          { name: "Marcia Aguiar",    role: "Gestora de Projetos",   photo: "https://www.spartads.pt/hosted/images/2c/f8a3405f304d2cb3310015a3a48715/marciar.png",  bio: "Márcia é organizada, próxima e orientada a pessoas. Gosta de criar relações de confiança e garantir que cada cliente se sente acompanhado do início ao fim." },
+          { name: "Pedro Pacheco",    role: "Vídeo & Fotografia",    photo: "https://www.spartads.pt/hosted/images/f4/e4ff5f05cc4a37b327e5c7e3f485a2/pedro.png",    bio: "Apaixonado pelo mundo audiovisual, o Pedro especializou-se na captura e edição de vídeo, criando conteúdos visuais que fortalecem a identidade das marcas." },
+          { name: "David Ferreira",   role: "Web Designer",          photo: "https://www.spartads.pt/hosted/images/bf/cef8d73c034257bd942d5f32b493ea/david.png",    bio: "De que seria um anúncio sem design? O David desenvolve sites e criativos publicitários que chamam à atenção e geram conversões, há mais de 2 anos." },
+          { name: "Pedro Pires",      role: "Web Designer",          photo: "https://www.spartads.pt/hosted/images/1a/caa66f055448a3bd3029db7c524b3c/pires.png",    bio: "Especialista em design com mais de 6 anos de experiência, o Pedro torna as ideias em experiências visuais memoráveis que geram resultados." }
+        ];
+
+        var viewport = document.getElementById("teamViewport");
+        var track    = document.getElementById("teamTrack");
+        var dotsEl   = document.getElementById("teamDots");
+        var prevBtn  = document.getElementById("teamPrev");
+        var nextBtn  = document.getElementById("teamNext");
+        if (!track || !viewport) return;
+
+        var active = 0;
+        var N = members.length;
+
+        members.forEach(function (m, i) {
+          var el = document.createElement("div");
+          el.className = "tcard";
+          el.innerHTML =
+            '<img class="tcard-img" src="' + m.photo + '" alt="' + m.name + '" loading="lazy">' +
+            '<div class="tcard-overlay">' +
+              '<div class="tcard-name">' + m.name + '</div>' +
+              '<div class="tcard-role">' + m.role + '</div>' +
+              '<div class="tcard-bio">'  + m.bio  + '</div>' +
+            '</div>';
+          el.addEventListener("click", function () { if (i !== active) goTo(i); });
+          track.appendChild(el);
+        });
+
+        members.forEach(function (m, i) {
+          var d = document.createElement("button");
+          d.className = "tcarousel-dot";
+          d.setAttribute("aria-label", "Ir para " + m.name);
+          d.addEventListener("click", function () { goTo(i); });
+          dotsEl.appendChild(d);
+        });
+
+        function cw() { return window.innerWidth >= 768 ? CARD_W.md : CARD_W.sm; }
+
+        function render() {
+          var W    = cw();
+          var step = W + CARD_GAP;
+          var vpW  = viewport.offsetWidth;
+          var tx   = vpW / 2 - W / 2 - active * step;
+          track.style.transform = "translateX(" + tx + "px)";
+
+          track.querySelectorAll(".tcard").forEach(function (c, i) {
+            var diff = Math.abs(i - active);
+            c.classList.remove("is-active", "is-adj1", "is-adj2", "is-hidden");
+            if      (diff === 0) c.classList.add("is-active");
+            else if (diff === 1) c.classList.add("is-adj1");
+            else if (diff === 2) c.classList.add("is-adj2");
+            else                 c.classList.add("is-hidden");
+          });
+
+          dotsEl.querySelectorAll(".tcarousel-dot").forEach(function (d, i) {
+            d.classList.toggle("is-active", i === active);
+          });
+        }
+
+        function goTo(idx) { active = ((idx % N) + N) % N; render(); }
+
+        if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
+        if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
+
+        var tx0 = 0;
+        track.addEventListener("touchstart", function (e) { tx0 = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener("touchend",   function (e) {
+          var d = tx0 - e.changedTouches[0].clientX;
+          if (Math.abs(d) > 40) goTo(active + (d > 0 ? 1 : -1));
+        });
+
+        var autoTimer = setInterval(function () { goTo(active + 1); }, 5500);
+        viewport.addEventListener("mouseenter", function () { clearInterval(autoTimer); });
+        viewport.addEventListener("mouseleave", function () {
+          autoTimer = setInterval(function () { goTo(active + 1); }, 5500);
+        });
+
+        render();
+        window.addEventListener("resize", render);
+      })();
+    </script>
+  </body>
+</html>
