@@ -401,19 +401,15 @@
       .tcarousel-viewport {
         position: relative;
         overflow: hidden;
-        height: 480px; /* 420 × 1.06 + 34 breathing room */
+        height: 476px;
         cursor: grab;
         user-select: none;
         -webkit-user-select: none;
         touch-action: pan-y;
       }
       .tcarousel-viewport.is-dragging { cursor: grabbing; }
-      @media (max-width: 479px) {
-        .tcarousel-viewport { height: 370px; } /* 330 × 1.06 + 20 */
-      }
-      @media (min-width: 480px) and (max-width: 767px) {
-        .tcarousel-viewport { height: 420px; } /* 370 × 1.06 + 27 */
-      }
+      @media (max-width: 479px)                        { .tcarousel-viewport { height: 372px; } }
+      @media (min-width: 480px) and (max-width: 767px) { .tcarousel-viewport { height: 424px; } }
 
       .tcarousel-track {
         position: absolute;
@@ -421,90 +417,76 @@
         display: flex;
         align-items: center;
         gap: 20px;
+        width: max-content; /* ← obrigatório: sem isto as cards colapsam */
         will-change: transform;
-        /* transition controlled entirely by JS */
       }
 
-      /* suppress all transitions during JS init */
-      .tcarousel-track.tc-no-anim,
-      .tcarousel-track.tc-no-anim .tcard,
-      .tcarousel-track.tc-no-anim .tcard-img,
-      .tcarousel-track.tc-no-anim .tcard-overlay,
-      .tcarousel-track.tc-no-anim .tcard-bio {
-        transition: none !important;
-      }
+      /* Congela TODAS as transições durante o render inicial */
+      .tcarousel-track.tc-freeze,
+      .tcarousel-track.tc-freeze * { transition: none !important; }
 
+      /* ── Card base – usa Grid para sobrepor imagem e overlay sem position:absolute ── */
       .tcard {
         flex-shrink: 0;
-        position: relative;
+        display: grid;        /* image + overlay na mesma cell */
         width: 280px;
-        height: 420px;
-        border-radius: 22px;
+        height: 440px;
+        border-radius: 20px;
         overflow: hidden;
         cursor: pointer;
-        /* default: invisible until JS assigns a state class */
         opacity: 0;
-        transform: scale(0.78);
+        pointer-events: none;
+        transform: scale(0.82);
         transition:
           transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          opacity 0.45s ease,
+          opacity   0.45s ease,
           box-shadow 0.45s ease;
-        transform-origin: center center;
       }
-      @media (max-width: 479px) {
-        .tcard { width: 200px; height: 330px; }
-      }
-      @media (min-width: 480px) and (max-width: 767px) {
-        .tcard { width: 240px; height: 370px; }
-      }
+      @media (max-width: 479px)                        { .tcard { width: 200px; height: 330px; } }
+      @media (min-width: 480px) and (max-width: 767px) { .tcard { width: 240px; height: 380px; } }
 
       .tcard.is-active {
         transform: scale(1.06);
         opacity: 1;
-        box-shadow: 0 28px 56px -14px rgba(0,0,0,0.9),
-                    0 0 0 1px rgba(61,153,255,0.28);
+        pointer-events: auto;
         cursor: default;
+        box-shadow: 0 24px 52px -14px rgba(0,0,0,0.92), 0 0 0 1px rgba(61,153,255,0.28);
       }
       .tcard.is-adj {
         transform: scale(0.91);
-        opacity: 0.70;
+        opacity: 0.68;
+        pointer-events: auto;
         cursor: pointer;
       }
-      .tcard.is-hidden {
-        opacity: 0;
-        transform: scale(0.76);
-        pointer-events: none;
-      }
 
+      /* Imagem: ocupa toda a grid cell */
       .tcard-img {
-        position: absolute; inset: 0;
-        width: 100%; height: 100%;
+        grid-area: 1 / 1;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: top center;
-        filter: grayscale(35%) brightness(0.88);
-        transition: filter 0.45s ease;
-        pointer-events: none;
         display: block;
+        filter: grayscale(40%) brightness(0.82);
+        transition: filter 0.45s ease;
       }
       .tcard.is-active .tcard-img { filter: grayscale(0%) brightness(1); }
 
+      /* Overlay: mesma grid cell, alinhado ao fundo */
       .tcard-overlay {
-        position: absolute;
-        bottom: 0; left: 0; right: 0;
+        grid-area: 1 / 1;
+        align-self: end;
         padding: 16px 18px 20px;
         background: linear-gradient(to top,
-          rgba(4,7,14,0.98) 0%,
-          rgba(4,7,14,0.82) 30%,
-          rgba(4,7,14,0.28) 60%,
+          rgba(4,7,14,0.97) 0%,
+          rgba(4,7,14,0.78) 38%,
+          rgba(4,7,14,0.22) 65%,
           transparent 100%);
         transition: padding 0.45s ease;
-        pointer-events: none;
       }
-      .tcard.is-active .tcard-overlay { padding: 20px 22px 24px; }
+      .tcard.is-active .tcard-overlay { padding: 20px 22px 26px; }
 
-      .tcard-name {
-        font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3;
-      }
+      .tcard-name { font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; }
       .tcard-role {
         font-size: 10.5px; color: var(--brand-2); font-weight: 500;
         text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px;
@@ -514,7 +496,7 @@
         max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
         transition:
           max-height 0.45s cubic-bezier(0.25,0.46,0.45,0.94),
-          opacity 0.35s ease 0.1s,
+          opacity    0.35s ease 0.12s,
           margin-top 0.4s ease;
       }
       .tcard.is-active .tcard-bio { max-height: 130px; opacity: 1; margin-top: 10px; }
@@ -531,8 +513,7 @@
         transition: background 0.25s, border-color 0.25s, transform 0.25s;
       }
       .tcarousel-btn:hover {
-        background: rgba(0,122,255,0.22);
-        border-color: rgba(61,153,255,0.5);
+        background: rgba(0,122,255,0.22); border-color: rgba(61,153,255,0.5);
         transform: translateY(-50%) scale(1.1);
       }
       .tcarousel-btn-prev { left: 10px; }
@@ -544,13 +525,10 @@
       }
       .tcarousel-dot {
         flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
-        background: rgba(255,255,255,0.18); border: none; padding: 0;
-        cursor: pointer;
-        transition: background 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+        background: rgba(255,255,255,0.18); border: none; padding: 0; cursor: pointer;
+        transition: background 0.3s, width 0.3s, border-radius 0.3s;
       }
-      .tcarousel-dot.is-active {
-        width: 22px; border-radius: 3px; background: var(--brand-2);
-      }
+      .tcarousel-dot.is-active { width: 22px; border-radius: 3px; background: var(--brand-2); }
 
       /* ── Results Bento ──────────────────────── */
       .res-bento {
@@ -1799,8 +1777,8 @@
         });
 
         function cardWidth() {
-          var c = track.children[0];
-          return c ? c.offsetWidth : 280;
+          var vw = window.innerWidth;
+          return vw < 480 ? 200 : vw < 768 ? 240 : 280;
         }
 
         function computeBaseX() {
@@ -1821,10 +1799,9 @@
           var cards = track.children;
           for (var i = 0; i < cards.length; i++) {
             var diff = Math.min(Math.abs(i - active), N - Math.abs(i - active));
-            cards[i].classList.remove("is-active", "is-adj", "is-hidden");
+            cards[i].classList.remove("is-active", "is-adj");
             if      (diff === 0) cards[i].classList.add("is-active");
             else if (diff === 1) cards[i].classList.add("is-adj");
-            else                 cards[i].classList.add("is-hidden");
           }
           var dots = dotsEl.children;
           for (var j = 0; j < dots.length; j++) {
@@ -1837,13 +1814,13 @@
           if (!animate) {
             /* freeze ALL transitions (track + every card) so initial
                state assignment is instant — no pop-in animation */
-            track.classList.add("tc-no-anim");
+            track.classList.add("tc-freeze");
             track.style.transform = "translateX(" + baseX + "px)";
             updateClasses();
             track.getBoundingClientRect(); /* force reflow */
             requestAnimationFrame(function () {
               requestAnimationFrame(function () {
-                track.classList.remove("tc-no-anim");
+                track.classList.remove("tc-freeze");
               });
             });
           } else {
