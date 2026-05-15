@@ -401,92 +401,47 @@
       .tcarousel-viewport {
         position: relative;
         overflow: hidden;
-        height: 476px;
         cursor: grab;
         user-select: none;
         -webkit-user-select: none;
         touch-action: pan-y;
       }
       .tcarousel-viewport.is-dragging { cursor: grabbing; }
-      @media (max-width: 479px)                        { .tcarousel-viewport { height: 372px; } }
-      @media (min-width: 480px) and (max-width: 767px) { .tcarousel-viewport { height: 424px; } }
 
       .tcarousel-track {
-        position: absolute;
-        inset: 0;
-        /* Cards posicionadas individualmente; sem flex */
+        display: flex;
+        gap: 16px;
+        will-change: transform;
       }
 
-      /* Congela TODAS as transições durante render inicial */
-      .tcarousel-track.tc-freeze,
-      .tcarousel-track.tc-freeze * { transition: none !important; }
-      /* Congela transições de cards durante drag */
-      .tcarousel-viewport.is-dragging .tcard { transition: none !important; }
-
-      /* ── Card base – posição absoluta centrada, movida por JS inline style ── */
+      /* Card: width + height definidos por JS */
       .tcard {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: grid;
-        width: 280px;
-        height: 440px;
-        border-radius: 20px;
+        flex-shrink: 0;
+        border-radius: 16px;
         overflow: hidden;
-        cursor: pointer;
-        opacity: 0;
-        pointer-events: none;
-        transform: translate(-50%, -50%) scale(0.82);
-        transition:
-          transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          opacity   0.45s ease,
-          box-shadow 0.45s ease;
-        will-change: transform, opacity;
+        position: relative;
       }
-      @media (max-width: 479px)                        { .tcard { width: 200px; height: 330px; } }
-      @media (min-width: 480px) and (max-width: 767px) { .tcard { width: 240px; height: 380px; } }
-
-      /* Imagem: ocupa toda a grid cell */
-      .tcard-img {
-        grid-area: 1 / 1;
+      .tcard img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: top center;
-        display: block;
-        filter: grayscale(40%) brightness(0.82);
-        transition: filter 0.45s ease;
       }
-      .tcard.is-active .tcard-img { filter: grayscale(0%) brightness(1); }
-
-      /* Overlay: mesma grid cell, alinhado ao fundo */
       .tcard-overlay {
-        grid-area: 1 / 1;
-        align-self: end;
-        padding: 16px 18px 20px;
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 14px 16px 18px;
         background: linear-gradient(to top,
           rgba(4,7,14,0.97) 0%,
-          rgba(4,7,14,0.78) 38%,
-          rgba(4,7,14,0.22) 65%,
+          rgba(4,7,14,0.55) 55%,
           transparent 100%);
-        transition: padding 0.45s ease;
       }
-      .tcard.is-active .tcard-overlay { padding: 20px 22px 26px; }
-
-      .tcard-name { font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; }
+      .tcard-name { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.3; }
       .tcard-role {
-        font-size: 10.5px; color: var(--brand-2); font-weight: 500;
-        text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px;
+        font-size: 10px; color: var(--brand-2); font-weight: 500;
+        text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px;
       }
-      .tcard-bio {
-        font-size: 12.5px; color: var(--text-dim); line-height: 1.6;
-        max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
-        transition:
-          max-height 0.45s cubic-bezier(0.25,0.46,0.45,0.94),
-          opacity    0.35s ease 0.12s,
-          margin-top 0.4s ease;
-      }
-      .tcard.is-active .tcard-bio { max-height: 130px; opacity: 1; margin-top: 10px; }
 
       .tcarousel-btn {
         position: absolute; top: 50%; transform: translateY(-50%);
@@ -501,21 +456,21 @@
       }
       .tcarousel-btn:hover {
         background: rgba(0,122,255,0.22); border-color: rgba(61,153,255,0.5);
-        transform: translateY(-50%) scale(1.1);
+        transform: translateY(-50%) scale(1.08);
       }
       .tcarousel-btn-prev { left: 10px; }
       .tcarousel-btn-next { right: 10px; }
 
       .tcarousel-dots {
         display: flex; justify-content: center; align-items: center;
-        gap: 6px; margin-top: 22px; flex-wrap: wrap; padding: 0 16px;
+        gap: 6px; margin-top: 20px; flex-wrap: wrap;
       }
       .tcarousel-dot {
         flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
         background: rgba(255,255,255,0.18); border: none; padding: 0; cursor: pointer;
         transition: background 0.3s, width 0.3s, border-radius 0.3s;
       }
-      .tcarousel-dot.is-active { width: 22px; border-radius: 3px; background: var(--brand-2); }
+      .tcarousel-dot.is-active { width: 20px; border-radius: 3px; background: var(--brand-2); }
 
       /* ── Results Bento ──────────────────────── */
       .res-bento {
@@ -1713,8 +1668,8 @@
           { name: "Pedro Pires",      role: "Web Designer",          photo: "https://www.spartads.pt/hosted/images/1a/caa66f055448a3bd3029db7c524b3c/pires.png",    bio: "Especialista em design com mais de 6 anos de experiência, o Pedro torna as ideias em experiências visuais memoráveis que geram resultados." }
         ];
 
-        var GAP = 20;
-        var DRAG_MIN = 55;
+        var GAP      = 16;
+        var DRAG_MIN = 50;
         var AUTO_MS  = 5500;
 
         var viewport = document.getElementById("teamViewport");
@@ -1724,90 +1679,72 @@
         var nextBtn  = document.getElementById("teamNext");
         if (!track || !viewport) return;
 
-        var N      = MEMBERS.length;
-        var active = 0;
-
-        // Drag state
+        var N       = MEMBERS.length;
+        var active  = 0;
         var pDown   = false;
         var pStartX = 0;
         var pDelta  = 0;
         var didDrag = false;
-
-        // Auto timer
         var autoTimer = null;
 
         // Build cards
-        MEMBERS.forEach(function (m, i) {
+        MEMBERS.forEach(function (m) {
           var el = document.createElement("div");
           el.className = "tcard";
           el.innerHTML =
-            '<img class="tcard-img" src="' + m.photo + '" alt="' + m.name + '" loading="lazy">' +
+            '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy">' +
             '<div class="tcard-overlay">' +
               '<div class="tcard-name">' + m.name + '</div>' +
               '<div class="tcard-role">' + m.role + '</div>' +
-              '<div class="tcard-bio">'  + m.bio  + '</div>' +
             '</div>';
-          el.addEventListener("click", function () {
-            if (!didDrag && i !== active) goTo(i);
-          });
           track.appendChild(el);
         });
 
-        // Build dots
-        MEMBERS.forEach(function (m, i) {
-          var d = document.createElement("button");
-          d.className = "tcarousel-dot";
-          d.setAttribute("aria-label", "Ir para " + m.name);
-          d.addEventListener("click", function () { goTo(i); });
-          dotsEl.appendChild(d);
-        });
-
-        function cardWidth() {
-          var vw = window.innerWidth;
-          return vw < 480 ? 200 : vw < 768 ? 240 : 280;
+        /* Quantas cards são visíveis de uma vez */
+        function visCount() {
+          var vpW = viewport.offsetWidth;
+          return vpW < 500 ? 1 : vpW < 860 ? 2 : 4;
         }
 
-        /* Diferença circular com sinal: negativo = à esquerda, positivo = à direita */
-        function signedDiff(i) {
-          var d = i - active;
-          if (d >  N / 2) d -= N;
-          if (d < -N / 2) d += N;
-          return d;
+        /* Largura de cada card para caber exatamente visCount() cards */
+        function cw() {
+          var vis = visCount();
+          return Math.floor((viewport.offsetWidth - (vis - 1) * GAP) / vis);
         }
 
-        /* Posiciona cada card via inline style.
-           dragOffset = pixels de arrastamento (0 = repouso) */
-        function updateCards(dragOffset) {
-          var drag = dragOffset || 0;
-          var slot = cardWidth() + GAP;
-          var cards = track.children;
-          for (var i = 0; i < cards.length; i++) {
-            var sd  = signedDiff(i);
-            var abs = Math.abs(sd);
-            var card = cards[i];
-            if (abs === 0) {
-              card.style.transform     = "translate(calc(-50% + " + drag + "px), -50%) scale(1.06)";
-              card.style.opacity       = "1";
-              card.style.pointerEvents = drag ? "none" : "auto";
-              card.style.boxShadow     = "0 24px 52px -14px rgba(0,0,0,0.92), 0 0 0 1px rgba(61,153,255,0.28)";
-              card.classList.add("is-active");
-              card.classList.remove("is-adj");
-            } else if (abs === 1) {
-              var x = sd * slot + drag;
-              card.style.transform     = "translate(calc(-50% + " + x + "px), -50%) scale(0.91)";
-              card.style.opacity       = "0.68";
-              card.style.pointerEvents = drag ? "none" : "auto";
-              card.style.boxShadow     = "";
-              card.classList.add("is-adj");
-              card.classList.remove("is-active");
-            } else {
-              card.style.transform     = "translate(-50%, -50%) scale(0.82)";
-              card.style.opacity       = "0";
-              card.style.pointerEvents = "none";
-              card.style.boxShadow     = "";
-              card.classList.remove("is-active", "is-adj");
-            }
+        /* Limita active ao intervalo válido */
+        function clamp() {
+          var max = Math.max(0, N - visCount());
+          if (active < 0) active = max;      /* wrap para o fim */
+          if (active > max) active = 0;      /* wrap para o início */
+        }
+
+        /* Offset em px que o track deve ter */
+        function offset() { return active * (cw() + GAP); }
+
+        /* Define tamanhos das cards e reconstrói dots */
+        function setup() {
+          var w = cw();
+          var h = Math.round(w * 1.48); /* proporção portrait */
+          Array.from(track.children).forEach(function (c) {
+            c.style.width  = w + "px";
+            c.style.height = h + "px";
+          });
+          /* Dots: um por posição possível */
+          dotsEl.innerHTML = "";
+          var positions = Math.max(1, N - visCount() + 1);
+          for (var i = 0; i < positions; i++) {
+            (function (idx) {
+              var d = document.createElement("button");
+              d.className = "tcarousel-dot";
+              d.setAttribute("aria-label", "Posição " + (idx + 1));
+              d.addEventListener("click", function () { goTo(idx); });
+              dotsEl.appendChild(d);
+            })(i);
           }
+        }
+
+        function updateDots() {
           var dots = dotsEl.children;
           for (var j = 0; j < dots.length; j++) {
             dots[j].classList.toggle("is-active", j === active);
@@ -1815,33 +1752,31 @@
         }
 
         function render(animate) {
-          if (!animate) {
-            track.classList.add("tc-freeze");
-            updateCards(0);
-            track.getBoundingClientRect(); /* force reflow */
-            requestAnimationFrame(function () {
-              requestAnimationFrame(function () {
-                track.classList.remove("tc-freeze");
-              });
-            });
+          clamp();
+          var tx = -offset();
+          if (animate) {
+            track.style.transition = "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)";
           } else {
-            updateCards(0);
+            track.style.transition = "none";
           }
+          track.style.transform = "translateX(" + tx + "px)";
+          if (!animate) track.getBoundingClientRect(); /* force reflow */
+          updateDots();
         }
 
         function goTo(idx) {
-          active = ((idx % N) + N) % N;
+          active = idx;
+          clamp();
           render(true);
           resetAuto();
         }
 
-        // Pointer events — handles mouse + touch in one place
+        /* Drag */
         viewport.addEventListener("pointerdown", function (e) {
           if (e.target.closest("button")) return;
-          pDown   = true;
-          didDrag = false;
-          pStartX = e.clientX;
-          pDelta  = 0;
+          pDown = true; didDrag = false;
+          pStartX = e.clientX; pDelta = 0;
+          track.style.transition = "none";
           viewport.classList.add("is-dragging");
           viewport.setPointerCapture(e.pointerId);
         });
@@ -1850,7 +1785,7 @@
           if (!pDown) return;
           pDelta = e.clientX - pStartX;
           if (Math.abs(pDelta) > 6) didDrag = true;
-          updateCards(pDelta);
+          track.style.transform = "translateX(" + (-offset() + pDelta) + "px)";
         });
 
         viewport.addEventListener("pointerup", function () {
@@ -1868,17 +1803,14 @@
         viewport.addEventListener("pointercancel", function () {
           pDown = false;
           viewport.classList.remove("is-dragging");
-          render(true);
-          didDrag = false;
+          render(true); didDrag = false;
         });
 
         viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
 
-        // Nav buttons
         if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
         if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
 
-        // Auto-rotate
         function startAuto() { autoTimer = setInterval(function () { goTo(active + 1); }, AUTO_MS); }
         function stopAuto()  { clearInterval(autoTimer); }
         function resetAuto() { stopAuto(); startAuto(); }
@@ -1886,10 +1818,9 @@
         viewport.addEventListener("mouseenter", stopAuto);
         viewport.addEventListener("mouseleave", startAuto);
 
-        // Resize
-        window.addEventListener("resize", function () { render(false); });
+        window.addEventListener("resize", function () { setup(); render(false); });
 
-        // Init — sem animação
+        setup();
         render(false);
         startAuto();
       })();
