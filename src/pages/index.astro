@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
 
-    <style>
+    <style is:global>
       :root {
         --bg: #000000;
         --bg-2: #090f16;
@@ -1691,11 +1691,12 @@
         MEMBERS.forEach(function (m) {
           var el = document.createElement("div");
           el.className = "tcard";
+          el.style.cssText = "flex-shrink:0;position:relative;overflow:hidden;border-radius:16px;";
           el.innerHTML =
-            '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy">' +
-            '<div class="tcard-overlay">' +
-              '<div class="tcard-name">' + m.name + '</div>' +
-              '<div class="tcard-role">' + m.role + '</div>' +
+            '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top center;">' +
+            '<div class="tcard-overlay" style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px 18px;background:linear-gradient(to top,rgba(4,7,14,0.97) 0%,rgba(4,7,14,0.55) 55%,transparent 100%);">' +
+              '<div class="tcard-name" style="font-size:14px;font-weight:600;color:#fff;line-height:1.3;">' + m.name + '</div>' +
+              '<div class="tcard-role" style="font-size:10px;color:#3d99ff;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;">' + m.role + '</div>' +
             '</div>';
           track.appendChild(el);
         });
@@ -1726,6 +1727,7 @@
         function setup() {
           var w = cw();
           var h = Math.round(w * 1.48); /* proporção portrait */
+          viewport.style.height = h + "px";
           Array.from(track.children).forEach(function (c) {
             c.style.width  = w + "px";
             c.style.height = h + "px";
