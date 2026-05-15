@@ -79,10 +79,11 @@
       /* ===== HERO ===== */
       .hero-bg {
         background:
-          radial-gradient(1300px 780px at 15% 0%, rgba(0, 122, 255, 0.24), transparent 60%),
-          radial-gradient(900px 520px at 92% 18%, rgba(22, 163, 74, 0.12), transparent 60%),
-          radial-gradient(700px 520px at 50% 100%, rgba(0, 122, 255, 0.10), transparent 60%),
-          linear-gradient(180deg, #000000 0%, #020711 100%);
+          radial-gradient(1400px 900px at 12% 0%, rgba(0, 122, 255, 0.46), transparent 58%),
+          radial-gradient(900px 600px at 88% 10%, rgba(0, 100, 220, 0.22), transparent 55%),
+          radial-gradient(700px 500px at 50% 105%, rgba(0, 122, 255, 0.22), transparent 58%),
+          radial-gradient(900px 520px at 92% 18%, rgba(22, 163, 74, 0.10), transparent 60%),
+          linear-gradient(180deg, #000000 0%, #010a18 100%);
       }
 
       .grain {
@@ -96,7 +97,7 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background: radial-gradient(350px 350px at var(--mx, 50%) var(--my, 30%), rgba(0,122,255,0.22), transparent 60%);
+        background: radial-gradient(400px 400px at var(--mx, 50%) var(--my, 30%), rgba(0,122,255,0.32), transparent 60%);
         transition: opacity 0.35s ease;
       }
 
@@ -195,9 +196,9 @@
 
       .cta-glow {
         background:
-          radial-gradient(600px 320px at 25% 10%, rgba(0, 122, 255, 0.32), transparent 60%),
-          radial-gradient(600px 320px at 85% 90%, rgba(22, 163, 74, 0.22), transparent 60%),
-          linear-gradient(180deg, #000000, #060d1a);
+          radial-gradient(700px 380px at 20% 10%, rgba(0, 122, 255, 0.42), transparent 58%),
+          radial-gradient(500px 300px at 85% 90%, rgba(22, 163, 74, 0.20), transparent 60%),
+          linear-gradient(180deg, #010a18, #060d1a);
       }
       .ring-edge { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 40px 80px -40px rgba(0,0,0,1); }
 
@@ -400,19 +401,23 @@
       .tcarousel-viewport {
         position: relative;
         overflow: hidden;
-        height: 480px;
+        height: 460px;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: pan-y;
       }
+      .tcarousel-viewport.is-dragging { cursor: grabbing; }
       @media (max-width: 767px) {
-        .tcarousel-viewport { height: 390px; }
+        .tcarousel-viewport { height: 370px; }
       }
       .tcarousel-track {
         position: absolute;
         top: 0; left: 0; bottom: 0;
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
         width: max-content;
-        transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         will-change: transform;
       }
       .tcard {
@@ -423,47 +428,52 @@
         border-radius: 22px;
         overflow: hidden;
         cursor: pointer;
-        transform: scale(0.86);
-        opacity: 0.45;
-        transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    opacity 0.55s ease,
-                    box-shadow 0.55s ease;
+        opacity: 0;
+        transform: scale(0.78);
+        transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
+                    opacity 0.5s ease,
+                    box-shadow 0.5s ease;
         transform-origin: center center;
       }
-      @media (max-width: 767px) {
-        .tcard { width: 220px; height: 340px; }
+      @media (max-width: 479px) {
+        .tcard { width: 210px; height: 330px; }
+      }
+      @media (min-width: 480px) and (max-width: 767px) {
+        .tcard { width: 240px; height: 360px; }
       }
       .tcard.is-active {
-        transform: scale(1.06);
+        transform: scale(1.04);
         opacity: 1;
-        box-shadow: 0 32px 64px -16px rgba(0,0,0,0.95),
-                    0 0 0 1px rgba(61,153,255,0.3);
+        box-shadow: 0 28px 56px -14px rgba(0,0,0,0.9),
+                    0 0 0 1px rgba(61,153,255,0.28);
         cursor: default;
       }
-      .tcard.is-adj1 { transform: scale(0.92); opacity: 0.7; }
-      .tcard.is-adj2 { transform: scale(0.8);  opacity: 0.38; }
-      .tcard.is-hidden { opacity: 0; pointer-events: none; }
+      .tcard.is-adj1 { transform: scale(0.91); opacity: 0.72; cursor: pointer; }
+      .tcard.is-adj2 { transform: scale(0.80); opacity: 0.36; cursor: pointer; }
+      .tcard.is-hidden { opacity: 0; pointer-events: none; transform: scale(0.72); }
       .tcard-img {
         position: absolute; inset: 0;
         width: 100%; height: 100%;
         object-fit: cover;
         object-position: top center;
-        filter: grayscale(22%);
-        transition: filter 0.55s ease;
+        filter: grayscale(30%) brightness(0.9);
+        transition: filter 0.5s ease;
+        pointer-events: none;
       }
-      .tcard.is-active .tcard-img { filter: grayscale(0%); }
+      .tcard.is-active .tcard-img { filter: grayscale(0%) brightness(1); }
       .tcard-overlay {
         position: absolute;
         bottom: 0; left: 0; right: 0;
-        padding: 18px 18px 20px;
+        padding: 16px 18px 20px;
         background: linear-gradient(to top,
           rgba(4,7,14,0.98) 0%,
-          rgba(4,7,14,0.86) 32%,
-          rgba(4,7,14,0.35) 62%,
+          rgba(4,7,14,0.82) 30%,
+          rgba(4,7,14,0.28) 60%,
           transparent 100%);
         transition: padding 0.5s ease;
+        pointer-events: none;
       }
-      .tcard.is-active .tcard-overlay { padding: 22px 22px 26px; }
+      .tcard.is-active .tcard-overlay { padding: 20px 22px 24px; }
       .tcard-name {
         font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3;
       }
@@ -472,13 +482,13 @@
         text-transform: uppercase; letter-spacing: 0.09em; margin-top: 3px;
       }
       .tcard-bio {
-        font-size: 12.5px; color: var(--text-dim); line-height: 1.65;
+        font-size: 12.5px; color: var(--text-dim); line-height: 1.6;
         max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
         transition: max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
-                    opacity 0.4s ease 0.12s,
-                    margin-top 0.5s ease;
+                    opacity 0.4s ease 0.1s,
+                    margin-top 0.4s ease;
       }
-      .tcard.is-active .tcard-bio { max-height: 120px; opacity: 1; margin-top: 10px; }
+      .tcard.is-active .tcard-bio { max-height: 130px; opacity: 1; margin-top: 10px; }
       .tcarousel-btn {
         position: absolute; top: 50%; transform: translateY(-50%);
         width: 44px; height: 44px; border-radius: 50%;
@@ -499,7 +509,7 @@
       .tcarousel-btn-next { right: 10px; }
       .tcarousel-dots {
         display: flex; justify-content: center; align-items: center;
-        gap: 6px; margin-top: 20px; flex-wrap: wrap; padding: 0 16px;
+        gap: 6px; margin-top: 22px; flex-wrap: wrap; padding: 0 16px;
       }
       .tcarousel-dot {
         flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
@@ -1690,7 +1700,7 @@
 
       // --- Team Carousel ---
       (function () {
-        var members = [
+        var MEMBERS = [
           { name: "Roberto Cortez",   role: "Founder & CMO",        photo: "https://www.spartads.pt/hosted/images/64/d50b6e9c6c4ee09445dad7e919cce7/rob.png",      bio: "Com 12 anos de experiência em marketing digital, Roberto é um dos maiores nomes do setor em Portugal. Mentor da maior comunidade de marketing digital do país, o PAD." },
           { name: "Andreia Rocha",    role: "CEO",                   photo: "https://www.spartads.pt/hosted/images/41/e6e0d4db754cda90911e6a2555743d/andreia.png",   bio: "Especialista em gestão empresarial, Andreia combina mais de 10 anos de experiência com uma visão estratégica clara e determinação." },
           { name: "Ana Leitão",       role: "Head of Operations",    photo: "https://www.spartads.pt/hosted/images/fa/2171166a8d47cb81e00ea9d13ef964/ana.png",       bio: "Engenheira de formação e líder nata, Ana traz mais de uma década de experiência a coordenar grandes equipas no setor industrial." },
@@ -1707,6 +1717,10 @@
           { name: "Pedro Pires",      role: "Web Designer",          photo: "https://www.spartads.pt/hosted/images/1a/caa66f055448a3bd3029db7c524b3c/pires.png",    bio: "Especialista em design com mais de 6 anos de experiência, o Pedro torna as ideias em experiências visuais memoráveis que geram resultados." }
         ];
 
+        var GAP = 20;
+        var DRAG_MIN = 55;
+        var AUTO_MS  = 5500;
+
         var viewport = document.getElementById("teamViewport");
         var track    = document.getElementById("teamTrack");
         var dotsEl   = document.getElementById("teamDots");
@@ -1714,10 +1728,21 @@
         var nextBtn  = document.getElementById("teamNext");
         if (!track || !viewport) return;
 
+        var N      = MEMBERS.length;
         var active = 0;
-        var N = members.length;
+        var baseX  = 0;
 
-        members.forEach(function (m, i) {
+        // Drag state
+        var pDown    = false;
+        var pStartX  = 0;
+        var pDelta   = 0;
+        var didDrag  = false;
+
+        // Auto timer
+        var autoTimer = null;
+
+        // Build cards
+        MEMBERS.forEach(function (m, i) {
           var el = document.createElement("div");
           el.className = "tcard";
           el.innerHTML =
@@ -1727,11 +1752,14 @@
               '<div class="tcard-role">' + m.role + '</div>' +
               '<div class="tcard-bio">'  + m.bio  + '</div>' +
             '</div>';
-          el.addEventListener("click", function () { if (i !== active) goTo(i); });
+          el.addEventListener("click", function () {
+            if (!didDrag && i !== active) goTo(i);
+          });
           track.appendChild(el);
         });
 
-        members.forEach(function (m, i) {
+        // Build dots
+        MEMBERS.forEach(function (m, i) {
           var d = document.createElement("button");
           d.className = "tcarousel-dot";
           d.setAttribute("aria-label", "Ir para " + m.name);
@@ -1739,75 +1767,111 @@
           dotsEl.appendChild(d);
         });
 
-        function render() {
-          var cards = track.querySelectorAll(".tcard");
+        function cardWidth() {
+          var c = track.children[0];
+          return c ? c.offsetWidth : 280;
+        }
 
-          cards.forEach(function (c, i) {
+        function computeBaseX() {
+          var cw   = cardWidth();
+          var slot = cw + GAP;
+          var vpW  = viewport.offsetWidth;
+          return vpW / 2 - active * slot - cw / 2;
+        }
+
+        function setTranslate(tx, animate) {
+          track.style.transition = animate
+            ? "transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)"
+            : "none";
+          track.style.transform = "translateX(" + tx + "px)";
+        }
+
+        function updateClasses() {
+          var cards = track.children;
+          for (var i = 0; i < cards.length; i++) {
             var diff = Math.min(Math.abs(i - active), N - Math.abs(i - active));
-            c.classList.remove("is-active", "is-adj1", "is-adj2", "is-hidden");
-            if      (diff === 0) c.classList.add("is-active");
-            else if (diff === 1) c.classList.add("is-adj1");
-            else if (diff === 2) c.classList.add("is-adj2");
-            else                 c.classList.add("is-hidden");
-          });
-
-          var card = cards[active];
-          if (card) {
-            var vpW = viewport.offsetWidth;
-            var tx  = vpW / 2 - card.offsetLeft - card.offsetWidth / 2;
-            track.style.transform = "translateX(" + tx + "px)";
+            cards[i].classList.remove("is-active","is-adj1","is-adj2","is-hidden");
+            if      (diff === 0) cards[i].classList.add("is-active");
+            else if (diff === 1) cards[i].classList.add("is-adj1");
+            else if (diff === 2) cards[i].classList.add("is-adj2");
+            else                 cards[i].classList.add("is-hidden");
           }
+          var dots = dotsEl.children;
+          for (var j = 0; j < dots.length; j++) {
+            dots[j].classList.toggle("is-active", j === active);
+          }
+        }
 
-          dotsEl.querySelectorAll(".tcarousel-dot").forEach(function (d, i) {
-            d.classList.toggle("is-active", i === active);
-          });
+        function render(animate) {
+          baseX = computeBaseX();
+          setTranslate(baseX, animate !== false);
+          updateClasses();
         }
 
         function goTo(idx) {
-          var next = ((idx % N) + N) % N;
-          var dist = Math.abs(next - active);
-          var isWrap = dist > 1 && dist > N / 2;
-          active = next;
-          if (isWrap) {
-            track.style.transition = 'none';
-            render();
-            track.getBoundingClientRect();
-            requestAnimationFrame(function () {
-              requestAnimationFrame(function () { track.style.transition = ''; });
-            });
-          } else {
-            track.style.transition = '';
-            render();
-          }
+          active = ((idx % N) + N) % N;
+          render(true);
+          resetAuto();
         }
 
+        // Pointer events — handles mouse + touch in one place
+        viewport.addEventListener("pointerdown", function (e) {
+          if (e.target.closest("button")) return;
+          pDown   = true;
+          didDrag = false;
+          pStartX = e.clientX;
+          pDelta  = 0;
+          track.style.transition = "none";
+          viewport.classList.add("is-dragging");
+          viewport.setPointerCapture(e.pointerId);
+        });
+
+        viewport.addEventListener("pointermove", function (e) {
+          if (!pDown) return;
+          pDelta = e.clientX - pStartX;
+          if (Math.abs(pDelta) > 6) didDrag = true;
+          track.style.transform = "translateX(" + (baseX + pDelta) + "px)";
+        });
+
+        viewport.addEventListener("pointerup", function () {
+          if (!pDown) return;
+          pDown = false;
+          viewport.classList.remove("is-dragging");
+          if (Math.abs(pDelta) >= DRAG_MIN) {
+            goTo(active + (pDelta < 0 ? 1 : -1));
+          } else {
+            render(true);
+          }
+          setTimeout(function () { didDrag = false; }, 0);
+        });
+
+        viewport.addEventListener("pointercancel", function () {
+          pDown = false;
+          viewport.classList.remove("is-dragging");
+          render(true);
+          didDrag = false;
+        });
+
+        viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
+
+        // Nav buttons
         if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
         if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
 
-        var tx0 = 0;
-        track.addEventListener("touchstart", function (e) { tx0 = e.touches[0].clientX; }, { passive: true });
-        track.addEventListener("touchend",   function (e) {
-          var d = tx0 - e.changedTouches[0].clientX;
-          if (Math.abs(d) > 40) goTo(active + (d > 0 ? 1 : -1));
-        });
+        // Auto-rotate
+        function startAuto() { autoTimer = setInterval(function () { goTo(active + 1); }, AUTO_MS); }
+        function stopAuto()  { clearInterval(autoTimer); }
+        function resetAuto() { stopAuto(); startAuto(); }
 
-        var autoTimer = setInterval(function () { goTo(active + 1); }, 5500);
-        viewport.addEventListener("mouseenter", function () { clearInterval(autoTimer); });
-        viewport.addEventListener("mouseleave", function () {
-          autoTimer = setInterval(function () { goTo(active + 1); }, 5500);
-        });
+        viewport.addEventListener("mouseenter", stopAuto);
+        viewport.addEventListener("mouseleave", startAuto);
 
-        track.style.transition = 'none';
-        render();
-        track.getBoundingClientRect();
-        requestAnimationFrame(function () { track.style.transition = ''; });
+        // Resize
+        window.addEventListener("resize", function () { render(false); });
 
-        window.addEventListener("resize", function () {
-          track.style.transition = 'none';
-          render();
-          track.getBoundingClientRect();
-          requestAnimationFrame(function () { track.style.transition = ''; });
-        });
+        // Init — sem animação
+        render(false);
+        startAuto();
       })();
     </script>
   </body>
