@@ -152,8 +152,6 @@
       }
       .btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-1px); }
 
-      /* Magnetic CTA wrapper (JS-driven) */
-      .magnetic { transition: transform 0.2s cubic-bezier(0.2,0.7,0.2,1); will-change: transform; }
 
       /* Reveal */
       .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.9s cubic-bezier(0.2,0.7,0.2,1), transform 0.9s cubic-bezier(0.2,0.7,0.2,1); will-change: opacity, transform; }
@@ -665,7 +663,7 @@
         </p>
 
         <div class="reveal reveal-delay-3 mt-10 flex flex-wrap gap-3 justify-center">
-          <button type="button" data-open-modal class="magnetic btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+          <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
             Agendar Sessão Estratégica
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
@@ -1453,37 +1451,49 @@
           <div class="absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none"
                style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%270 0 200 200%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
 
-          <div class="relative px-8 md:px-16 py-20 md:py-28 text-center">
-            <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-white/80 font-medium">
-              <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
-              Agenda aberta este mês
+          <div class="relative flex flex-col md:flex-row items-center gap-0 overflow-hidden">
+            <!-- Foto Beatriz -->
+            <div class="w-full md:w-[38%] shrink-0 self-stretch relative">
+              <img src="/assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
+                   class="w-full h-72 md:h-full object-cover object-top" loading="lazy" />
+              <div class="absolute inset-0 md:hidden bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute inset-y-0 right-0 hidden md:block w-24 bg-gradient-to-r from-transparent to-transparent pointer-events-none"
+                   style="background:linear-gradient(to right,transparent,rgba(0,0,0,0))"></div>
             </div>
 
-            <h2 class="font-display-xl mt-7 text-4xl md:text-6xl lg:text-7xl text-white max-w-3xl mx-auto">
-              O seu negócio está prestes
-              <span class="text-[color:var(--brand-2)]">a crescer.</span>
-            </h2>
-            <p class="mt-6 text-white/60 text-lg max-w-xl mx-auto leading-relaxed">
-              Agende uma sessão estratégica de 30 minutos. Sem custo. Sem pitch. Só uma conversa séria sobre o seu próximo passo — e sai com um plano de ação, mesmo que não trabalhemos juntos.
-            </p>
+            <!-- Conteúdo -->
+            <div class="flex-1 px-8 md:px-12 lg:px-16 py-14 md:py-20">
+              <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-white/80 font-medium">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
+                Agenda aberta este mês
+              </div>
 
-            <div class="mt-10 flex flex-wrap gap-3 justify-center">
-              <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
-                Agendar Sessão Estratégica
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-              <a href="https://api.whatsapp.com/send?phone=351911901606" target="_blank" rel="noopener" class="btn-whatsapp inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.14 1.6 5.95L.08 24l6.3-1.65a11.83 11.83 0 005.68 1.45h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43z"/></svg>
-                Falar com a Beatriz
-              </a>
-            </div>
+              <h2 class="font-display-xl mt-7 text-4xl md:text-5xl lg:text-6xl text-white max-w-2xl text-balance">
+                O seu negócio está prestes
+                <span class="text-[color:var(--brand-2)]">a crescer.</span>
+              </h2>
+              <p class="mt-6 text-white/60 text-lg max-w-lg leading-relaxed">
+                Agende uma sessão estratégica de 30 minutos. Sem custo. Sem pitch. Só uma conversa séria sobre o seu próximo passo — e sai com um plano de ação, mesmo que não trabalhemos juntos.
+              </p>
 
-            <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px] text-white/50">
-              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Resposta em 24h</div>
-              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>100% confidencial</div>
-              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Plano de ação grátis</div>
+              <div class="mt-10 flex flex-wrap gap-3">
+                <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+                  Agendar Sessão Estratégica
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <a href="https://api.whatsapp.com/send?phone=351911901606" target="_blank" rel="noopener" class="btn-whatsapp inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.14 1.6 5.95L.08 24l6.3-1.65a11.83 11.83 0 005.68 1.45h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43z"/></svg>
+                  Falar com a Beatriz
+                </a>
+              </div>
+
+              <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-white/50">
+                <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Resposta em 24h</div>
+                <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>100% confidencial</div>
+                <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Plano de ação grátis</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1583,19 +1593,6 @@
         });
       })();
 
-      // --- Magnetic CTA buttons ---
-      (function () {
-        const buttons = document.querySelectorAll(".magnetic");
-        buttons.forEach((btn) => {
-          btn.addEventListener("mousemove", (e) => {
-            const r = btn.getBoundingClientRect();
-            const dx = (e.clientX - (r.left + r.width / 2)) * 0.25;
-            const dy = (e.clientY - (r.top + r.height / 2)) * 0.25;
-            btn.style.transform = `translate(${dx}px, ${dy}px)`;
-          });
-          btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
-        });
-      })();
 
       // --- Count-up ---
       (function () {
@@ -1746,7 +1743,7 @@
           var cards = track.querySelectorAll(".tcard");
 
           cards.forEach(function (c, i) {
-            var diff = Math.abs(i - active);
+            var diff = Math.min(Math.abs(i - active), N - Math.abs(i - active));
             c.classList.remove("is-active", "is-adj1", "is-adj2", "is-hidden");
             if      (diff === 0) c.classList.add("is-active");
             else if (diff === 1) c.classList.add("is-adj1");
@@ -1800,7 +1797,11 @@
           autoTimer = setInterval(function () { goTo(active + 1); }, 5500);
         });
 
+        track.style.transition = 'none';
         render();
+        track.getBoundingClientRect();
+        requestAnimationFrame(function () { track.style.transition = ''; });
+
         window.addEventListener("resize", function () {
           track.style.transition = 'none';
           render();
