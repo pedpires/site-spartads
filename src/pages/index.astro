@@ -1,7 +1,7 @@
 ---
 import { GrainBackground } from "../components/ui/grain-background";
 import { TopoBackground } from "../components/ui/topo-background";
-import { NeuralBackground } from "../components/ui/neural-background";
+import { ShaderAnimation } from "../components/ui/shader-animation";
 import { AnimatedGradientBackground } from "../components/ui/animated-gradient-background";
 import { FluidParticleBackground } from "../components/ui/fluid-particle";
 ---
@@ -630,7 +630,7 @@ import { FluidParticleBackground } from "../components/ui/fluid-particle";
       <!-- Background variants -->
       <div class="bg-var" data-bg="a" style="opacity:1;"><GrainBackground client:only="react" /></div>
       <div class="bg-var" data-bg="b" style="opacity:0;pointer-events:none;"><TopoBackground client:only="react" /></div>
-      <div class="bg-var" data-bg="c" style="opacity:0;pointer-events:none;"><NeuralBackground client:only="react" /></div>
+      <div class="bg-var" data-bg="c" style="opacity:0;pointer-events:none;"><ShaderAnimation client:only="react" /></div>
       <div class="bg-var" data-bg="d" style="opacity:0;pointer-events:none;"><AnimatedGradientBackground client:only="react" /></div>
       <div class="bg-var" data-bg="e" style="opacity:0;pointer-events:none;"><FluidParticleBackground client:only="react" /></div>
 
