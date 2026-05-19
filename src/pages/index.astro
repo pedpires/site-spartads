@@ -1,5 +1,9 @@
 ---
 import { GrainBackground } from "../components/ui/grain-background";
+import { TopoBackground } from "../components/ui/topo-background";
+import { NeuralBackground } from "../components/ui/neural-background";
+import { AnimatedGradientBackground } from "../components/ui/animated-gradient-background";
+import { FluidParticleBackground } from "../components/ui/fluid-particle";
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -572,6 +576,32 @@ import { GrainBackground } from "../components/ui/grain-background";
       .res-desc {
         font-size: 13px; color: var(--text-dim); line-height: 1.65;
       }
+
+      /* background variant toggle */
+      .bg-var { position: absolute; inset: 0; transition: opacity 0.6s ease; }
+      .bg-var[data-bg="b"],
+      .bg-var[data-bg="c"],
+      .bg-var[data-bg="d"],
+      .bg-var[data-bg="e"] { opacity: 0; pointer-events: none; }
+
+      .variant-toggle {
+        position: absolute; top: 16px; right: 16px; z-index: 20;
+        display: flex; gap: 4px;
+      }
+      .vbtn {
+        width: 28px; height: 28px; border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+        color: rgba(255,255,255,0.5);
+        font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        transition: all 0.2s;
+      }
+      .vbtn:hover { border-color: rgba(0,122,255,0.5); color: rgba(255,255,255,0.8); }
+      .vbtn.active {
+        background: rgba(0,122,255,0.25); border-color: var(--brand);
+        color: #fff;
+      }
     </style>
   </head>
 
@@ -601,7 +631,22 @@ import { GrainBackground } from "../components/ui/grain-background";
 
     <!-- HERO -->
     <section id="top" class="relative overflow-hidden" style="isolation: isolate;">
-      <GrainBackground client:only="react" />
+      <!-- Background variants -->
+      <div class="bg-var" data-bg="a"><GrainBackground client:only="react" /></div>
+      <div class="bg-var" data-bg="b"><TopoBackground client:only="react" /></div>
+      <div class="bg-var" data-bg="c"><NeuralBackground client:only="react" /></div>
+      <div class="bg-var" data-bg="d"><AnimatedGradientBackground client:only="react" /></div>
+      <div class="bg-var" data-bg="e"><FluidParticleBackground client:only="react" /></div>
+
+      <!-- Variant toggle -->
+      <div class="variant-toggle" id="variant-toggle">
+        <button class="vbtn active" data-v="a">A</button>
+        <button class="vbtn" data-v="b">B</button>
+        <button class="vbtn" data-v="c">C</button>
+        <button class="vbtn" data-v="d">D</button>
+        <button class="vbtn" data-v="e">E</button>
+      </div>
+
       <div class="absolute inset-0 grid-bg opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"></div>
       <div class="spotlight" id="hero-spotlight"></div>
 
@@ -1524,6 +1569,25 @@ import { GrainBackground } from "../components/ui/grain-background";
           entries.forEach((e) => { if (!e.isIntersecting) sticky.classList.add("visible"); else sticky.classList.remove("visible"); });
         }, { threshold: 0 });
         io.observe(hero);
+      })();
+
+      // --- Background variant toggle ---
+      (function () {
+        const toggle = document.getElementById("variant-toggle");
+        if (!toggle) return;
+        const btns = toggle.querySelectorAll(".vbtn");
+        const layers = document.querySelectorAll(".bg-var");
+        btns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const v = btn.getAttribute("data-v");
+            btns.forEach(b => b.classList.toggle("active", b === btn));
+            layers.forEach(l => {
+              const isActive = l.getAttribute("data-bg") === v;
+              (l as HTMLElement).style.opacity = isActive ? "1" : "0";
+              (l as HTMLElement).style.pointerEvents = isActive ? "auto" : "none";
+            });
+          });
+        });
       })();
 
       // --- Cursor spotlight + 3D tilt in hero ---
