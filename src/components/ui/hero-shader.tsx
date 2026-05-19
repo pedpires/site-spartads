@@ -1,5 +1,3 @@
-"use client"
-
 import { GrainGradient } from "@paper-design/shaders-react"
 
 export function HeroShader() {
