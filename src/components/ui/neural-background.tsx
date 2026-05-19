@@ -51,10 +51,10 @@ const fsSource = `
     noise += pow(noise, 10.);
     noise = max(.0, noise - .5);
     noise *= (1. - length(vUv - .5));
-    // Spartads blues: brand #007aff, deep navy, light blue
-    color = vec3(0.0, 0.35, 0.95);
-    color = mix(color, vec3(0.15, 0.58, 1.0), 0.32 + 0.16 * sin(2.0 * u_scroll_progress + 1.2));
-    color += vec3(0.0, 0.12, 0.65) * sin(2.0 * u_scroll_progress + 1.5);
+    // Spartads: --brand #007aff, --brand-2 #3d99ff
+    color = vec3(0.0, 0.478, 1.0);
+    color = mix(color, vec3(0.239, 0.600, 1.0), 0.32 + 0.16 * sin(2.0 * u_scroll_progress + 1.2));
+    color += vec3(0.0, 0.267, 0.831) * sin(2.0 * u_scroll_progress + 1.5);
     color = color * noise;
     gl_FragColor = vec4(color, noise);
   }
