@@ -578,7 +578,14 @@ import { ShaderBlue } from "../components/ui/shader-blue";
       }
 
       /* background variant toggle */
-      .bg-var { position: absolute; inset: 0; transition: opacity 0.6s ease; }
+      .bg-var { position: absolute; inset: 0; overflow: hidden; transition: opacity 0.6s ease; }
+      /* astro-island é display:inline por defeito — forçar block + fill para evitar deformações */
+      .bg-var > astro-island {
+        display: block;
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
 
       .variant-toggle {
         position: absolute; top: 16px; right: 16px; z-index: 20;
