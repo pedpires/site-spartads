@@ -81,7 +81,7 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
 
       /* Gradient on all main headings */
       h1, h2, h3 {
-        background: linear-gradient(to left, #ffffff 0%, #7a8293 100%);
+        background: linear-gradient(to left, #ffffff 0%, #ffffff 60%, #c2c6d2 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -110,6 +110,15 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
           linear-gradient(180deg, #001530 0%, #000818 100%);
       }
 
+      .hero-bg-flip-h {
+        background:
+          radial-gradient(1400px 900px at 88% 0%, rgba(0, 100, 255, 0.82), transparent 58%),
+          radial-gradient(900px 600px at 12% 10%, rgba(0, 80, 240, 0.48), transparent 55%),
+          radial-gradient(700px 500px at 50% 105%, rgba(0, 122, 255, 0.38), transparent 58%),
+          radial-gradient(900px 520px at 8% 18%, rgba(22, 163, 74, 0.14), transparent 60%),
+          linear-gradient(180deg, #000818 0%, #001530 100%);
+      }
+
       .grain {
         position: absolute; inset: 0; pointer-events: none;
         opacity: 0.4; mix-blend-mode: overlay;
@@ -131,16 +140,18 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
       }
       /* ===== BUTTONS ===== */
       .btn-cta {
-        background: linear-gradient(180deg, var(--cta-2) 0%, var(--cta) 100%);
-        color: #ffffff;
+        background: #FFE500;
+        color: #080808;
+        text-transform: uppercase;
+        letter-spacing: 0.045em;
+        font-weight: 700;
         transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-        box-shadow: 0 10px 30px -8px rgba(22,163,74,0.55), inset 0 1px 0 rgba(255,255,255,0.15);
-        font-weight: 600;
+        box-shadow: 0 10px 28px -8px rgba(255,229,0,0.5);
       }
       .btn-cta:hover {
-        filter: brightness(1.08);
+        filter: brightness(1.07);
         transform: translateY(-1px);
-        box-shadow: 0 18px 40px -10px rgba(22,163,74,0.7), inset 0 1px 0 rgba(255,255,255,0.2);
+        box-shadow: 0 18px 40px -10px rgba(255,229,0,0.65);
       }
       .btn-cta:active { transform: translateY(0); }
 
@@ -307,7 +318,8 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
       .hscroll-sticky {
         position: sticky; top: 0; height: 100vh; overflow: hidden;
       }
-      #services-bg-wrapper > astro-island {
+      #services-bg-wrapper > astro-island,
+      #faq-bg-wrapper > astro-island {
         display: block; position: absolute; inset: 0; overflow: hidden;
       }
       .hscroll-track {
@@ -600,21 +612,21 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
 
   <body>
     <!-- NAV -->
-    <nav class="sticky top-0 z-50 nav-blur bg-black/70 border-b border-white/5">
-      <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+    <nav class="sticky top-0 z-50 py-3 px-4 md:px-6">
+      <div class="mx-auto max-w-5xl nav-blur bg-[rgba(4,7,14,0.82)] border border-white/[0.1] rounded-2xl px-5 h-12 flex items-center justify-between">
         <a href="#top" class="flex items-center">
           <img src="https://www.spartads.pt/hosted/images/fc/b5b357c3c140c1808167216774338f/logo-para-fundo-escuro.png"
-               alt="SpartAds" class="h-7 w-auto" loading="eager" />
+               alt="SpartAds" class="h-6 w-auto" loading="eager" />
         </a>
-        <div class="flex items-center gap-1">
-          <a href="#servicos" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Serviços</a>
-          <a href="#resultados" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Resultados</a>
-          <a href="#processo" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Processo</a>
-          <a href="#equipa" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Equipa</a>
-          <a href="#faq" class="hidden md:inline text-[14px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">FAQ</a>
-          <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] ml-3">
+        <div class="flex items-center gap-0.5">
+          <a href="#servicos" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Serviços</a>
+          <a href="#resultados" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Resultados</a>
+          <a href="#processo" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Processo</a>
+          <a href="#equipa" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Equipa</a>
+          <a href="#faq" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">FAQ</a>
+          <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-[12px] ml-2">
             Agendar Sessão
-            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
@@ -650,22 +662,32 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
           Somos especialistas em Google Ads, Meta Ads e todas as plataformas de Paid Media. Com mais de <strong class="text-white font-semibold">13 anos de experiência</strong> e <strong class="text-white font-semibold">+€20M geridos</strong>, ajudamos a sua empresa a crescer com mais leads e mais vendas.
         </p>
 
-        <div class="reveal reveal-delay-3 mt-10 flex flex-wrap gap-3 justify-center">
-          <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
-            Agendar Sessão Estratégica
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <a href="#resultados" class="btn-ghost inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-medium">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 3v18h18M7 14l4-4 4 4 6-6" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            Ver resultados reais
-          </a>
+        <div class="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4">
+          <div class="flex flex-wrap gap-3 justify-center">
+            <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-[15px]">
+              Agendar Sessão Estratégica
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <a href="#resultados" class="btn-ghost inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-[15px] font-medium">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18M7 14l4-4 4 4 6-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Ver resultados reais
+            </a>
+          </div>
+          <!-- Star reviews -->
+          <div class="flex flex-col items-center gap-1.5">
+            <div class="text-[11px] uppercase tracking-[0.18em] text-[color:var(--text-dimmer)]">Diagnóstico gratuito de 30 min · sem compromisso</div>
+            <div class="flex items-center gap-2">
+              <div class="flex gap-0.5 text-[#FFB800] text-[16px] leading-none">★★★★★</div>
+              <span class="text-[13px] text-[color:var(--text-dim)]">4,9 estrelas em <strong class="text-white font-semibold">123 avaliações</strong></span>
+            </div>
+          </div>
         </div>
 
-        <div class="reveal reveal-delay-4 mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-[color:var(--text-dimmer)] justify-center">
+        <div class="reveal reveal-delay-4 mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-[color:var(--text-dimmer)] justify-center">
           <div class="flex items-center gap-2">
             <svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>
             Sessão 30min · sem custo
@@ -1380,8 +1402,11 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="relative py-24 md:py-32">
-      <div class="mx-auto max-w-4xl px-6">
+    <section id="faq" class="relative py-24 md:py-32 overflow-hidden">
+      <div id="faq-bg-wrapper" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+        <CanvasRevealBackground client:only="react" />
+      </div>
+      <div class="mx-auto max-w-4xl px-6 relative" style="z-index:1;">
         <div class="reveal text-center">
           <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Perguntas frequentes</div>
           <h2 class="font-head mt-4 text-4xl md:text-5xl text-white">
@@ -1455,7 +1480,7 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
     </section>
 
     <!-- FINAL CTA -->
-    <section id="agendar" class="relative py-12 md:py-20 hero-bg-flipped">
+    <section id="agendar" class="relative py-12 md:py-20 hero-bg-flip-h">
       <div class="mx-auto max-w-6xl px-6">
         <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.08);">
 
