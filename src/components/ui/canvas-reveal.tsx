@@ -155,7 +155,7 @@ const DotMatrix = ({
             // Mouse proximity glow — independent of reveal cycle, always on
             vec2 mouseCell = u_mouse / u_total_size;
             float mouseDist = distance(mouseCell, st2);
-            float mouseBoost = smoothstep(7.0, 0.0, mouseDist) * 0.85;
+            float mouseBoost = smoothstep(7.0, 0.0, mouseDist) * 0.42;
 
             float finalOpacity = clamp(animOpacity + mouseBoost, 0.0, 1.0) * dotMask;
 
@@ -196,7 +196,7 @@ export function CanvasRevealBackground() {
         colors={[[0, 122, 255], [61, 153, 255], [20, 90, 200]]}
         opacities={[0.08, 0.1, 0.12, 0.15, 0.18, 0.2, 0.28, 0.32, 0.4, 0.5]}
         totalSize={18}
-        dotSize={3}
+        dotSize={6}
         mouseRef={mouseRef}
       />
       <div style={{
