@@ -1,5 +1,6 @@
 ---
 import { HeroBackground } from "../components/ui/hero-background";
+import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -1330,52 +1331,36 @@ import { HeroBackground } from "../components/ui/hero-background";
     </section>
 
     <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS -->
     <section class="relative py-24 md:py-32 border-y border-white/5 bg-[#05080f]">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="max-w-3xl reveal mx-auto text-center">
-          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">O que dizem os nossos clientes</div>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-          <article class="reveal card rounded-2xl p-8">
-            <div class="flex gap-0.5 mb-5">
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p class="text-white/90 text-[17px] leading-relaxed">
-              "Disponibilidade, profissionalismo e preocupação em atingir os melhores resultados. Uma empresa competente e interessada em fazer o melhor trabalho possível. Acreditamos que seja uma parceria a manter no futuro, agradecemos por tudo!"
+          <div class="reveal">
+            <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Testemunhos</div>
+            <h2 class="font-head mt-4 text-4xl md:text-5xl text-white">
+              O que dizem os
+              <span class="text-[color:var(--brand-2)]"> nossos clientes</span>
+            </h2>
+            <p class="mt-5 text-[color:var(--text-dim)] text-lg leading-relaxed">
+              Mais de 300 projectos. Os resultados falam por si — mas às vezes os clientes também falam.
             </p>
-            <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[color:var(--brand)] to-[color:var(--brand)]/40 flex items-center justify-center font-semibold text-white text-sm">C</div>
-              <div>
-                <div class="text-[14px] font-semibold text-white">Cliente E-Commerce</div>
-                <div class="text-[13px] text-[color:var(--text-dimmer)]">Parceria ativa</div>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <div class="flex items-center gap-2 text-[13px] text-[color:var(--text-dimmer)]">
+                <svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                +300 projectos entregues
+              </div>
+              <div class="flex items-center gap-2 text-[13px] text-[color:var(--text-dimmer)]">
+                <svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                13 anos de parcerias
               </div>
             </div>
-          </article>
+          </div>
 
-          <article class="reveal reveal-delay-1 card rounded-2xl p-8">
-            <div class="flex gap-0.5 mb-5">
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg class="h-4 w-4 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p class="text-white/90 text-[17px] leading-relaxed">
-              "Temos tido a oportunidade de trabalhar com a SpartAds algumas campanhas de Google em áreas muito específicas. A agência tem demonstrado ser muito ágil e competente! Obrigada pelo apoio."
-            </p>
-            <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[color:var(--brand)] to-[color:var(--brand)]/40 flex items-center justify-center font-semibold text-white text-sm">C</div>
-              <div>
-                <div class="text-[14px] font-semibold text-white">Cliente B2B</div>
-                <div class="text-[13px] text-[color:var(--text-dimmer)]">Campanhas Google</div>
-              </div>
-            </div>
-          </article>
+          <div class="reveal reveal-delay-1 flex justify-center">
+            <ShuffleTestimonials client:only="react" />
+          </div>
+
         </div>
       </div>
     </section>
