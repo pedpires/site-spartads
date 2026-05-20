@@ -1,7 +1,6 @@
 ---
 import { HeroBackground } from "../components/ui/hero-background";
 import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
-import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -317,11 +316,10 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
       .hscroll-wrap { position: relative; height: 560vh; }
       .hscroll-sticky {
         position: sticky; top: 0; height: 100vh; overflow: hidden;
-      }
-      #services-bg-wrapper > astro-island,
-      #faq-bg-wrapper > astro-island,
-      #cta-bg-wrapper > astro-island {
-        display: block; position: absolute; inset: 0; overflow: hidden;
+        background:
+          radial-gradient(900px 500px at 20% 50%, rgba(0,100,255,0.32), transparent 60%),
+          radial-gradient(700px 400px at 90% 70%, rgba(22,163,74,0.12), transparent 60%),
+          #000810;
       }
       .hscroll-track {
         position: absolute; top: 0; left: 0; height: 100%;
@@ -837,12 +835,6 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
     <section id="servicos" class="relative">
       <div class="hscroll-wrap" id="hscroll-wrap">
         <div class="hscroll-sticky">
-          <!-- Dot-matrix canvas background -->
-          <div id="services-bg-wrapper" style="position:absolute;inset:0;z-index:0;">
-            <CanvasRevealBackground client:only="react" />
-          </div>
-          <!-- Colour-tint overlay to keep brand palette -->
-          <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(900px 500px at 20% 50%,rgba(0,100,255,0.18),transparent 60%),radial-gradient(700px 400px at 90% 70%,rgba(22,163,74,0.07),transparent 60%)"></div>
           <div class="hscroll-header">
             <div class="mx-auto max-w-6xl px-6 flex items-end justify-between flex-wrap gap-4">
               <div>
@@ -1403,11 +1395,8 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="relative py-24 md:py-32 overflow-hidden">
-      <div id="faq-bg-wrapper" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-        <CanvasRevealBackground client:only="react" />
-      </div>
-      <div class="mx-auto max-w-4xl px-6 relative" style="z-index:1;">
+    <section id="faq" class="relative py-24 md:py-32">
+      <div class="mx-auto max-w-4xl px-6">
         <div class="reveal text-center">
           <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Perguntas frequentes</div>
           <h2 class="font-head mt-4 text-4xl md:text-5xl text-white">
@@ -1481,15 +1470,9 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
     </section>
 
     <!-- FINAL CTA -->
-    <section id="agendar" class="relative py-12 md:py-20 overflow-hidden">
-      <!-- Canvas reveal base -->
-      <div id="cta-bg-wrapper" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-        <CanvasRevealBackground client:only="react" />
-      </div>
-      <!-- Hero flip-h colour tint on top of dots -->
-      <div class="hero-bg-flip-h" style="position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.72;"></div>
-      <div class="mx-auto max-w-6xl px-6 relative" style="z-index:2;">
-        <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.1);">
+    <section id="agendar" class="relative py-12 md:py-20 hero-bg-flip-h">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.08);">
 
           <div class="relative flex flex-col md:flex-row items-center gap-0 overflow-hidden">
             <!-- Foto Beatriz -->
