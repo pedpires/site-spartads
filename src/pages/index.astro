@@ -80,10 +80,11 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
       /* Gradient on all main headings */
       h1, h2, h3 {
-        background: linear-gradient(180deg, #ffffff 0%, #7a8293 100%);
+        background: linear-gradient(to left, #ffffff 0%, #7a8293 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        padding-bottom: 0.12em;
       }
       h1 span, h2 span, h3 span {
         -webkit-text-fill-color: currentColor;
@@ -118,13 +119,6 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
         background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
         background-size: 22px 22px;
       }
-      .grid-bg {
-        background-image:
-          linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-        background-size: 56px 56px;
-      }
-
       /* ===== BUTTONS ===== */
       .btn-cta {
         background: linear-gradient(180deg, var(--cta-2) 0%, var(--cta) 100%);
@@ -585,31 +579,11 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
         font-size: 13px; color: var(--text-dim); line-height: 1.65;
       }
 
-      /* background variant toggle */
       #hero-bg-wrapper > astro-island {
         display: block;
         position: absolute;
         inset: 0;
         overflow: hidden;
-      }
-
-      .variant-toggle {
-        position: absolute; top: 16px; right: 16px; z-index: 20;
-        display: flex; gap: 4px;
-      }
-      .vbtn {
-        width: 28px; height: 28px; border-radius: 6px;
-        border: 1px solid rgba(255,255,255,0.15);
-        background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
-        color: rgba(255,255,255,0.5);
-        font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
-        cursor: pointer; display: flex; align-items: center; justify-content: center;
-        transition: all 0.2s;
-      }
-      .vbtn:hover { border-color: rgba(0,122,255,0.5); color: rgba(255,255,255,0.8); }
-      .vbtn.active {
-        background: rgba(0,122,255,0.25); border-color: var(--brand);
-        color: #fff;
       }
     </style>
   </head>
@@ -645,14 +619,6 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
         <HeroBackground client:only="react" />
       </div>
 
-      <!-- Variant toggle -->
-      <div class="variant-toggle" id="variant-toggle">
-        <button class="vbtn active" data-v="b">B</button>
-        <button class="vbtn" data-v="d">D</button>
-        <button class="vbtn" data-v="e">E</button>
-      </div>
-
-      <div class="absolute inset-0 grid-bg opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"></div>
 
       <div class="mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-24 md:pb-32 relative text-center">
         <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-[color:var(--text-dim)] font-medium pulse-border">
@@ -764,63 +730,45 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
               </div>
             </div>
           </div>
+        <!-- Client logos inside hero, below dashboard -->
+        <div class="mt-14 reveal">
+          <div class="text-center mb-6">
+            <div class="text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-dimmer)] font-medium">
+              Trabalhamos com marcas portuguesas e internacionais
+            </div>
+          </div>
+          <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+            <div class="flex gap-12 items-center marquee-track-slow whitespace-nowrap">
+              <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
+              <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
+              <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
+              <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
+              <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
+              <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
+              <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
+              <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
+              <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
+              <img class="client-logo" alt="Cozinha Sr Lisboa" src="https://www.spartads.pt/hosted/images/a2/a4333a42ce4c779e21ed7cfb631afe/cozinha-sr-lisboa.png" />
+              <img class="client-logo" alt="Yuni" src="https://www.spartads.pt/hosted/images/5d/46ee1267b04b159cef9dcf190b68cf/yuni.png" />
+              <img class="client-logo" alt="Caixilho" src="https://www.spartads.pt/hosted/images/bb/d2c16c01cd4bca9f36c7271d92a810/caixilho.png" />
+              <img class="client-logo" alt="Cuida PT" src="https://www.spartads.pt/hosted/images/bd/198b7ace444abb88ba90b62e8a1490/cuida-pt.png" />
+              <img class="client-logo" alt="Nutribio" src="https://www.spartads.pt/hosted/images/b5/c634f934694c64ac68906a8251614d/nutribio.png" />
+              <img class="client-logo" alt="Sembra" src="https://www.spartads.pt/hosted/images/6c/fa4cd75294484abab8ca0ebb424a9a/sembra.png" />
+              <img class="client-logo" alt="3xP Global" src="https://www.spartads.pt/hosted/images/0d/c6b6b434254c6aa1fd345fff710f55/3xPGlobal.png" />
+              <img class="client-logo" alt="EV Espaço Visual" src="https://www.spartads.pt/hosted/images/5c/fa68a0e6894268972dc7dc00905cae/ev-espaco-visual.png" />
+              <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
+              <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
+              <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
+              <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
 
-    <!-- CLIENT LOGOS STRIP -->
-    <section class="relative border-y border-white/5 bg-[#040811]">
-      <div class="mx-auto max-w-6xl px-6 py-10">
-        <div class="text-center mb-8">
-          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--text-dimmer)] font-medium">
-            Trabalhamos com marcas portuguesas e internacionais
-          </div>
-        </div>
-        <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
-          <div class="flex gap-12 items-center marquee-track-slow whitespace-nowrap">
-            <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
-            <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
-            <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
-            <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
-            <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
-            <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
-            <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
-            <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
-            <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
-            <img class="client-logo" alt="Cozinha Sr Lisboa" src="https://www.spartads.pt/hosted/images/a2/a4333a42ce4c779e21ed7cfb631afe/cozinha-sr-lisboa.png" />
-            <img class="client-logo" alt="Yuni" src="https://www.spartads.pt/hosted/images/5d/46ee1267b04b159cef9dcf190b68cf/yuni.png" />
-            <img class="client-logo" alt="Caixilho" src="https://www.spartads.pt/hosted/images/bb/d2c16c01cd4bca9f36c7271d92a810/caixilho.png" />
-            <img class="client-logo" alt="Cuida PT" src="https://www.spartads.pt/hosted/images/bd/198b7ace444abb88ba90b62e8a1490/cuida-pt.png" />
-            <img class="client-logo" alt="Nutribio" src="https://www.spartads.pt/hosted/images/b5/c634f934694c64ac68906a8251614d/nutribio.png" />
-            <img class="client-logo" alt="Sembra" src="https://www.spartads.pt/hosted/images/6c/fa4cd75294484abab8ca0ebb424a9a/sembra.png" />
-            <img class="client-logo" alt="3xP Global" src="https://www.spartads.pt/hosted/images/0d/c6b6b434254c6aa1fd345fff710f55/3xPGlobal.png" />
-            <img class="client-logo" alt="EV Espaço Visual" src="https://www.spartads.pt/hosted/images/5c/fa68a0e6894268972dc7dc00905cae/ev-espaco-visual.png" />
-            <!-- Duplicate for loop -->
-            <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
-            <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
-            <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
-            <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
-            <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
-            <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
-            <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
-            <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
-            <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
-          </div>
-        </div>
-
-        <!-- Certifications row -->
-        <div class="mt-10 pt-8 border-t border-white/5 flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          <div class="text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Certificados:</div>
-          <img class="cert-badge" alt="Google Partner" src="https://www.spartads.pt/hosted/images/20/f748f083dc4ba89e9783ca563263aa/Partner-RGB.png" />
-          <img class="cert-badge" alt="Media Buying Pro" src="https://www.spartads.pt/hosted/images/ea/c113a7d45e483bbfaf4b49bf28b2e6/Cert_Media_Buying_Pro_800.png" />
-          <img class="cert-badge" alt="Media Planning Pro" src="https://www.spartads.pt/hosted/images/4d/e079c088f548f9a68e83adda4917e5/Cert_Media_Planning_Pro_800.png" />
-          <img class="cert-badge" alt="Meta Business Partner" src="https://www.spartads.pt/hosted/images/04/0772624a59482f9daa16e0b4c5c1ed/meta-bp.png" />
-        </div>
-      </div>
-    </section>
-
-    <!-- METRIC STRIP -->
-    <section class="relative bg-[#05080f]">
+    <!-- METRICS + CERTIFICATIONS -->
+    <section class="relative bg-[#05080f] border-y border-white/5">
       <div class="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0">
           <div class="reveal text-center md:border-r md:border-white/5 md:px-6">
@@ -839,6 +787,15 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             <div class="font-display text-4xl md:text-5xl metric-white count-up" data-count="15" data-prefix="+" data-suffix="k">+15k</div>
             <div class="mt-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Alunos formados</div>
           </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="mt-12 pt-10 border-t border-white/5 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div class="text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] font-medium">Certificados:</div>
+          <img class="cert-badge" alt="Google Partner" src="https://www.spartads.pt/hosted/images/20/f748f083dc4ba89e9783ca563263aa/Partner-RGB.png" />
+          <img class="cert-badge" alt="Media Buying Pro" src="https://www.spartads.pt/hosted/images/ea/c113a7d45e483bbfaf4b49bf28b2e6/Cert_Media_Buying_Pro_800.png" />
+          <img class="cert-badge" alt="Media Planning Pro" src="https://www.spartads.pt/hosted/images/4d/e079c088f548f9a68e83adda4917e5/Cert_Media_Planning_Pro_800.png" />
+          <img class="cert-badge" alt="Meta Business Partner" src="https://www.spartads.pt/hosted/images/04/0772624a59482f9daa16e0b4c5c1ed/meta-bp.png" />
         </div>
       </div>
     </section>
@@ -1246,24 +1203,25 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     <!-- PROCESS -->
     <section id="processo" class="relative py-24 md:py-32 bg-[#04070e]">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="reveal overflow-hidden rounded-3xl border border-white/[0.07]" style="background:#060a12;">
+        <div class="reveal rounded-3xl border border-white/[0.07] relative overflow-hidden" style="background:#060a12; min-height:460px;">
 
-          <!-- Title row -->
-          <div class="px-8 md:px-12 pt-10 md:pt-12 pb-0">
-            <h2 class="font-display-xl text-3xl md:text-[42px] text-white max-w-sm">
+          <!-- Title — absolute top-left -->
+          <div class="absolute top-9 left-8 md:left-12 z-20 pointer-events-none">
+            <div class="text-[10px] font-bold uppercase tracking-[0.22em] text-[color:var(--brand-2)]">Processo</div>
+            <h2 class="font-display-xl mt-3 text-3xl md:text-[40px] text-white max-w-[260px]">
               4 passos.<br>
               <span class="text-[color:var(--brand-2)]">Zero surpresas.</span>
             </h2>
           </div>
 
-          <!-- Columns -->
-          <div id="process-grid" class="mt-4 grid grid-cols-2 md:grid-cols-4" style="min-height:320px;">
+          <!-- Full-height columns -->
+          <div id="process-grid" class="absolute inset-0 grid grid-cols-2 md:grid-cols-4">
 
             <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="0">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
-                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">01</span>
+                   style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">01</span>
               </div>
               <div class="relative z-10">
                 <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Diagnóstico</p>
@@ -1273,9 +1231,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
             <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="1">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
-                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">02</span>
+                   style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">02</span>
               </div>
               <div class="relative z-10">
                 <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Estratégia</p>
@@ -1285,9 +1243,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
             <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="2">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500"
-                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                <span class="pcol-num select-none font-black leading-none text-white/[0.12] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">03</span>
+                   style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.12] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">03</span>
               </div>
               <div class="relative z-10">
                 <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Implementação</p>
@@ -1297,9 +1255,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
             <div class="pcol relative flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="3">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
-                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">04</span>
+                   style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">04</span>
               </div>
               <div class="relative z-10">
                 <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Escala</p>
@@ -1597,18 +1555,6 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
           entries.forEach((e) => { if (!e.isIntersecting) sticky.classList.add("visible"); else sticky.classList.remove("visible"); });
         }, { threshold: 0 });
         io.observe(hero);
-      })();
-
-      // --- Background variant toggle ---
-      (function () {
-        var btns = Array.from(document.querySelectorAll("#variant-toggle .vbtn"));
-        btns.forEach(function(btn) {
-          btn.addEventListener("click", function() {
-            var v = btn.getAttribute("data-v");
-            btns.forEach(function(b) { b.classList.toggle("active", b === btn); });
-            document.dispatchEvent(new CustomEvent("bg-change", { detail: { variant: v } }));
-          });
-        });
       })();
 
       // --- 3D tilt on hero mockup ---
