@@ -1,6 +1,7 @@
 ---
 import { HeroBackground } from "../components/ui/hero-background";
 import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
+import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -98,6 +99,15 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
           radial-gradient(700px 500px at 50% 105%, rgba(0, 122, 255, 0.38), transparent 58%),
           radial-gradient(900px 520px at 92% 18%, rgba(22, 163, 74, 0.14), transparent 60%),
           linear-gradient(180deg, #000818 0%, #001530 100%);
+      }
+
+      .hero-bg-flipped {
+        background:
+          radial-gradient(1400px 900px at 12% 100%, rgba(0, 100, 255, 0.82), transparent 58%),
+          radial-gradient(900px 600px at 88% 90%, rgba(0, 80, 240, 0.48), transparent 55%),
+          radial-gradient(700px 500px at 50% -5%, rgba(0, 122, 255, 0.38), transparent 58%),
+          radial-gradient(900px 520px at 92% 82%, rgba(22, 163, 74, 0.14), transparent 60%),
+          linear-gradient(180deg, #001530 0%, #000818 100%);
       }
 
       .grain {
@@ -273,12 +283,12 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
       /* Client logos */
       .client-logo {
-        height: 38px;
+        height: 52px;
         width: auto;
-        max-width: 160px;
+        max-width: 180px;
         object-fit: contain;
         filter: brightness(0) invert(1);
-        opacity: 0.55;
+        opacity: 0.6;
         transition: opacity 0.3s ease, filter 0.3s ease;
       }
       .client-logo:hover { opacity: 1; filter: brightness(0) invert(1); }
@@ -296,16 +306,16 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
       .hscroll-wrap { position: relative; height: 560vh; }
       .hscroll-sticky {
         position: sticky; top: 0; height: 100vh; overflow: hidden;
-        background:
-          radial-gradient(900px 500px at 20% 50%, rgba(0,100,255,0.32), transparent 60%),
-          radial-gradient(700px 400px at 90% 70%, rgba(22,163,74,0.12), transparent 60%),
-          #000810;
+      }
+      #services-bg-wrapper > astro-island {
+        display: block; position: absolute; inset: 0; overflow: hidden;
       }
       .hscroll-track {
         position: absolute; top: 0; left: 0; height: 100%;
         display: flex; align-items: center; gap: 2rem;
         padding-left: 6vw; padding-right: 20vw;
         will-change: transform;
+        z-index: 2;
       }
       .hcard {
         position: relative; flex: 0 0 auto;
@@ -804,6 +814,12 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     <section id="servicos" class="relative">
       <div class="hscroll-wrap" id="hscroll-wrap">
         <div class="hscroll-sticky">
+          <!-- Dot-matrix canvas background -->
+          <div id="services-bg-wrapper" style="position:absolute;inset:0;z-index:0;">
+            <CanvasRevealBackground client:only="react" />
+          </div>
+          <!-- Colour-tint overlay to keep brand palette -->
+          <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(900px 500px at 20% 50%,rgba(0,100,255,0.18),transparent 60%),radial-gradient(700px 400px at 90% 70%,rgba(22,163,74,0.07),transparent 60%)"></div>
           <div class="hscroll-header">
             <div class="mx-auto max-w-6xl px-6 flex items-end justify-between flex-wrap gap-4">
               <div>
@@ -1220,7 +1236,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="0">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
                    style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
-              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:42%;">
                 <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">01</span>
               </div>
               <div class="relative z-10">
@@ -1232,7 +1248,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="1">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
                    style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
-              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:42%;">
                 <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">02</span>
               </div>
               <div class="relative z-10">
@@ -1244,7 +1260,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="2">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500"
                    style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
-              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:42%;">
                 <span class="pcol-num select-none font-black leading-none text-white/[0.12] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">03</span>
               </div>
               <div class="relative z-10">
@@ -1256,7 +1272,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             <div class="pcol relative flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="3">
               <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
                    style="background:radial-gradient(ellipse 90% 80% at 50% -5%, rgba(0,122,255,0.30) 0%, rgba(0,60,180,0.08) 55%, transparent 75%)"></div>
-              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:22%;">
+              <div class="absolute right-0 pointer-events-none overflow-hidden" style="top:42%;">
                 <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(90px,11vw,150px);">04</span>
               </div>
               <div class="relative z-10">
@@ -1439,11 +1455,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     </section>
 
     <!-- FINAL CTA -->
-    <section id="agendar" class="relative py-12 md:py-20 bg-black">
+    <section id="agendar" class="relative py-12 md:py-20 hero-bg-flipped">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="reveal relative cta-glow ring-edge rounded-[28px] overflow-hidden">
-          <div class="absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none"
-               style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%270 0 200 200%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
+        <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.08);">
 
           <div class="relative flex flex-col md:flex-row items-center gap-0 overflow-hidden">
             <!-- Foto Beatriz -->
@@ -1495,7 +1509,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     </section>
 
     <!-- FOOTER -->
-    <footer class="relative border-t border-white/5 mt-12 bg-black">
+    <footer class="relative border-t border-white/[0.08] mt-0" style="background:#000818;">
       <div class="mx-auto max-w-6xl px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div class="flex items-center gap-3">
           <img src="https://www.spartads.pt/hosted/images/fc/b5b357c3c140c1808167216774338f/logo-para-fundo-escuro.png" alt="SpartAds" class="h-6 w-auto opacity-80" loading="lazy" />
