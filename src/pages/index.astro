@@ -88,6 +88,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
       }
       h1 span, h2 span, h3 span {
         -webkit-text-fill-color: currentColor;
+        background: none;
+        -webkit-background-clip: unset;
+        background-clip: unset;
       }
 
       /* ===== HERO ===== */
@@ -232,6 +235,12 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
       .nav-blur { backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); }
 
+      #main-nav {
+        transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1);
+      }
+      #main-nav.nav-hidden {
+        transform: translateY(-120%);
+      }
       .nav-inner {
         background: rgba(4,7,14,0.85);
         border: 1px solid rgba(255,255,255,0.1);
@@ -655,7 +664,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
       </div>
 
 
-      <div class="mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-24 md:pb-32 relative text-center">
+      <div class="mx-auto max-w-6xl px-6 pt-32 md:pt-40 pb-24 md:pb-32 relative text-center">
         <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-[color:var(--text-dim)] font-medium pulse-border">
           <span class="relative flex h-1.5 w-1.5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[color:var(--cta-2)] opacity-60"></span>
@@ -869,12 +878,14 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
                 Paid Search
               </div>
-              <div class="mt-auto">
-                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
-                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="mt-8">
+                <div class="h-[60px] w-[60px] rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center" style="transform:perspective(280px) rotateX(10deg) rotateY(-14deg);box-shadow:4px 6px 18px rgba(0,122,255,0.18);">
+                  <svg class="h-8 w-8 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </div>
+              </div>
+              <div class="mt-auto">
                 <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Google Ads</h3>
                 <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
                   Search, Performance Max, Shopping e YouTube. Estrutura de contas pensada para escalar com lucro, não com vaidade.
@@ -894,12 +905,14 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
                 Paid Social
               </div>
-              <div class="mt-auto">
-                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
-                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor">
+              <div class="mt-8">
+                <div class="h-[60px] w-[60px] rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center" style="transform:perspective(280px) rotateX(10deg) rotateY(-14deg);box-shadow:4px 6px 18px rgba(0,122,255,0.18);">
+                  <svg class="h-8 w-8 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M21 12.01c0-5-4.03-9.01-9-9.01s-9 4.01-9 9.01c0 4.5 3.3 8.23 7.6 8.9v-6.3H8.4v-2.6h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.96 0 1.96.17 1.96.17v2.2h-1.1c-1.1 0-1.4.67-1.4 1.36v1.67h2.4l-.38 2.6h-2.02V21C17.7 20.24 21 16.5 21 12.01z" />
                   </svg>
                 </div>
+              </div>
+              <div class="mt-auto">
                 <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Meta Ads</h3>
                 <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
                   Facebook &amp; Instagram com a estrutura que os grandes players usam. CBO, ABO, tracking CAPI server-side e testes criativos semanais.
@@ -918,12 +931,14 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
                 Short-Form
               </div>
-              <div class="mt-auto">
-                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
-                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor">
+              <div class="mt-8">
+                <div class="h-[60px] w-[60px] rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center" style="transform:perspective(280px) rotateX(10deg) rotateY(-14deg);box-shadow:4px 6px 18px rgba(0,122,255,0.18);">
+                  <svg class="h-8 w-8 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
                   </svg>
                 </div>
+              </div>
+              <div class="mt-auto">
                 <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">TikTok Ads</h3>
                 <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
                   Spark Ads, UGC orientado a conversão e segmentação avançada para a plataforma que cresce mais rápido. Custo por aquisição que surpreende.
@@ -942,12 +957,14 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)]"></span>
                 Fundação
               </div>
-              <div class="mt-auto">
-                <div class="h-12 w-12 rounded-2xl bg-[color:var(--cta)]/15 border border-[color:var(--cta)]/30 flex items-center justify-center mb-6">
-                  <svg class="h-6 w-6 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="mt-8">
+                <div class="h-[60px] w-[60px] rounded-2xl bg-[color:var(--cta)]/15 border border-[color:var(--cta)]/30 flex items-center justify-center" style="transform:perspective(280px) rotateX(10deg) rotateY(-14deg);box-shadow:4px 6px 18px rgba(22,163,74,0.18);">
+                  <svg class="h-8 w-8 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </div>
+              </div>
+              <div class="mt-auto">
                 <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Estratégia <br /><span class="text-[color:var(--cta-2)]">&amp; Funil</span></h3>
                 <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
                   Antes de tocar em campanhas, olhamos para o P&amp;L. Auditoria ao funil, análise de LTV/CAC, posicionamento e mensagens por estágio do cliente.
@@ -966,12 +983,14 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
                 Produção
               </div>
-              <div class="mt-auto">
-                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
-                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="mt-8">
+                <div class="h-[60px] w-[60px] rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center" style="transform:perspective(280px) rotateX(10deg) rotateY(-14deg);box-shadow:4px 6px 18px rgba(0,122,255,0.18);">
+                  <svg class="h-8 w-8 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </div>
+              </div>
+              <div class="mt-auto">
                 <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Vídeo <br /><span class="text-[color:var(--brand-2)]">&amp; Criativo</span></h3>
                 <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
                   UGC, edição, storyboards e hooks validados por dados. Criativos que convertem — não só criativos que ficam bonitos no portefólio.
@@ -990,12 +1009,14 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)] live-dot"></span>
                 Web &amp; CRO
               </div>
-              <div class="mt-auto">
-                <div class="h-12 w-12 rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center mb-6">
-                  <svg class="h-6 w-6 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="mt-8">
+                <div class="h-[60px] w-[60px] rounded-2xl bg-[color:var(--brand)]/15 border border-[color:var(--brand)]/25 flex items-center justify-center" style="transform:perspective(280px) rotateX(10deg) rotateY(-14deg);box-shadow:4px 6px 18px rgba(0,122,255,0.18);">
+                  <svg class="h-8 w-8 text-[color:var(--brand-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4h16v12H4zM2 20h20M8 16v4M16 16v4" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </div>
+              </div>
+              <div class="mt-auto">
                 <h3 class="font-head text-4xl md:text-6xl text-white tracking-tight">Landing Pages <br /><span class="text-[color:var(--brand-2)]">&amp; CRO</span></h3>
                 <p class="mt-5 text-[color:var(--text-dim)] text-lg md:text-xl leading-relaxed max-w-xl">
                   Construímos páginas que fecham vendas. De wireframe a A/B tests, 100% focado em taxa de conversão. Heatmaps, session replays e copywriting testado.
@@ -1487,12 +1508,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
 
           <div class="relative flex flex-col md:flex-row items-center gap-0 overflow-hidden">
             <!-- Foto Beatriz -->
-            <div class="w-full md:w-[38%] shrink-0 self-stretch relative">
+            <div class="w-full md:w-[38%] shrink-0 self-end relative">
               <img src="/assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
-                   class="w-full h-72 md:h-full object-cover object-top" loading="lazy" />
-              <div class="absolute inset-0 md:hidden bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute inset-y-0 right-0 hidden md:block w-24 bg-gradient-to-r from-transparent to-transparent pointer-events-none"
-                   style="background:linear-gradient(to right,transparent,rgba(0,0,0,0))"></div>
+                   class="w-full h-72 md:h-auto object-contain object-left-top" loading="lazy" />
             </div>
 
             <!-- Conteúdo -->
@@ -1576,12 +1594,23 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     <script is:inline>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // --- Nav: transparent at top, glass on scroll ---
+      // --- Nav: transparent at top, hide on scroll-down, show on scroll-up ---
       (function () {
         var nav = document.getElementById("main-nav");
         if (!nav) return;
+        var lastY = window.scrollY;
         function update() {
-          nav.classList.toggle("at-top", window.scrollY < 60);
+          var y = window.scrollY;
+          var atTop = y < 60;
+          nav.classList.toggle("at-top", atTop);
+          if (atTop) {
+            nav.classList.remove("nav-hidden");
+          } else if (y > lastY + 4) {
+            nav.classList.add("nav-hidden");
+          } else if (y < lastY - 4) {
+            nav.classList.remove("nav-hidden");
+          }
+          lastY = y;
         }
         window.addEventListener("scroll", update, { passive: true });
         update();
