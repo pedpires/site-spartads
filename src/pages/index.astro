@@ -1,9 +1,5 @@
 ---
-import { GrainBackground } from "../components/ui/grain-background";
-import { TopoBackground } from "../components/ui/topo-background";
-import { ShaderAnimation } from "../components/ui/shader-animation";
-import { FluidParticlesBg } from "../components/ui/fluid-particle-bg";
-import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
+import { HeroBackground } from "../components/ui/hero-background";
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -578,9 +574,7 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
       }
 
       /* background variant toggle */
-      .bg-var { position: absolute; inset: 0; overflow: hidden; transition: opacity 0.6s ease; }
-      /* astro-island é display:inline por defeito — forçar block + fill para evitar deformações */
-      .bg-var > astro-island {
+      #hero-bg-wrapper > astro-island {
         display: block;
         position: absolute;
         inset: 0;
@@ -634,12 +628,10 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
 
     <!-- HERO -->
     <section id="top" class="relative overflow-hidden" style="isolation: isolate;">
-      <!-- Background variants -->
-      <div class="bg-var" data-bg="a" style="opacity:1;"><GrainBackground client:only="react" /></div>
-      <div class="bg-var" data-bg="b" style="opacity:0;pointer-events:none;"><TopoBackground client:only="react" /></div>
-      <div class="bg-var" data-bg="c" style="opacity:0;pointer-events:none;"><ShaderAnimation client:only="react" /></div>
-      <div class="bg-var" data-bg="d" style="opacity:0;pointer-events:none;"><FluidParticlesBg client:only="react" /></div>
-      <div class="bg-var" data-bg="e" style="opacity:0;pointer-events:none;"><CanvasRevealBackground client:only="react" /></div>
+      <!-- Background variants (lazy-mounted — only active variant runs) -->
+      <div id="hero-bg-wrapper" style="position:absolute;inset:0;z-index:0;">
+        <HeroBackground client:only="react" />
+      </div>
 
       <!-- Variant toggle -->
       <div class="variant-toggle" id="variant-toggle">
@@ -1577,18 +1569,11 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
       // --- Background variant toggle ---
       (function () {
         var btns = Array.from(document.querySelectorAll("#variant-toggle .vbtn"));
-        var layers = Array.from(document.querySelectorAll(".bg-var"));
         btns.forEach(function(btn) {
           btn.addEventListener("click", function() {
             var v = btn.getAttribute("data-v");
             btns.forEach(function(b) { b.classList.toggle("active", b === btn); });
-            layers.forEach(function(l) {
-              var el = /** @type {HTMLElement} */ (l);
-              var show = el.getAttribute("data-bg") === v;
-              el.style.opacity = show ? "1" : "0";
-              el.style.pointerEvents = show ? "" : "none";
-            });
-            window.dispatchEvent(new Event("resize"));
+            document.dispatchEvent(new CustomEvent("bg-change", { detail: { variant: v } }));
           });
         });
       })();
