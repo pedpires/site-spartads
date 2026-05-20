@@ -1244,58 +1244,98 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     </section>
 
     <!-- PROCESS -->
-    <section id="processo" class="relative py-24 md:py-32 bg-[#05080f] border-y border-white/5">
+    <section id="processo" class="relative py-24 md:py-32 bg-[#04070e]">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="max-w-3xl reveal">
-          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Processo</div>
-          <h2 class="font-head mt-4 text-4xl md:text-6xl text-white">
-            4 passos.
-            <span class="text-[color:var(--brand-2)]">Zero surpresas.</span>
-          </h2>
-          <p class="mt-5 text-[color:var(--text-dim)] text-lg max-w-2xl leading-relaxed">
-            Conhecer o seu negócio em detalhe é o primeiro passo. Nada é feito de forma isolada. Tudo o que é feito é em prol dos objetivos que estabelecemos em conjunto — esse é o nosso compromisso.
-          </p>
-        </div>
+        <div class="reveal overflow-hidden rounded-3xl border border-white/[0.07]" style="background:#060a12;">
 
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-0 relative">
-          <div class="reveal relative md:pr-8 md:border-r md:border-white/5">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center font-semibold text-[13px] text-white bg-white/5 font-mono-ish">01</div>
-            </div>
-            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Diagnóstico</h3>
-            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
-              Sessão estratégica para entender o negócio, oferta, cliente ideal, margens e histórico.
-            </p>
+          <!-- Title row -->
+          <div class="px-8 md:px-12 pt-10 md:pt-12 pb-0">
+            <h2 class="font-display-xl text-3xl md:text-[42px] text-white max-w-sm">
+              4 passos.<br>
+              <span class="text-[color:var(--brand-2)]">Zero surpresas.</span>
+            </h2>
           </div>
-          <div class="reveal reveal-delay-1 relative md:px-8 md:border-r md:border-white/5">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center font-semibold text-[13px] text-white bg-white/5 font-mono-ish">02</div>
+
+          <!-- Columns -->
+          <div id="process-grid" class="mt-4 grid grid-cols-2 md:grid-cols-4" style="min-height:320px;">
+
+            <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="0">
+              <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
+                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">01</span>
+              </div>
+              <div class="relative z-10">
+                <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Diagnóstico</p>
+                <p class="mt-2 text-[13px] leading-relaxed text-white/40">Sessão estratégica para entender o negócio, oferta, cliente ideal, margens e histórico.</p>
+              </div>
             </div>
-            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Estratégia</h3>
-            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
-              Análise dos ativos digitais, plano de media, matriz criativa e KPIs — validados consigo.
-            </p>
-          </div>
-          <div class="reveal reveal-delay-2 relative md:px-8 md:border-r md:border-white/5">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full border border-white/15 flex items-center justify-center font-semibold text-[13px] text-white bg-white/5 font-mono-ish">03</div>
+
+            <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="1">
+              <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
+                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">02</span>
+              </div>
+              <div class="relative z-10">
+                <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Estratégia</p>
+                <p class="mt-2 text-[13px] leading-relaxed text-white/40">Plano de media, matriz criativa e KPIs definidos e validados consigo antes de arrancar.</p>
+              </div>
             </div>
-            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Implementação</h3>
-            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
-              Criativos, aprovações e go-live. Campanhas em Meta, Google e TikTok a correr.
-            </p>
-          </div>
-          <div class="reveal reveal-delay-3 relative md:pl-8">
-            <div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full bg-[color:var(--cta)] text-white flex items-center justify-center font-semibold text-[13px] shadow-[0_0_0_4px_rgba(22,163,74,0.25)] font-mono-ish">04</div>
+
+            <div class="pcol relative border-r border-white/[0.06] flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="2">
+              <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500"
+                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.12] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">03</span>
+              </div>
+              <div class="relative z-10">
+                <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Implementação</p>
+                <p class="mt-2 text-[13px] leading-relaxed text-white/40">Criativos, aprovações e go-live. Campanhas em Meta, Google e TikTok a correr.</p>
+              </div>
             </div>
-            <h3 class="mt-6 text-xl font-semibold tracking-tight text-white">Escala</h3>
-            <p class="mt-3 text-[color:var(--text-dim)] text-[14.5px] leading-relaxed">
-              Otimização contínua, reporting claro e crescimento consistente, mês após mês.
-            </p>
+
+            <div class="pcol relative flex flex-col justify-end p-7 md:p-10 overflow-hidden cursor-default" data-col="3">
+              <div class="pcol-glow absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0"
+                   style="background:radial-gradient(ellipse 90% 75% at 50% -10%, rgba(0,122,255,0.32) 0%, rgba(0,60,180,0.10) 55%, transparent 75%)"></div>
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                <span class="pcol-num select-none font-black leading-none text-white/[0.04] transition-all duration-500" style="font-size:clamp(100px,12vw,160px);">04</span>
+              </div>
+              <div class="relative z-10">
+                <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white">Escala</p>
+                <p class="mt-2 text-[13px] leading-relaxed text-white/40">Otimização contínua, reporting claro e crescimento consistente, mês após mês.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+
+      <script>
+        (function () {
+          var grid = document.getElementById("process-grid");
+          if (!grid) return;
+          var cols = Array.from(grid.querySelectorAll(".pcol"));
+          var defaultActive = 2;
+
+          function setActive(idx) {
+            cols.forEach(function (col, i) {
+              var glow = col.querySelector(".pcol-glow");
+              var num = col.querySelector(".pcol-num");
+              var isActive = i === idx;
+              if (glow) glow.style.opacity = isActive ? "1" : "0";
+              if (num) num.style.color = isActive ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)";
+            });
+          }
+
+          setActive(defaultActive);
+
+          cols.forEach(function (col, i) {
+            col.addEventListener("mouseenter", function () { setActive(i); });
+          });
+          grid.addEventListener("mouseleave", function () { setActive(defaultActive); });
+        })();
+      </script>
     </section>
 
     <!-- TEAM -->
