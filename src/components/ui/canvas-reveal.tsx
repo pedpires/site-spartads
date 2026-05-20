@@ -131,35 +131,35 @@ const DotMatrix = ({
             ${center.includes("x") ? "st.x -= abs(floor((mod(u_resolution.x, u_total_size) - u_dot_size) * 0.5));" : ""}
             ${center.includes("y") ? "st.y -= abs(floor((mod(u_resolution.y, u_total_size) - u_dot_size) * 0.5));" : ""}
 
-            float opacity = step(0.0, st.x) * step(0.0, st.y);
             vec2 st2 = vec2(int(st.x / u_total_size), int(st.y / u_total_size));
+
+            // Dot shape mask — 1.0 inside a dot pixel, 0.0 in the gaps
+            float dotMask = step(0.0, st.x) * step(0.0, st.y) *
+                            (1.0 - step(u_dot_size / u_total_size, fract(st.x / u_total_size))) *
+                            (1.0 - step(u_dot_size / u_total_size, fract(st.y / u_total_size)));
 
             float show_offset = random(st2);
             float rand = random(st2 * floor((u_time / 5.0) + show_offset + 5.0));
-            opacity *= u_opacities[int(rand * 10.0)];
-            opacity *= 1.0 - step(u_dot_size / u_total_size, fract(st.x / u_total_size));
-            opacity *= 1.0 - step(u_dot_size / u_total_size, fract(st.y / u_total_size));
-
+            float dotOpacity = u_opacities[int(rand * 10.0)];
             vec3 color = u_colors[int(show_offset * 6.0)];
 
             // Looping reveal from center outward
             vec2 center_grid = u_resolution / 2.0 / u_total_size;
             float dist = distance(center_grid, st2);
             float timing = dist * 0.012 + random(st2) * 0.15;
-
-            float cycleTime = 8.0;
-            float t = mod(u_time, cycleTime);
+            float t = mod(u_time, 8.0);
             float revealed = step(timing, t);
             float fade = 1.0 - smoothstep(4.5, 7.5, t);
-            opacity *= revealed * fade;
+            float animOpacity = dotOpacity * revealed * fade;
 
-            // Mouse proximity glow
+            // Mouse proximity glow — independent of reveal cycle, always on
             vec2 mouseCell = u_mouse / u_total_size;
             float mouseDist = distance(mouseCell, st2);
-            float mouseBoost = smoothstep(7.0, 0.0, mouseDist);
-            opacity = clamp(opacity + mouseBoost * 0.55 * revealed * fade, 0.0, 1.0);
+            float mouseBoost = smoothstep(7.0, 0.0, mouseDist) * 0.85;
 
-            fragColor = vec4(color, opacity);
+            float finalOpacity = clamp(animOpacity + mouseBoost, 0.0, 1.0) * dotMask;
+
+            fragColor = vec4(color, finalOpacity);
             fragColor.rgb *= fragColor.a;
           }
         `}
