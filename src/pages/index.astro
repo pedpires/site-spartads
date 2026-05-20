@@ -319,7 +319,8 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
         position: sticky; top: 0; height: 100vh; overflow: hidden;
       }
       #services-bg-wrapper > astro-island,
-      #faq-bg-wrapper > astro-island {
+      #faq-bg-wrapper > astro-island,
+      #cta-bg-wrapper > astro-island {
         display: block; position: absolute; inset: 0; overflow: hidden;
       }
       .hscroll-track {
@@ -1480,9 +1481,15 @@ import { CanvasRevealBackground } from "../components/ui/canvas-reveal";
     </section>
 
     <!-- FINAL CTA -->
-    <section id="agendar" class="relative py-12 md:py-20 hero-bg-flip-h">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.08);">
+    <section id="agendar" class="relative py-12 md:py-20 overflow-hidden">
+      <!-- Canvas reveal base -->
+      <div id="cta-bg-wrapper" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+        <CanvasRevealBackground client:only="react" />
+      </div>
+      <!-- Hero flip-h colour tint on top of dots -->
+      <div class="hero-bg-flip-h" style="position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.72;"></div>
+      <div class="mx-auto max-w-6xl px-6 relative" style="z-index:2;">
+        <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.1);">
 
           <div class="relative flex flex-col md:flex-row items-center gap-0 overflow-hidden">
             <!-- Foto Beatriz -->
