@@ -139,18 +139,18 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
       }
       /* ===== BUTTONS ===== */
       .btn-cta {
-        background: #FFE500;
+        background: #CFDC1E;
         color: #080808;
         text-transform: uppercase;
         letter-spacing: 0.045em;
         font-weight: 700;
         transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-        box-shadow: 0 10px 28px -8px rgba(255,229,0,0.5);
+        box-shadow: 0 10px 28px -8px rgba(207,220,30,0.5);
       }
       .btn-cta:hover {
         filter: brightness(1.07);
         transform: translateY(-1px);
-        box-shadow: 0 18px 40px -10px rgba(255,229,0,0.65);
+        box-shadow: 0 18px 40px -10px rgba(207,220,30,0.65);
       }
       .btn-cta:active { transform: translateY(0); }
 
@@ -677,12 +677,9 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             </a>
           </div>
           <!-- Star reviews -->
-          <div class="flex flex-col items-center gap-1.5">
-            <div class="text-[11px] uppercase tracking-[0.18em] text-[color:var(--text-dimmer)]">Diagnóstico gratuito de 30 min · sem compromisso</div>
-            <div class="flex items-center gap-2">
-              <div class="flex gap-0.5 text-[#FFB800] text-[16px] leading-none">★★★★★</div>
-              <span class="text-[13px] text-[color:var(--text-dim)]">4,9 estrelas em <strong class="text-white font-semibold">123 avaliações</strong></span>
-            </div>
+          <div class="flex items-center gap-2">
+            <div class="flex gap-0.5 text-[#FFB800] text-[16px] leading-none">★★★★★</div>
+            <span class="text-[13px] text-[color:var(--text-dim)]">4,9 estrelas em <strong class="text-white font-semibold">123 avaliações</strong></span>
           </div>
         </div>
 
@@ -1472,7 +1469,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     <!-- FINAL CTA -->
     <section id="agendar" class="relative py-12 md:py-20 hero-bg-flip-h">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="relative ring-edge rounded-[28px] overflow-hidden" style="background:rgba(0,8,28,0.45);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.08);">
+        <div class="relative rounded-[28px] overflow-hidden" style="border:1px solid rgba(255,255,255,0.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05),0 40px 80px -40px rgba(0,0,0,0.8);">
 
           <div class="relative flex flex-col md:flex-row items-center gap-0 overflow-hidden">
             <!-- Foto Beatriz -->
@@ -1485,7 +1482,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
             </div>
 
             <!-- Conteúdo -->
-            <div class="flex-1 px-8 md:px-12 lg:px-16 py-14 md:py-20">
+            <div class="flex-1 px-8 md:px-12 lg:px-16 py-14 md:py-20" style="background:rgba(0,6,20,0.35);">
               <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-white/80 font-medium">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
                 Agenda aberta este mês
