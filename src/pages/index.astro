@@ -77,6 +77,17 @@ import { HeroBackground } from "../components/ui/hero-background";
       }
       .font-mono-ish { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
 
+      /* Gradient on all main headings */
+      h1, h2, h3 {
+        background: linear-gradient(180deg, #ffffff 0%, #7a8293 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h1 span, h2 span, h3 span {
+        -webkit-text-fill-color: currentColor;
+      }
+
       /* ===== HERO ===== */
       .hero-bg {
         background:
