@@ -6,12 +6,16 @@ type Uniforms = {
   [key: string]: { value: number[] | number[][] | number; type: string };
 };
 
+type MouseRef = React.MutableRefObject<{ x: number; y: number }>;
+
 const ShaderMesh = ({
   source,
   uniforms,
+  mouseRef,
 }: {
   source: string;
   uniforms: Uniforms;
+  mouseRef: MouseRef;
 }) => {
   const { size } = useThree();
   const ref = useRef<THREE.Mesh>(null);
@@ -30,8 +34,9 @@ const ShaderMesh = ({
         default: out[name] = { value: u.value };
       }
     }
-    out["u_time"] = { value: 0 };
+    out["u_time"]       = { value: 0 };
     out["u_resolution"] = { value: new THREE.Vector2(size.width * 2, size.height * 2) };
+    out["u_mouse"]      = { value: new THREE.Vector2(-9999, -9999) };
     return out;
   };
 
@@ -59,6 +64,8 @@ const ShaderMesh = ({
     const mat = ref.current.material as THREE.ShaderMaterial;
     mat.uniforms.u_time.value = clock.getElapsedTime();
     mat.uniforms.u_resolution.value.set(size.width * 2, size.height * 2);
+    const m = mouseRef.current;
+    mat.uniforms.u_mouse.value.set(m.x * 2, m.y * 2);
   });
 
   return (
@@ -75,6 +82,7 @@ interface DotMatrixProps {
   totalSize?: number;
   dotSize?: number;
   center?: ("x" | "y")[];
+  mouseRef: MouseRef;
 }
 
 const DotMatrix = ({
@@ -83,6 +91,7 @@ const DotMatrix = ({
   totalSize = 20,
   dotSize = 3,
   center = ["x", "y"],
+  mouseRef,
 }: DotMatrixProps) => {
   let colorsArray = Array(6).fill(colors[0]) as number[][];
   if (colors.length === 2) colorsArray = [...Array(3).fill(colors[0]), ...Array(3).fill(colors[1])];
@@ -99,6 +108,7 @@ const DotMatrix = ({
     <Canvas className="absolute inset-0 h-full w-full">
       <ShaderMesh
         uniforms={uniforms}
+        mouseRef={mouseRef}
         source={`
           precision mediump float;
           in vec2 fragCoord;
@@ -108,6 +118,7 @@ const DotMatrix = ({
           uniform float u_total_size;
           uniform float u_dot_size;
           uniform vec2 u_resolution;
+          uniform vec2 u_mouse;
           out vec4 fragColor;
 
           float PHI = 1.61803398874989484820459;
@@ -131,11 +142,22 @@ const DotMatrix = ({
 
             vec3 color = u_colors[int(show_offset * 6.0)];
 
-            // Reveal from center outward
+            // Looping reveal from center outward
             vec2 center_grid = u_resolution / 2.0 / u_total_size;
             float dist = distance(center_grid, st2);
-            float timing = dist * 0.01 + random(st2) * 0.15;
-            opacity *= step(timing, u_time * 0.4);
+            float timing = dist * 0.012 + random(st2) * 0.15;
+
+            float cycleTime = 8.0;
+            float t = mod(u_time, cycleTime);
+            float revealed = step(timing, t);
+            float fade = 1.0 - smoothstep(4.5, 7.5, t);
+            opacity *= revealed * fade;
+
+            // Mouse proximity glow
+            vec2 mouseCell = u_mouse / u_total_size;
+            float mouseDist = distance(mouseCell, st2);
+            float mouseBoost = smoothstep(7.0, 0.0, mouseDist);
+            opacity = clamp(opacity + mouseBoost * 0.55 * revealed * fade, 0.0, 1.0);
 
             fragColor = vec4(color, opacity);
             fragColor.rgb *= fragColor.a;
@@ -147,13 +169,31 @@ const DotMatrix = ({
 };
 
 export function CanvasRevealBackground() {
+  const mouseRef = useRef({ x: -9999, y: -9999 });
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = wrapperRef.current?.getBoundingClientRect();
+    if (rect) mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  };
+
+  const handleMouseLeave = () => {
+    mouseRef.current = { x: -9999, y: -9999 };
+  };
+
   return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: "#000818" }}>
+    <div
+      ref={wrapperRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ position: "absolute", inset: 0, overflow: "hidden", background: "#000818" }}
+    >
       <DotMatrix
         colors={[[0, 122, 255], [61, 153, 255], [20, 90, 200]]}
         opacities={[0.08, 0.1, 0.12, 0.15, 0.18, 0.2, 0.28, 0.32, 0.4, 0.5]}
         totalSize={18}
         dotSize={3}
+        mouseRef={mouseRef}
       />
       <div style={{
         position: "absolute", inset: 0,

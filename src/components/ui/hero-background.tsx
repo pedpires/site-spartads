@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import { GrainBackground } from "./grain-background";
 import { TopoBackground } from "./topo-background";
-import { ShaderAnimation } from "./shader-animation";
 import { FluidParticlesBg } from "./fluid-particle-bg";
 import { CanvasRevealBackground } from "./canvas-reveal";
 
-type Variant = "a" | "b" | "c" | "d" | "e";
+type Variant = "b" | "d" | "e";
 
 // Only the active variant is mounted — inactive ones are fully unmounted (zero cost)
 export function HeroBackground() {
-  const [active, setActive] = useState<Variant>("a");
+  const [active, setActive] = useState<Variant>("b");
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -22,9 +20,7 @@ export function HeroBackground() {
 
   return (
     <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-      {active === "a" && <GrainBackground />}
       {active === "b" && <TopoBackground />}
-      {active === "c" && <ShaderAnimation />}
       {active === "d" && <FluidParticlesBg />}
       {active === "e" && <CanvasRevealBackground />}
     </div>
