@@ -1,6 +1,9 @@
 ---
 import { HeroBackground } from "../components/ui/hero-background";
 import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
+const origin = Astro.url.origin;
+const ogImage = `${origin}/assets/thumbnail.webp`;
+const canonicalUrl = `${origin}/`;
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -13,10 +16,10 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     <meta name="author" content="SpartAds" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.spartads.pt/" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content="SpartAds | Agência de Google Ads & Meta Ads em Portugal" />
     <meta property="og:description" content="13 anos de experiência · +€20M em media gerido · ROAS 6× a 17×. Ajudamos empresas portuguesas a crescer com paid media que converte. Sessão estratégica gratuita." />
-    <meta property="og:image" content="https://www.spartads.pt/assets/thumbnail.webp" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_PT" />
@@ -25,7 +28,7 @@ import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SpartAds | Agência de Google Ads & Meta Ads em Portugal" />
     <meta name="twitter:description" content="13 anos · +€20M geridos · ROAS 6× a 17×. Paid media que converte para empresas portuguesas." />
-    <meta name="twitter:image" content="https://www.spartads.pt/assets/thumbnail.webp" />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" href="https://d2saw6je89goi1.cloudfront.net/uploads/digital_asset/file/1213866/favicon.png" />
     <meta name="theme-color" content="#000818" />
