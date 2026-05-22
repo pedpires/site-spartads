@@ -1,669 +1,44 @@
----
-import { HeroBackground } from "../components/ui/hero-background";
-import { ShuffleTestimonials } from "../components/ui/testimonial-cards";
-const canonicalUrl = "https://www.spartads.pt/";
-const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
----
 <!doctype html>
 <html lang="pt-PT">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SpartAds | Agência de Google Ads & Meta Ads em Portugal</title>
+    <title>SpartAds | Agência de Google Ads &amp; Meta Ads em Portugal</title>
     <meta name="description" content="Agência portuguesa de paid media com 13 anos de experiência e +€20M geridos. Google Ads, Meta Ads e TikTok para empresas que querem crescer. Sessão estratégica gratuita." />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="SpartAds" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content="SpartAds | Agência de Google Ads & Meta Ads em Portugal" />
+    <meta property="og:url" content="https://www.spartads.pt/" />
+    <meta property="og:title" content="SpartAds | Agência de Google Ads &amp; Meta Ads em Portugal" />
     <meta property="og:description" content="13 anos de experiência · +€20M em media gerido · ROAS 6× a 17×. Ajudamos empresas portuguesas a crescer com paid media que converte. Sessão estratégica gratuita." />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content="https://site-spartads.vercel.app/assets/thumbnail.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_PT" />
     <meta property="og:site_name" content="SpartAds" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SpartAds | Agência de Google Ads & Meta Ads em Portugal" />
+    <meta name="twitter:title" content="SpartAds | Agência de Google Ads &amp; Meta Ads em Portugal" />
     <meta name="twitter:description" content="13 anos · +€20M geridos · ROAS 6× a 17×. Paid media que converte para empresas portuguesas." />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content="https://site-spartads.vercel.app/assets/thumbnail.webp" />
 
     <link rel="icon" href="https://d2saw6je89goi1.cloudfront.net/uploads/digital_asset/file/1213866/favicon.png" />
     <meta name="theme-color" content="#000818" />
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <style is:global>
-      :root {
-        --bg: #000610;
-        --bg-2: #000d1e;
-        --bg-3: #011228;
-        --surface: #07152a;
-        --surface-2: #0c1a32;
-        --border: #1b2d45;
-        --border-soft: #0f1e32;
-        --text: #ffffff;
-        --text-dim: #b7b9c2;
-        --text-dimmer: #7a8293;
-        --brand: #007aff;
-        --brand-2: #3d99ff;
-        --brand-3: #bdd6f1;
-        --brand-hover: #0066d5;
-        --cta: #16a34a;
-        --cta-2: #22c55e;
-        --cta-hover: #15803d;
-      }
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      html { scroll-behavior: smooth; background: var(--bg); }
-      body {
-        font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        font-weight: 400;
-        letter-spacing: -0.005em;
-      }
-      ::selection { background: var(--brand); color: #ffffff; }
-
-      .font-display {
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-        line-height: 0.96;
-      }
-      .font-display-xl {
-        font-family: "Outfit", sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.04em;
-        line-height: 0.92;
-      }
-      .font-head {
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        letter-spacing: -0.025em;
-        line-height: 1;
-      }
-      .font-mono-ish { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; }
-
-      /* Gradient on all main headings */
-      h1, h2, h3 {
-        background: linear-gradient(to left, #ffffff 0%, #ffffff 60%, #c2c6d2 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        padding-bottom: 0.12em;
-      }
-      h1 span, h2 span, h3 span {
-        -webkit-text-fill-color: currentColor;
-        background: none;
-        -webkit-background-clip: unset;
-        background-clip: unset;
-      }
-
-      /* ===== HERO ===== */
-      .hero-bg {
-        background:
-          radial-gradient(1400px 900px at 12% 0%, rgba(0, 100, 255, 0.82), transparent 58%),
-          radial-gradient(900px 600px at 88% 10%, rgba(0, 80, 240, 0.48), transparent 55%),
-          radial-gradient(700px 500px at 50% 105%, rgba(0, 122, 255, 0.38), transparent 58%),
-          radial-gradient(900px 520px at 92% 18%, rgba(22, 163, 74, 0.14), transparent 60%),
-          linear-gradient(180deg, #000818 0%, #001530 100%);
-      }
-
-      .hero-bg-flipped {
-        background:
-          radial-gradient(1400px 900px at 12% 100%, rgba(0, 100, 255, 0.82), transparent 58%),
-          radial-gradient(900px 600px at 88% 90%, rgba(0, 80, 240, 0.48), transparent 55%),
-          radial-gradient(700px 500px at 50% -5%, rgba(0, 122, 255, 0.38), transparent 58%),
-          radial-gradient(900px 520px at 92% 82%, rgba(22, 163, 74, 0.14), transparent 60%),
-          linear-gradient(180deg, #001530 0%, #000818 100%);
-      }
-
-      .hero-bg-flip-h {
-        background:
-          radial-gradient(1400px 900px at 88% 0%, rgba(0, 100, 255, 0.82), transparent 58%),
-          radial-gradient(900px 600px at 12% 10%, rgba(0, 80, 240, 0.48), transparent 55%),
-          radial-gradient(700px 500px at 50% 105%, rgba(0, 122, 255, 0.38), transparent 58%),
-          radial-gradient(900px 520px at 8% 18%, rgba(22, 163, 74, 0.14), transparent 60%),
-          linear-gradient(180deg, #000818 0%, #001530 100%);
-      }
-
-      .grain {
-        position: absolute; inset: 0; pointer-events: none;
-        opacity: 0.4; mix-blend-mode: overlay;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      }
-
-      /* cursor spotlight */
-      .spotlight {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(400px 400px at var(--mx, 50%) var(--my, 30%), rgba(0,122,255,0.55), transparent 60%);
-        transition: opacity 0.35s ease;
-      }
-
-      .dotted {
-        background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-        background-size: 22px 22px;
-      }
-      /* ===== BUTTONS ===== */
-      .btn-cta {
-        background: #CFDC1E;
-        color: #080808;
-        text-transform: uppercase;
-        letter-spacing: 0.045em;
-        font-weight: 700;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-        box-shadow: 0 10px 28px -8px rgba(207,220,30,0.5);
-      }
-      .btn-cta:hover {
-        filter: brightness(1.07);
-        transform: translateY(-1px);
-        box-shadow: 0 18px 40px -10px rgba(207,220,30,0.65);
-      }
-      .btn-cta:active { transform: translateY(0); }
-
-      .btn-brand {
-        background: var(--brand);
-        color: #ffffff;
-        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-        box-shadow: 0 10px 30px -10px rgba(0,122,255,0.55);
-        font-weight: 600;
-      }
-      .btn-brand:hover { background: var(--brand-hover); transform: translateY(-1px); box-shadow: 0 16px 40px -12px rgba(0,122,255,0.75); }
-
-      .btn-ghost {
-        background: rgba(255,255,255,0.04);
-        color: #ffffff;
-        border: 1px solid rgba(255,255,255,0.14);
-        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-      }
-      .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.24); transform: translateY(-1px); }
-
-      .btn-whatsapp {
-        background: #25d366;
-        color: #07120a;
-        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-        box-shadow: 0 10px 30px -10px rgba(37,211,102,0.5);
-        font-weight: 600;
-      }
-      .btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-1px); }
-
-
-      /* Reveal */
-      .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.9s cubic-bezier(0.2,0.7,0.2,1), transform 0.9s cubic-bezier(0.2,0.7,0.2,1); will-change: opacity, transform; }
-      .reveal.on { opacity: 1; transform: none; }
-      .reveal-delay-1 { transition-delay: 0.08s; }
-      .reveal-delay-2 { transition-delay: 0.16s; }
-      .reveal-delay-3 { transition-delay: 0.24s; }
-      .reveal-delay-4 { transition-delay: 0.32s; }
-      .reveal-delay-5 { transition-delay: 0.40s; }
-
-      @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
-      .live-dot { animation: pulseDot 1.8s ease-in-out infinite; }
-
-      @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-      .marquee-track { animation: marquee 55s linear infinite; }
-      .marquee-track-slow { animation: marquee 80s linear infinite; }
-
-      /* Cards */
-      .card {
-        background: linear-gradient(180deg, var(--surface) 0%, #0b1220 100%);
-        border: 1px solid var(--border);
-        transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
-      }
-      .card:hover {
-        transform: translateY(-4px);
-        border-color: #2a3a55;
-        box-shadow: 0 30px 60px -25px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,122,255,0.08) inset;
-      }
-      .card-brand {
-        background:
-          radial-gradient(500px 360px at 80% 0%, rgba(0,122,255,0.22), transparent 60%),
-          linear-gradient(180deg, var(--surface) 0%, #0b1220 100%);
-        border: 1px solid rgba(0,122,255,0.35);
-      }
-      .card-cta {
-        background:
-          radial-gradient(500px 360px at 80% 0%, rgba(22,163,74,0.18), transparent 60%),
-          linear-gradient(180deg, var(--surface) 0%, #0b1220 100%);
-        border: 1px solid rgba(22,163,74,0.32);
-      }
-
-      .cta-glow {
-        background:
-          radial-gradient(700px 380px at 20% 10%, rgba(0, 100, 255, 0.72), transparent 58%),
-          radial-gradient(600px 350px at 80% 80%, rgba(0, 80, 220, 0.45), transparent 60%),
-          radial-gradient(500px 300px at 85% 90%, rgba(22, 163, 74, 0.22), transparent 60%),
-          linear-gradient(180deg, #000d20, #010e26);
-      }
-      .ring-edge { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 40px 80px -40px rgba(0,0,0,1); }
-
-      .nav-blur { backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); }
-
-      #main-nav {
-        transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1);
-      }
-      #main-nav.nav-hidden {
-        transform: translateY(-120%);
-      }
-      .nav-inner {
-        background: rgba(4,7,14,0.85);
-        border: 1px solid rgba(255,255,255,0.1);
-        backdrop-filter: saturate(180%) blur(16px);
-        -webkit-backdrop-filter: saturate(180%) blur(16px);
-        transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
-      }
-      #main-nav.at-top .nav-inner {
-        background: transparent;
-        border-color: transparent;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-      }
-
-      .soft-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent); }
-
-      .metric-white {
-        background: linear-gradient(180deg, #ffffff 0%, #7a8293 100%);
-        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      }
-      .metric-brand {
-        background: linear-gradient(180deg, #6aadff 0%, #007aff 100%);
-        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      }
-      .metric-cta {
-        background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
-        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      }
-
-      .bar { background: linear-gradient(180deg, #2a3a55, #111a2b); border-radius: 4px; }
-      .bar-brand { background: linear-gradient(180deg, #3d99ff, #007aff); border-radius: 4px; box-shadow: 0 0 14px rgba(0,122,255,0.5); }
-      .bar-cta { background: linear-gradient(180deg, #22c55e, #16a34a); border-radius: 4px; box-shadow: 0 0 16px rgba(22,163,74,0.55); }
-
-      /* 3D tilt on mockup */
-      .tilt-wrap { perspective: 1200px; }
-      .tilt-el { transform-style: preserve-3d; transition: transform 0.15s cubic-bezier(0.2,0.7,0.2,1); }
-
-      /* FAQ */
-      details.faq[open] .faq-icon { transform: rotate(45deg); }
-      .faq-icon { transition: transform 0.3s ease; }
-      details.faq > summary { list-style: none; cursor: pointer; }
-      details.faq > summary::-webkit-details-marker { display: none; }
-
-      @keyframes pulseBorder {
-        0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.45); }
-        50% { box-shadow: 0 0 0 8px rgba(22,163,74,0); }
-      }
-      .pulse-border { animation: pulseBorder 2.4s ease-in-out infinite; }
-
-      .sticky-cta {
-        position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
-        transform: translateY(120%);
-        transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1);
-      }
-      .sticky-cta.visible { transform: translateY(0); }
-
-      /* Team photos */
-      .team-photo {
-        width: 100%;
-        aspect-ratio: 1;
-        border-radius: 14px;
-        overflow: hidden;
-        background: linear-gradient(180deg, #1b2535, #0b1220);
-        position: relative;
-      }
-      .team-photo img {
-        width: 100%; height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.2,0.7,0.2,1), filter 0.4s ease;
-        filter: grayscale(25%) contrast(1.02);
-      }
-      .card:hover .team-photo img { transform: scale(1.06); filter: grayscale(0%) contrast(1.05); }
-
-      /* Client logos */
-      .client-logo {
-        height: 52px;
-        width: auto;
-        max-width: 180px;
-        object-fit: contain;
-        filter: brightness(0) invert(1);
-        opacity: 0.6;
-        transition: opacity 0.3s ease, filter 0.3s ease;
-      }
-      .client-logo:hover { opacity: 1; filter: brightness(0) invert(1); }
-
-      /* Certification badges */
-      .cert-badge {
-        height: 64px;
-        width: auto;
-        opacity: 0.88;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-      }
-      .cert-badge:hover { transform: scale(1.05); opacity: 1; }
-
-      /* ===== HORIZONTAL SCROLL SERVICES ===== */
-      .hscroll-wrap { position: relative; height: 560vh; }
-      .hscroll-sticky {
-        position: sticky; top: 0; height: 100vh; overflow: hidden;
-        background:
-          radial-gradient(900px 500px at 20% 50%, rgba(0,100,255,0.32), transparent 60%),
-          radial-gradient(700px 400px at 90% 70%, rgba(22,163,74,0.12), transparent 60%),
-          #000810;
-      }
-      .hscroll-track {
-        position: absolute; top: 0; left: 0; height: 100%;
-        display: flex; align-items: center; gap: 2rem;
-        padding-left: 6vw; padding-right: 20vw;
-        will-change: transform;
-        z-index: 2;
-      }
-      .hcard {
-        position: relative; flex: 0 0 auto;
-        width: 78vw; max-width: 1100px;
-        height: 70vh; max-height: 680px;
-        border-radius: 28px; overflow: hidden;
-        border: 1px solid var(--border);
-        background: linear-gradient(180deg, #030c1c 0%, #010608 100%);
-        display: flex; flex-direction: column; padding: 3.5rem;
-        transition: border-color 0.4s ease;
-      }
-      .hcard:hover { border-color: #2a3a55; }
-      .hcard-num {
-        font-family: "Outfit", sans-serif; font-weight: 600;
-        font-size: 0.7rem; letter-spacing: 0.18em;
-        color: rgba(255,255,255,0.25); display: block; margin-bottom: 0.6rem;
-        text-transform: uppercase;
-      }
-      .hcard-icon-abs {
-        position: absolute; right: -80px; top: -80px;
-        width: 560px; height: 560px; border-radius: 100px;
-        display: flex; align-items: center; justify-content: center;
-        transform: perspective(500px) rotateX(18deg) rotateY(-22deg) rotateZ(2deg);
-        z-index: 1;
-        transform-style: preserve-3d;
-      }
-      .hcard-icon-abs svg {
-        filter:
-          drop-shadow(4px 10px 22px rgba(0,0,0,0.9))
-          drop-shadow(-2px -2px 10px rgba(255,255,255,0.06))
-          drop-shadow(0 0 28px color-mix(in srgb, currentColor 40%, transparent));
-        opacity: 0.9;
-      }
-      @media (max-width: 768px) {
-        .hcard-icon-abs { width: 360px; height: 360px; right: -40px; top: -40px; }
-      }
-      .hcard-brand {
-        background:
-          radial-gradient(600px 400px at 90% 0%, rgba(0,122,255,0.28), transparent 60%),
-          linear-gradient(180deg, var(--surface) 0%, #060c18 100%);
-        border: 1px solid rgba(0,122,255,0.35);
-      }
-      .hcard-cta {
-        background:
-          radial-gradient(600px 400px at 90% 0%, rgba(22,163,74,0.22), transparent 60%),
-          linear-gradient(180deg, var(--surface) 0%, #060c18 100%);
-        border: 1px solid rgba(22,163,74,0.32);
-      }
-      @media (max-width: 768px) {
-        .hcard { width: 86vw; padding: 2rem; height: 78vh; }
-      }
-
-      .hscroll-header {
-        position: absolute; top: 0; left: 0; right: 0;
-        padding: 2rem 0 1rem; z-index: 10;
-        background: linear-gradient(180deg, rgba(0,0,0,0.9), transparent);
-        pointer-events: none;
-      }
-      .hscroll-header > * { pointer-events: auto; }
-      .hscroll-progress { position: absolute; bottom: 2.5rem; left: 6vw; right: 6vw; z-index: 10; }
-      .hscroll-progress-bar { height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
-      .hscroll-progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--brand), var(--cta));
-        width: 0%;
-        transition: width 0.1s linear;
-        box-shadow: 0 0 12px rgba(0,122,255,0.6);
-      }
-      .hint-scroll {
-        position: absolute; bottom: 5rem; right: 6vw; z-index: 10;
-        display: flex; align-items: center; gap: 0.5rem;
-        font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em;
-        color: var(--text-dimmer); opacity: 0.6;
-      }
-
-      /* Count-up */
-      .count-up { font-variant-numeric: tabular-nums; }
-
-      /* Modal */
-      .modal-overlay {
-        position: fixed; inset: 0; z-index: 100;
-        background: rgba(0,0,0,0.85);
-        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        display: flex; align-items: center; justify-content: center;
-        padding: 1rem;
-        opacity: 0; pointer-events: none;
-        transition: opacity 0.35s cubic-bezier(0.2,0.7,0.2,1);
-      }
-      .modal-overlay.open { opacity: 1; pointer-events: auto; }
-      .modal-content {
-        position: relative;
-        width: 100%; max-width: 760px; height: 85vh; max-height: 720px;
-        background: #0a0f1a;
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        overflow: hidden;
-        transform: scale(0.96) translateY(12px);
-        transition: transform 0.4s cubic-bezier(0.2,0.7,0.2,1);
-        box-shadow: 0 40px 120px -20px rgba(0,122,255,0.4);
-      }
-      .modal-overlay.open .modal-content { transform: none; }
-      .modal-close {
-        position: absolute; top: 1rem; right: 1rem; z-index: 2;
-        width: 40px; height: 40px; border-radius: 50%;
-        background: rgba(0,0,0,0.6); color: #ffffff;
-        border: 1px solid rgba(255,255,255,0.15);
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease;
-      }
-      .modal-close:hover { background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.3); }
-      .modal-iframe { width: 100%; height: 100%; border: 0; }
-
-      .logo-wordmark {
-        display: flex; align-items: center; gap: 0.5rem;
-      }
-
-      /* ── Team Carousel ─────────────────────── */
-      .tcarousel-viewport {
-        position: relative;
-        overflow: hidden;
-        cursor: grab;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: pan-y;
-      }
-      .tcarousel-viewport.is-dragging { cursor: grabbing; }
-
-      .tcarousel-track {
-        display: flex;
-        gap: 16px;
-        will-change: transform;
-      }
-
-      /* Card: width + height definidos por JS */
-      .tcard {
-        flex-shrink: 0;
-        border-radius: 16px;
-        overflow: hidden;
-        position: relative;
-      }
-      .tcard img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-      }
-      .tcard-overlay {
-        position: absolute;
-        bottom: 0; left: 0; right: 0;
-        padding: 14px 16px 18px;
-        background: linear-gradient(to top,
-          rgba(4,7,14,0.97) 0%,
-          rgba(4,7,14,0.55) 55%,
-          transparent 100%);
-      }
-      .tcard-name { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.3; }
-      .tcard-role {
-        font-size: 10px; color: var(--brand-2); font-weight: 500;
-        text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px;
-      }
-
-      .tcarousel-btn {
-        position: absolute; top: 50%; transform: translateY(-50%);
-        width: 44px; height: 44px; border-radius: 50%;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(9,15,22,0.85);
-        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-        color: rgba(255,255,255,0.8);
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; z-index: 10;
-        transition: background 0.25s, border-color 0.25s, transform 0.25s;
-      }
-      .tcarousel-btn:hover {
-        background: rgba(0,122,255,0.22); border-color: rgba(61,153,255,0.5);
-        transform: translateY(-50%) scale(1.08);
-      }
-      .tcarousel-btn-prev { left: 10px; }
-      .tcarousel-btn-next { right: 10px; }
-
-      .tcarousel-dots {
-        display: flex; justify-content: center; align-items: center;
-        gap: 6px; margin-top: 20px; flex-wrap: wrap;
-      }
-      .tcarousel-dot {
-        flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
-        background: rgba(255,255,255,0.18); border: none; padding: 0; cursor: pointer;
-        transition: background 0.3s, width 0.3s, border-radius 0.3s;
-      }
-      .tcarousel-dot.is-active { width: 20px; border-radius: 3px; background: var(--brand-2); }
-
-      /* ── Results Bento ──────────────────────── */
-      .res-bento {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: "hero" "ferro" "suppl" "mold" "fpt" "fes";
-        gap: 10px;
-      }
-      @media (min-width: 640px) {
-        .res-bento {
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-areas:
-            "hero hero ferro"
-            "hero hero suppl"
-            "mold fpt   fes";
-        }
-      }
-      .res-card {
-        position: relative;
-        border-radius: 18px;
-        padding: 22px 24px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-      .res-card:hover {
-        border-color: rgba(61,153,255,0.2);
-        box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6);
-      }
-      .res-card--hero {
-        padding: 28px 30px;
-        border-color: rgba(34,197,94,0.15);
-        background:
-          radial-gradient(circle at 80% 85%, rgba(22,163,74,0.1) 0%, transparent 55%),
-          var(--surface);
-      }
-      .res-card--hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background:
-          repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(255,255,255,0.016) 32px),
-          repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(255,255,255,0.016) 32px);
-        pointer-events: none;
-      }
-      .res-card--hero:hover {
-        border-color: rgba(34,197,94,0.3);
-        box-shadow: 0 28px 56px -16px rgba(0,0,0,0.75), 0 0 0 1px rgba(34,197,94,0.08) inset;
-      }
-      .res-card--lead {
-        background:
-          radial-gradient(circle at 85% 90%, rgba(0,122,255,0.07) 0%, transparent 55%),
-          var(--surface);
-      }
-      .res-tag {
-        display: inline-block;
-        font-size: 10px; font-weight: 500;
-        text-transform: uppercase; letter-spacing: 0.12em;
-        color: var(--text-dimmer);
-        background: rgba(255,255,255,0.045);
-        border: 1px solid rgba(255,255,255,0.07);
-        padding: 3px 9px; border-radius: 20px;
-      }
-      .res-badge {
-        font-size: 10px; font-weight: 600;
-        text-transform: uppercase; letter-spacing: 0.1em;
-        color: var(--cta-2);
-        background: rgba(34,197,94,0.12);
-        border: 1px solid rgba(34,197,94,0.22);
-        padding: 3px 9px; border-radius: 20px;
-      }
-      .res-label {
-        font-size: 10.5px; font-weight: 500;
-        text-transform: uppercase; letter-spacing: 0.14em;
-        color: var(--text-dimmer); margin-bottom: 2px;
-      }
-      .res-big {
-        font-family: "Outfit", system-ui, sans-serif;
-        font-size: clamp(44px, 5vw, 58px);
-        font-weight: 800; color: #fff;
-        line-height: 1; letter-spacing: -0.025em;
-      }
-      .res-big--xl {
-        font-size: clamp(76px, 9.5vw, 112px);
-        letter-spacing: -0.035em;
-      }
-      .res-ba {
-        display: flex; align-items: center; gap: 6px; margin-top: 6px;
-      }
-      .res-ba-from { font-size: 13px; color: var(--text-dimmer); font-weight: 500; }
-      .res-ba-arr  { font-size: 15px; color: var(--cta-2); font-weight: 700; line-height: 1; }
-      .res-ba-to   { font-size: 13px; color: var(--cta-2); font-weight: 700; }
-      .res-desc {
-        font-size: 13px; color: var(--text-dim); line-height: 1.65;
-      }
-
-      #hero-bg-wrapper > astro-island {
-        display: block;
-        position: absolute;
-        inset: 0;
-        overflow: hidden;
-      }
-    </style>
+    <!-- CSS custom -->
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
+
     <!-- NAV -->
     <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 py-3 px-4 md:px-6">
       <div class="nav-inner mx-auto max-w-5xl rounded-2xl px-5 h-14 flex items-center justify-between">
@@ -689,11 +64,8 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
 
     <!-- HERO -->
     <section id="top" class="relative overflow-hidden" style="isolation: isolate;">
-      <!-- Background variants (lazy-mounted — only active variant runs) -->
-      <div id="hero-bg-wrapper" style="position:absolute;inset:0;z-index:0;">
-        <HeroBackground client:only="react" />
-      </div>
-
+      <!-- WebGL background canvas -->
+      <div id="hero-bg-canvas-wrap"></div>
 
       <div class="mx-auto max-w-6xl px-6 pt-32 md:pt-40 pb-24 md:pb-32 relative text-center">
         <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-[color:var(--text-dim)] font-medium pulse-border">
@@ -717,13 +89,13 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
 
         <div class="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4">
           <div class="flex flex-wrap gap-3 justify-center">
-            <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-[15px]">
+            <button type="button" data-open-modal data-cta="hero-conversion" class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-[15px]">
               Agendar Sessão Estratégica
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
-            <a href="#resultados" class="btn-ghost inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-[15px] font-medium">
+            <a href="#resultados" data-cta="hero-cta" class="btn-ghost inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-[15px] font-medium">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 3v18h18M7 14l4-4 4 4 6-6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -812,39 +184,41 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </div>
           </div>
-        <!-- Client logos inside hero, below dashboard -->
-        <div class="mt-14 reveal">
-          <div class="text-center mb-6">
-            <div class="text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-dimmer)] font-medium">
-              Trabalhamos com marcas portuguesas e internacionais
+
+          <!-- Client logos inside hero, below dashboard -->
+          <div class="mt-14 reveal">
+            <div class="text-center mb-6">
+              <div class="text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-dimmer)] font-medium">
+                Trabalhamos com marcas portuguesas e internacionais
+              </div>
+            </div>
+            <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+              <div class="flex gap-12 items-center marquee-track-slow whitespace-nowrap">
+                <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
+                <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
+                <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
+                <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
+                <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
+                <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
+                <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
+                <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
+                <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
+                <img class="client-logo" alt="Cozinha Sr Lisboa" src="https://www.spartads.pt/hosted/images/a2/a4333a42ce4c779e21ed7cfb631afe/cozinha-sr-lisboa.png" />
+                <img class="client-logo" alt="Yuni" src="https://www.spartads.pt/hosted/images/5d/46ee1267b04b159cef9dcf190b68cf/yuni.png" />
+                <img class="client-logo" alt="Caixilho" src="https://www.spartads.pt/hosted/images/bb/d2c16c01cd4bca9f36c7271d92a810/caixilho.png" />
+                <img class="client-logo" alt="Cuida PT" src="https://www.spartads.pt/hosted/images/bd/198b7ace444abb88ba90b62e8a1490/cuida-pt.png" />
+                <img class="client-logo" alt="Nutribio" src="https://www.spartads.pt/hosted/images/b5/c634f934694c64ac68906a8251614d/nutribio.png" />
+                <img class="client-logo" alt="Sembra" src="https://www.spartads.pt/hosted/images/6c/fa4cd75294484abab8ca0ebb424a9a/sembra.png" />
+                <img class="client-logo" alt="3xP Global" src="https://www.spartads.pt/hosted/images/0d/c6b6b434254c6aa1fd345fff710f55/3xPGlobal.png" />
+                <img class="client-logo" alt="EV Espaço Visual" src="https://www.spartads.pt/hosted/images/5c/fa68a0e6894268972dc7dc00905cae/ev-espaco-visual.png" />
+                <!-- Duplicar para loop contínuo -->
+                <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
+                <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
+                <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
+                <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
+              </div>
             </div>
           </div>
-          <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
-            <div class="flex gap-12 items-center marquee-track-slow whitespace-nowrap">
-              <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
-              <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
-              <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
-              <img class="client-logo" alt="PTL Travels" src="https://www.spartads.pt/hosted/images/ec/4c44dafe7041acbe33f95392586956/PTL-Travels.png" />
-              <img class="client-logo" alt="Bazar Desportivo" src="https://www.spartads.pt/hosted/images/05/ee69db019446fda9e5629f5e9cf961/Bazar-Desportivo.png" />
-              <img class="client-logo" alt="Nood" src="https://www.spartads.pt/hosted/images/79/bb0fb96f6a4271b6257ecce22093f2/nood.png" />
-              <img class="client-logo" alt="Budwing" src="https://www.spartads.pt/hosted/images/ed/54cefca1474260b52bfd9da3c41503/Budwing.png" />
-              <img class="client-logo" alt="JJ Pinto" src="https://www.spartads.pt/hosted/images/88/60adae3c864db592dbbaa6a95c4dd2/jjpinto.png" />
-              <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
-              <img class="client-logo" alt="Cozinha Sr Lisboa" src="https://www.spartads.pt/hosted/images/a2/a4333a42ce4c779e21ed7cfb631afe/cozinha-sr-lisboa.png" />
-              <img class="client-logo" alt="Yuni" src="https://www.spartads.pt/hosted/images/5d/46ee1267b04b159cef9dcf190b68cf/yuni.png" />
-              <img class="client-logo" alt="Caixilho" src="https://www.spartads.pt/hosted/images/bb/d2c16c01cd4bca9f36c7271d92a810/caixilho.png" />
-              <img class="client-logo" alt="Cuida PT" src="https://www.spartads.pt/hosted/images/bd/198b7ace444abb88ba90b62e8a1490/cuida-pt.png" />
-              <img class="client-logo" alt="Nutribio" src="https://www.spartads.pt/hosted/images/b5/c634f934694c64ac68906a8251614d/nutribio.png" />
-              <img class="client-logo" alt="Sembra" src="https://www.spartads.pt/hosted/images/6c/fa4cd75294484abab8ca0ebb424a9a/sembra.png" />
-              <img class="client-logo" alt="3xP Global" src="https://www.spartads.pt/hosted/images/0d/c6b6b434254c6aa1fd345fff710f55/3xPGlobal.png" />
-              <img class="client-logo" alt="EV Espaço Visual" src="https://www.spartads.pt/hosted/images/5c/fa68a0e6894268972dc7dc00905cae/ev-espaco-visual.png" />
-              <img class="client-logo" alt="Holmes Place" src="https://www.spartads.pt/hosted/images/b6/5ad83bc9034b47a06522f4f8ff88ae/holmes-place.png" />
-              <img class="client-logo" alt="Salvador Caetano" src="https://www.spartads.pt/hosted/images/ee/3032dfe66a4b6c9713e3567da6adac/Salvador-Caetano.png" />
-              <img class="client-logo" alt="Tescoma" src="https://www.spartads.pt/hosted/images/20/cf187a30ff43a9b28b289391c76f9a/tescoma.png" />
-              <img class="client-logo" alt="OAK" src="https://www.spartads.pt/hosted/images/ff/bd43cf43f04f248a932e3db36b8b38/OAK.png" />
-            </div>
-          </div>
-        </div>
         </div>
       </div>
     </section>
@@ -903,6 +277,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
           </div>
 
           <div class="hscroll-track" id="hscroll-track">
+            <!-- Card 01: Google Ads -->
             <article class="hcard">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
@@ -931,6 +306,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </article>
 
+            <!-- Card 02: Meta Ads -->
             <article class="hcard hcard-brand">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
@@ -955,6 +331,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </article>
 
+            <!-- Card 03: TikTok Ads -->
             <article class="hcard">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
@@ -981,6 +358,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </article>
 
+            <!-- Card 04: Estratégia & Funil -->
             <article class="hcard hcard-cta">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--cta-2)] font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)]"></span>
@@ -1011,6 +389,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </article>
 
+            <!-- Card 05: Vídeo & Criativo -->
             <article class="hcard">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)]"></span>
@@ -1035,6 +414,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </article>
 
+            <!-- Card 06: Landing Pages & CRO -->
             <article class="hcard hcard-brand">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--brand)] live-dot"></span>
@@ -1059,6 +439,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
             </article>
 
+            <!-- Card 07: CTA final -->
             <article class="hcard" style="background: linear-gradient(180deg,#007aff 0%, #0066d5 100%); border-color: rgba(255,255,255,0.18);">
               <div class="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-white/85 font-semibold">
                 <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
@@ -1069,7 +450,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
                 <p class="mt-5 text-white/85 text-lg md:text-xl leading-relaxed max-w-xl">
                   Sessão estratégica de 30min, sem custo e sem pitch. Sai com um plano de ação — mesmo que não trabalhemos juntos.
                 </p>
-                <button type="button" data-open-modal class="mt-8 btn-cta inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px]">
+                <button type="button" data-open-modal data-cta="services-conversion" class="mt-8 btn-cta inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px]">
                   Agendar Sessão Estratégica
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
@@ -1145,7 +526,6 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
           </div>
 
           <div class="res-bento">
-
             <!-- HERO: Dietética España -->
             <article class="res-card res-card--hero" style="grid-area:hero">
               <div class="flex items-start justify-between">
@@ -1160,9 +540,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
                   <span class="res-ba-arr">↗</span>
                   <span class="res-ba-to">17.5</span>
                 </div>
-                <p class="res-desc mt-5">
-                  Expansão IBE + pacote completo de tracking. De conta "quase-quebrada" a líder de categoria.
-                </p>
+                <p class="res-desc mt-5">Expansão IBE + pacote completo de tracking. De conta "quase-quebrada" a líder de categoria.</p>
               </div>
             </article>
 
@@ -1232,7 +610,6 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
               <p class="res-desc mt-3">Modelo PT replicado para o mercado espanhol.</p>
             </article>
-
           </div>
         </div>
 
@@ -1244,7 +621,6 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-
             <article class="res-card res-card--lead">
               <span class="res-tag">Consultora</span>
               <div class="mt-5">
@@ -1286,7 +662,6 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
               </div>
               <p class="res-desc mt-3">Volume dobrado e CPL -40% em simultâneo.</p>
             </article>
-
           </div>
         </div>
 
@@ -1361,36 +736,9 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
           </div>
         </div>
       </div>
-
-      <script>
-        (function () {
-          var grid = document.getElementById("process-grid");
-          if (!grid) return;
-          var cols = Array.from(grid.querySelectorAll(".pcol"));
-          var defaultActive = 2;
-
-          function setActive(idx) {
-            cols.forEach(function (col, i) {
-              var glow = col.querySelector(".pcol-glow");
-              var num = col.querySelector(".pcol-num");
-              var isActive = i === idx;
-              if (glow) glow.style.opacity = isActive ? "1" : "0";
-              if (num) num.style.color = isActive ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)";
-            });
-          }
-
-          setActive(defaultActive);
-
-          cols.forEach(function (col, i) {
-            col.addEventListener("mouseenter", function () { setActive(i); });
-          });
-          grid.addEventListener("mouseleave", function () { setActive(defaultActive); });
-        })();
-      </script>
     </section>
 
     <!-- TEAM -->
-    <!-- EQUIPA – CARROSSEL -->
     <section id="equipa" class="relative py-24 md:py-32 overflow-hidden" style="background:#04070e;">
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
            style="background:radial-gradient(ellipse 110% 45% at 50% 0%,rgba(0,122,255,0.13) 0%,transparent 65%)"></div>
@@ -1422,7 +770,6 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
     </section>
 
     <!-- TESTIMONIALS -->
-    <!-- TESTIMONIALS -->
     <section class="relative py-24 md:py-32 border-y border-white/5 bg-[#05080f]">
       <div class="mx-auto max-w-6xl px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -1449,7 +796,16 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
           </div>
 
           <div class="reveal reveal-delay-1 flex justify-center">
-            <ShuffleTestimonials client:only="react" />
+            <!-- Testimonials stack — vanilla JS (sem React/Framer Motion) -->
+            <div class="flex flex-col items-center gap-10">
+              <div id="testimonials-stack" class="testimonials-stack"></div>
+              <button id="testimonials-shuffle-btn" class="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[color:var(--text-dimmer)] hover:text-white transition-colors">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Arraste ou clique para ver mais
+              </button>
+            </div>
           </div>
 
         </div>
@@ -1534,16 +890,15 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
     <!-- FINAL CTA -->
     <section id="agendar" class="relative" style="padding-top:7rem;padding-bottom:5rem;background:#000308;">
       <div class="mx-auto max-w-6xl px-6">
-        <!-- Sem overflow-hidden: a foto pode sangrar para cima do card -->
         <div class="relative rounded-[28px]" style="border:1px solid rgba(255,255,255,0.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05),0 40px 80px -40px rgba(0,0,0,1);background:linear-gradient(135deg,rgba(0,80,200,0.18) 0%,rgba(0,20,60,0.55) 100%);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);">
 
-          <!-- Mobile: foto em cima (flow normal) -->
+          <!-- Mobile: foto em cima -->
           <div class="md:hidden overflow-hidden rounded-t-[27px]">
-            <img src="/assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
+            <img src="assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
                  class="w-full h-80 object-cover object-top" loading="lazy" />
           </div>
 
-          <!-- Conteúdo: deslocado à direita no desktop para deixar espaço à foto absoluta -->
+          <!-- Conteúdo -->
           <div class="md:ml-[45%] px-8 md:px-12 lg:px-14 py-14 md:py-20">
             <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-white/80 font-medium">
               <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
@@ -1559,13 +914,13 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
             </p>
 
             <div class="mt-10 flex flex-wrap gap-3">
-              <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+              <button type="button" data-open-modal data-cta="footer-conversion" class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
                 Agendar Sessão Estratégica
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <a href="https://api.whatsapp.com/send?phone=351911901606" target="_blank" rel="noopener" class="btn-whatsapp inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+              <a href="https://api.whatsapp.com/send?phone=351911901606" target="_blank" rel="noopener noreferrer" class="btn-whatsapp inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.14 1.6 5.95L.08 24l6.3-1.65a11.83 11.83 0 005.68 1.45h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43z"/></svg>
                 Falar com a Beatriz
               </a>
@@ -1578,9 +933,9 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
             </div>
           </div>
 
-          <!-- Foto desktop: absoluta, ancorada em baixo, sangra para cima (maior) -->
+          <!-- Foto desktop: absoluta -->
           <div class="hidden md:block absolute bottom-0 left-0 pointer-events-none" style="width:47%;height:130%;z-index:2;">
-            <img src="/assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
+            <img src="assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
                  class="w-full h-full object-contain object-bottom" loading="lazy" />
           </div>
 
@@ -1609,7 +964,7 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
 
     <!-- STICKY MOBILE CTA -->
     <div id="sticky-cta" class="sticky-cta md:hidden px-4 pb-4">
-      <button type="button" data-open-modal class="btn-cta flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full text-[15px]">
+      <button type="button" data-open-modal data-cta="nav-conversion" class="btn-cta flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full text-[15px]">
         Agendar Sessão Estratégica
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
@@ -1627,344 +982,8 @@ const ogImage = "https://site-spartads.vercel.app/assets/thumbnail.webp";
       </div>
     </div>
 
-    <script is:inline>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // --- Nav: transparent at top, hide on scroll-down, show on scroll-up ---
-      (function () {
-        var nav = document.getElementById("main-nav");
-        if (!nav) return;
-        var lastY = window.scrollY;
-        function update() {
-          var y = window.scrollY;
-          var atTop = y < 60;
-          nav.classList.toggle("at-top", atTop);
-          if (atTop) {
-            nav.classList.remove("nav-hidden");
-          } else if (y > lastY + 4) {
-            nav.classList.add("nav-hidden");
-          } else if (y < lastY - 4) {
-            nav.classList.remove("nav-hidden");
-          }
-          lastY = y;
-        }
-        window.addEventListener("scroll", update, { passive: true });
-        update();
-      })();
-
-      // --- Reveal on scroll ---
-      (function () {
-        const els = document.querySelectorAll(".reveal");
-        if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("on")); return; }
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
-        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-        els.forEach((el) => io.observe(el));
-      })();
-
-      // --- Sticky mobile CTA ---
-      (function () {
-        const sticky = document.getElementById("sticky-cta");
-        const hero = document.getElementById("top");
-        if (!sticky || !hero) return;
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((e) => { if (!e.isIntersecting) sticky.classList.add("visible"); else sticky.classList.remove("visible"); });
-        }, { threshold: 0 });
-        io.observe(hero);
-      })();
-
-      // --- 3D tilt on hero mockup ---
-      (function () {
-        const hero = document.getElementById("top");
-        const mockup = document.getElementById("hero-mockup");
-        if (!hero || !mockup) return;
-        hero.addEventListener("mousemove", (e) => {
-          const mRect = mockup.getBoundingClientRect();
-          const cx = mRect.left + mRect.width / 2;
-          const cy = mRect.top + mRect.height / 2;
-          const dx = (e.clientX - cx) / mRect.width;
-          const dy = (e.clientY - cy) / mRect.height;
-          const rotY = Math.max(-6, Math.min(6, dx * 8));
-          const rotX = Math.max(-6, Math.min(6, -dy * 6));
-          mockup.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        });
-        hero.addEventListener("mouseleave", () => {
-          mockup.style.transform = "";
-        });
-      })();
-
-
-      // --- Count-up ---
-      (function () {
-        const items = document.querySelectorAll(".count-up");
-        if (!items.length || !("IntersectionObserver" in window)) return;
-        function animate(el) {
-          const target = parseFloat(el.dataset.count);
-          if (isNaN(target)) return;
-          const prefix = el.dataset.prefix || "";
-          const suffix = el.dataset.suffix || "";
-          const duration = 1400;
-          const start = performance.now();
-          function frame(now) {
-            const t = Math.min(1, (now - start) / duration);
-            const eased = 1 - Math.pow(1 - t, 3);
-            const value = Math.round(target * eased);
-            el.textContent = prefix + value + suffix;
-            if (t < 1) requestAnimationFrame(frame);
-          }
-          requestAnimationFrame(frame);
-        }
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((e) => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } });
-        }, { threshold: 0.4 });
-        items.forEach((el) => io.observe(el));
-      })();
-
-      // --- Horizontal scroll for services ---
-      (function () {
-        const wrap = document.getElementById("hscroll-wrap");
-        const track = document.getElementById("hscroll-track");
-        const fill = document.getElementById("hscroll-progress-fill");
-        const counter = document.getElementById("hscroll-counter");
-        if (!wrap || !track) return;
-
-        let totalDistance = 0;
-        let sectionHeight = 0;
-        let ticking = false;
-        const cardCount = track.children.length;
-
-        function measure() {
-          const viewportWidth = window.innerWidth;
-          const trackScrollWidth = track.scrollWidth;
-          totalDistance = Math.max(0, trackScrollWidth - viewportWidth);
-          sectionHeight = wrap.offsetHeight - window.innerHeight;
-        }
-
-        function update() {
-          const rect = wrap.getBoundingClientRect();
-          const scrolled = -rect.top;
-          const progress = Math.max(0, Math.min(1, scrolled / sectionHeight));
-          const translateX = progress * totalDistance;
-          track.style.transform = `translate3d(${-translateX}px, 0, 0)`;
-          if (fill) fill.style.width = (progress * 100).toFixed(1) + "%";
-          if (counter) {
-            const idx = Math.min(cardCount, Math.floor(progress * cardCount) + 1);
-            counter.textContent = String(idx).padStart(2, "0") + " / " + String(cardCount).padStart(2, "0");
-          }
-          ticking = false;
-        }
-
-        function onScroll() { if (!ticking) { requestAnimationFrame(update); ticking = true; } }
-
-        measure();
-        update();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", () => { measure(); update(); });
-        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(() => { measure(); update(); }); }
-      })();
-
-      // --- Booking Modal ---
-      (function () {
-        const LANDBOT_URL = "https://landbot.pro/v3/H-2753426-MGXKNJGGZIDKJG3U/index.html";
-        const modal = document.getElementById("booking-modal");
-        const iframe = document.getElementById("booking-iframe");
-        const openers = document.querySelectorAll("[data-open-modal]");
-        const closers = document.querySelectorAll("[data-close-modal]");
-        let iframeLoaded = false;
-
-        function open() {
-          if (!iframeLoaded) { iframe.src = LANDBOT_URL; iframeLoaded = true; }
-          modal.classList.add("open");
-          document.body.style.overflow = "hidden";
-        }
-        function close() {
-          modal.classList.remove("open");
-          document.body.style.overflow = "";
-        }
-
-        openers.forEach((btn) => btn.addEventListener("click", (e) => { e.preventDefault(); open(); }));
-        closers.forEach((btn) => btn.addEventListener("click", close));
-        modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
-      })();
-
-      // --- Team Carousel ---
-      (function () {
-        var MEMBERS = [
-          { name: "Roberto Cortez",   role: "Founder & CMO",        photo: "https://www.spartads.pt/hosted/images/64/d50b6e9c6c4ee09445dad7e919cce7/rob.png",      bio: "Com 12 anos de experiência em marketing digital, Roberto é um dos maiores nomes do setor em Portugal. Mentor da maior comunidade de marketing digital do país, o PAD." },
-          { name: "Andreia Rocha",    role: "CEO",                   photo: "https://www.spartads.pt/hosted/images/41/e6e0d4db754cda90911e6a2555743d/andreia.png",   bio: "Especialista em gestão empresarial, Andreia combina mais de 10 anos de experiência com uma visão estratégica clara e determinação." },
-          { name: "Ana Leitão",       role: "Head of Operations",    photo: "https://www.spartads.pt/hosted/images/fa/2171166a8d47cb81e00ea9d13ef964/ana.png",       bio: "Engenheira de formação e líder nata, Ana traz mais de uma década de experiência a coordenar grandes equipas no setor industrial." },
-          { name: "Patrícia Silva",   role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/00/6b574d658d4055ab5cdc32649d4d3b/pat.png",       bio: "Especialista em campanhas de geração de leads e e-commerce, com 4 anos de experiência, Patrícia já geriu estratégias de marketing digital para marcas por toda a Europa." },
-          { name: "Bruno Matos",      role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/53/394babd8d3467dafa3fe53119a8931/bruno.png",     bio: "Com mais de 500 mil euros em campanhas geridas, Bruno é perito em transformar investimentos publicitários em resultados sólidos." },
-          { name: "Eduarda Vale",     role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/c7/4db12f358b43e7a8faa0085fcfdd52/edurada.png",   bio: "Natural de Vila Nova de Famalicão, licenciada em economia e apaixonada pelo marketing digital. Focada em estratégias eficazes que geram impacto." },
-          { name: "Marcelo Carvalho", role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/3f/947e9ad1384d67968f07a946b5b5c0/m.png",        bio: "Natural de Barcelos e apaixonado por inteligência artificial e automações. Focado em processos inovadores e eficientes." },
-          { name: "David Enes",       role: "PPC Manager",           photo: "https://www.spartads.pt/hosted/images/20/e31868243f40628420de6ebc8d94fb/david-e.png",   bio: "Com 3 anos de experiência em e-commerce, o David combina pensamento analítico e foco em performance para criar campanhas que geram retornos reais." },
-          { name: "Jeferson Pereira", role: "Growth Hacker",         photo: "https://www.spartads.pt/hosted/images/d1/dcdb3278b64fb69f6f3f5335c830ac/jef.png",      bio: "Profissional com 4 anos de experiência, já gerou mais de 20.000 leads e geriu orçamentos superiores a 60.000€. Estratégia digital é a sua praia." },
-          { name: "Beatriz Teixeira", role: "Commercial Assistant",  photo: "https://www.spartads.pt/hosted/images/2d/e60f75f8e245b6b1e5e3ab94bb2d6f/bea.png",     bio: "Natural de Fafe, Beatriz é apaixonada por vendas e pela conexão com pessoas. Especialista em servir os clientes e encontrar a melhor solução." },
-          { name: "Marcia Aguiar",    role: "Gestora de Projetos",   photo: "https://www.spartads.pt/hosted/images/2c/f8a3405f304d2cb3310015a3a48715/marciar.png",  bio: "Márcia é organizada, próxima e orientada a pessoas. Gosta de criar relações de confiança e garantir que cada cliente se sente acompanhado do início ao fim." },
-          { name: "Pedro Pacheco",    role: "Vídeo & Fotografia",    photo: "https://www.spartads.pt/hosted/images/f4/e4ff5f05cc4a37b327e5c7e3f485a2/pedro.png",    bio: "Apaixonado pelo mundo audiovisual, o Pedro especializou-se na captura e edição de vídeo, criando conteúdos visuais que fortalecem a identidade das marcas." },
-          { name: "David Ferreira",   role: "Web Designer",          photo: "https://www.spartads.pt/hosted/images/bf/cef8d73c034257bd942d5f32b493ea/david.png",    bio: "De que seria um anúncio sem design? O David desenvolve sites e criativos publicitários que chamam à atenção e geram conversões, há mais de 2 anos." },
-          { name: "Pedro Pires",      role: "Web Designer",          photo: "https://www.spartads.pt/hosted/images/1a/caa66f055448a3bd3029db7c524b3c/pires.png",    bio: "Especialista em design com mais de 6 anos de experiência, o Pedro torna as ideias em experiências visuais memoráveis que geram resultados." }
-        ];
-
-        var GAP      = 16;
-        var DRAG_MIN = 50;
-        var AUTO_MS  = 5500;
-
-        var viewport = document.getElementById("teamViewport");
-        var track    = document.getElementById("teamTrack");
-        var dotsEl   = document.getElementById("teamDots");
-        var prevBtn  = document.getElementById("teamPrev");
-        var nextBtn  = document.getElementById("teamNext");
-        if (!track || !viewport) return;
-
-        var N       = MEMBERS.length;
-        var active  = 0;
-        var pDown   = false;
-        var pStartX = 0;
-        var pDelta  = 0;
-        var didDrag = false;
-        var autoTimer = null;
-
-        // Build cards
-        MEMBERS.forEach(function (m) {
-          var el = document.createElement("div");
-          el.className = "tcard";
-          el.style.cssText = "flex-shrink:0;position:relative;overflow:hidden;border-radius:16px;";
-          el.innerHTML =
-            '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top center;">' +
-            '<div class="tcard-overlay" style="position:absolute;bottom:0;left:0;right:0;padding:14px 16px 18px;background:linear-gradient(to top,rgba(4,7,14,0.97) 0%,rgba(4,7,14,0.55) 55%,transparent 100%);">' +
-              '<div class="tcard-name" style="font-size:14px;font-weight:600;color:#fff;line-height:1.3;">' + m.name + '</div>' +
-              '<div class="tcard-role" style="font-size:10px;color:#3d99ff;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;">' + m.role + '</div>' +
-            '</div>';
-          track.appendChild(el);
-        });
-
-        /* Quantas cards são visíveis de uma vez */
-        function visCount() {
-          var vpW = viewport.offsetWidth;
-          return vpW < 500 ? 1 : vpW < 860 ? 2 : 4;
-        }
-
-        /* Largura de cada card para caber exatamente visCount() cards */
-        function cw() {
-          var vis = visCount();
-          return Math.floor((viewport.offsetWidth - (vis - 1) * GAP) / vis);
-        }
-
-        /* Limita active ao intervalo válido */
-        function clamp() {
-          var max = Math.max(0, N - visCount());
-          if (active < 0) active = max;      /* wrap para o fim */
-          if (active > max) active = 0;      /* wrap para o início */
-        }
-
-        /* Offset em px que o track deve ter */
-        function offset() { return active * (cw() + GAP); }
-
-        /* Define tamanhos das cards e reconstrói dots */
-        function setup() {
-          var w = cw();
-          var h = Math.round(w * 1.48); /* proporção portrait */
-          viewport.style.height = h + "px";
-          Array.from(track.children).forEach(function (c) {
-            c.style.width  = w + "px";
-            c.style.height = h + "px";
-          });
-          /* Dots: um por posição possível */
-          dotsEl.innerHTML = "";
-          var positions = Math.max(1, N - visCount() + 1);
-          for (var i = 0; i < positions; i++) {
-            (function (idx) {
-              var d = document.createElement("button");
-              d.className = "tcarousel-dot";
-              d.setAttribute("aria-label", "Posição " + (idx + 1));
-              d.addEventListener("click", function () { goTo(idx); });
-              dotsEl.appendChild(d);
-            })(i);
-          }
-        }
-
-        function updateDots() {
-          var dots = dotsEl.children;
-          for (var j = 0; j < dots.length; j++) {
-            dots[j].classList.toggle("is-active", j === active);
-          }
-        }
-
-        function render(animate) {
-          clamp();
-          var tx = -offset();
-          if (animate) {
-            track.style.transition = "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)";
-          } else {
-            track.style.transition = "none";
-          }
-          track.style.transform = "translateX(" + tx + "px)";
-          if (!animate) track.getBoundingClientRect(); /* force reflow */
-          updateDots();
-        }
-
-        function goTo(idx) {
-          active = idx;
-          clamp();
-          render(true);
-          resetAuto();
-        }
-
-        /* Drag */
-        viewport.addEventListener("pointerdown", function (e) {
-          if (e.target.closest("button")) return;
-          pDown = true; didDrag = false;
-          pStartX = e.clientX; pDelta = 0;
-          track.style.transition = "none";
-          viewport.classList.add("is-dragging");
-          viewport.setPointerCapture(e.pointerId);
-        });
-
-        viewport.addEventListener("pointermove", function (e) {
-          if (!pDown) return;
-          pDelta = e.clientX - pStartX;
-          if (Math.abs(pDelta) > 6) didDrag = true;
-          track.style.transform = "translateX(" + (-offset() + pDelta) + "px)";
-        });
-
-        viewport.addEventListener("pointerup", function () {
-          if (!pDown) return;
-          pDown = false;
-          viewport.classList.remove("is-dragging");
-          if (Math.abs(pDelta) >= DRAG_MIN) {
-            goTo(active + (pDelta < 0 ? 1 : -1));
-          } else {
-            render(true);
-          }
-          setTimeout(function () { didDrag = false; }, 0);
-        });
-
-        viewport.addEventListener("pointercancel", function () {
-          pDown = false;
-          viewport.classList.remove("is-dragging");
-          render(true); didDrag = false;
-        });
-
-        viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
-
-        if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
-        if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
-
-        function startAuto() { autoTimer = setInterval(function () { goTo(active + 1); }, AUTO_MS); }
-        function stopAuto()  { clearInterval(autoTimer); }
-        function resetAuto() { stopAuto(); startAuto(); }
-
-        viewport.addEventListener("mouseenter", stopAuto);
-        viewport.addEventListener("mouseleave", startAuto);
-
-        window.addEventListener("resize", function () { setup(); render(false); });
-
-        setup();
-        render(false);
-        startAuto();
-      })();
-    </script>
+    <!-- Scripts -->
+    <script src="js/neural-background.js"></script>
+    <script src="js/animations.js"></script>
   </body>
 </html>
