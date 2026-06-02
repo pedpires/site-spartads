@@ -1,7 +1,5 @@
 /**
- * animations.js
- * Lógica JS extraída de index.astro (is:inline) + conversão do
- * componente React ShuffleTestimonials para vanilla JS.
+ * animations.js — SpartAds
  */
 
 (function () {
@@ -62,52 +60,35 @@
     io.observe(hero);
   })();
 
-  /* ── 3D tilt no mockup do hero ─────────── */
+  /* ── VSL: play button → lightbox Vimeo ── */
   (function () {
-    var hero   = document.getElementById("top");
-    var mockup = document.getElementById("hero-mockup");
-    if (!hero || !mockup) return;
-    hero.addEventListener("mousemove", function (e) {
-      var mRect = mockup.getBoundingClientRect();
-      var cx = mRect.left + mRect.width  / 2;
-      var cy = mRect.top  + mRect.height / 2;
-      var dx = (e.clientX - cx) / mRect.width;
-      var dy = (e.clientY - cy) / mRect.height;
-      var rotY = Math.max(-6, Math.min(6, dx * 8));
-      var rotX = Math.max(-6, Math.min(6, -dy * 6));
-      mockup.style.transform = "rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
-    });
-    hero.addEventListener("mouseleave", function () {
-      mockup.style.transform = "";
-    });
-  })();
+    var VSL_VIMEO_ID   = "1165298780";
+    var playBtn        = document.getElementById("vsl-play-btn");
+    var vslModal       = document.getElementById("vsl-modal");
+    var vslModalIframe = document.getElementById("vsl-modal-iframe");
+    var vslModalClose  = document.getElementById("vsl-modal-close");
 
-  /* ── Count-up ──────────────────────────── */
-  (function () {
-    var items = document.querySelectorAll(".count-up");
-    if (!items.length || !("IntersectionObserver" in window)) return;
-    function animate(el) {
-      var target = parseFloat(el.dataset.count);
-      if (isNaN(target)) return;
-      var prefix   = el.dataset.prefix  || "";
-      var suffix   = el.dataset.suffix  || "";
-      var duration = 1400;
-      var start    = performance.now();
-      function frame(now) {
-        var t      = Math.min(1, (now - start) / duration);
-        var eased  = 1 - Math.pow(1 - t, 3);
-        var value  = Math.round(target * eased);
-        el.textContent = prefix + value + suffix;
-        if (t < 1) requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
+    function openVslModal() {
+      vslModalIframe.src = "https://player.vimeo.com/video/" + VSL_VIMEO_ID + "?autoplay=1&title=0&byline=0&portrait=0";
+      vslModal.classList.add("open");
+      document.body.style.overflow = "hidden";
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+    function closeVslModal() {
+      vslModal.classList.remove("open");
+      vslModalIframe.src = "";
+      document.body.style.overflow = "";
+    }
+
+    if (playBtn) playBtn.addEventListener("click", openVslModal);
+    if (vslModalClose) vslModalClose.addEventListener("click", closeVslModal);
+    if (vslModal) {
+      vslModal.addEventListener("click", function (e) {
+        if (e.target === vslModal) closeVslModal();
       });
-    }, { threshold: 0.4 });
-    items.forEach(function (el) { io.observe(el); });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && vslModal && vslModal.classList.contains("open")) closeVslModal();
+    });
   })();
 
   /* ── Horizontal scroll — Serviços ─────── */
@@ -186,30 +167,6 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && modal.classList.contains("open")) close();
     });
-  })();
-
-  /* ── Process columns hover ─────────────── */
-  (function () {
-    var grid = document.getElementById("process-grid");
-    if (!grid) return;
-    var cols = Array.from(grid.querySelectorAll(".pcol"));
-    var defaultActive = 2;
-
-    function setActive(idx) {
-      cols.forEach(function (col, i) {
-        var glow = col.querySelector(".pcol-glow");
-        var num  = col.querySelector(".pcol-num");
-        var isActive = i === idx;
-        if (glow) glow.style.opacity = isActive ? "1" : "0";
-        if (num)  num.style.color    = isActive ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.04)";
-      });
-    }
-
-    setActive(defaultActive);
-    cols.forEach(function (col, i) {
-      col.addEventListener("mouseenter", function () { setActive(i); });
-    });
-    grid.addEventListener("mouseleave", function () { setActive(defaultActive); });
   })();
 
   /* ── Team Carousel ─────────────────────── */
@@ -368,7 +325,7 @@
     startAuto();
   })();
 
-  /* ── Testimonials Shuffle (vanilla, sem React/Framer Motion) ── */
+  /* ── Testimonials Shuffle ──────────────── */
   (function () {
     var TESTIMONIALS = [
       {
@@ -439,7 +396,6 @@
       });
     }
 
-    // Drag to shuffle (front card)
     var startX = 0;
     cards[0].addEventListener("pointerdown", function (e) { startX = e.clientX; });
     document.addEventListener("pointerup", function (e) {
@@ -448,9 +404,300 @@
       }
     });
 
-    // Botão shuffle
     var shuffleBtn = document.getElementById("testimonials-shuffle-btn");
     if (shuffleBtn) shuffleBtn.addEventListener("click", shuffle);
+  })();
+
+  /* ── Video Testimonials Carousel ──────── */
+  (function () {
+    var VIDEOS = [
+      { company: "Bricomarché",      vimeoId: "1194350095", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam." },
+      { company: "Cuida",            vimeoId: "1194352605", quote: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor." },
+      { company: "Salvador Caetano", vimeoId: "1194353129", quote: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat." },
+      { company: "Fitness Park",     vimeoId: "1194353851", quote: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis." },
+      { company: "Carclass",         vimeoId: "1194354245", quote: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa." },
+      { company: "Inês Pilar",       vimeoId: "1194354709", quote: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos ratione." }
+    ];
+
+    var viewport         = document.getElementById("vtestViewport");
+    var track            = document.getElementById("vtestTrack");
+    var prevBtn          = document.getElementById("vtestPrev");
+    var nextBtn          = document.getElementById("vtestNext");
+    var vimeoModal       = document.getElementById("vimeo-modal");
+    var vimeoModalIframe = document.getElementById("vimeo-modal-iframe");
+    var vimeoModalClose  = document.getElementById("vimeo-modal-close");
+
+    if (!viewport || !track) return;
+
+    var GAP         = 20;
+    var DRAG_MIN    = 40;
+    var active      = 0;
+    var pDown       = false, pStartX = 0, pDelta = 0;
+    var wasDragging = false;
+
+    VIDEOS.forEach(function (v) {
+      var card = document.createElement("div");
+      card.className = "vtest-card";
+      card.innerHTML =
+        '<div class="vtest-thumb">' +
+          '<img src="https://vumbnail.com/' + v.vimeoId + '.jpg" alt="' + v.company + '" loading="lazy" />' +
+          '<div class="vtest-play-icon">' +
+            '<div class="vtest-play-circle">' +
+              '<svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>' +
+            '</div>' +
+          '</div>' +
+          '<div class="vtest-company">' + v.company + '</div>' +
+        '</div>' +
+        '<p class="vtest-quote">&ldquo;' + v.quote + '&rdquo;</p>' +
+        '<div class="vtest-meta">' + v.company + '</div>';
+
+
+      track.appendChild(card);
+    });
+
+    var N = VIDEOS.length;
+
+    function cardWidth() {
+      var first = track.firstElementChild;
+      return first ? first.offsetWidth : 300;
+    }
+
+    function clamp() {
+      var max = Math.max(0, N - visCount());
+      if (active < 0) active = max;
+      if (active > max) active = 0;
+    }
+
+    function visCount() {
+      var w = viewport.offsetWidth;
+      return w < 600 ? 1 : w < 900 ? 2 : 3;
+    }
+
+    function offsetPx() { return active * (cardWidth() + GAP); }
+
+    function render(animate) {
+      clamp();
+      track.style.transition = animate ? "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)" : "none";
+      track.style.transform  = "translateX(" + (-offsetPx()) + "px)";
+      if (!animate) track.getBoundingClientRect();
+    }
+
+    function goTo(idx) { active = idx; clamp(); render(true); }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(active - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(active + 1); });
+
+    viewport.addEventListener("pointerdown", function (e) {
+      if (e.target.closest("button")) return;
+      pDown = true; pStartX = e.clientX; pDelta = 0; wasDragging = false;
+      track.style.transition = "none";
+      viewport.classList.add("is-dragging");
+      viewport.setPointerCapture(e.pointerId);
+    });
+    viewport.addEventListener("pointermove", function (e) {
+      if (!pDown) return;
+      pDelta = e.clientX - pStartX;
+      if (Math.abs(pDelta) > DRAG_MIN) wasDragging = true;
+      track.style.transform = "translateX(" + (-offsetPx() + pDelta) + "px)";
+    });
+    viewport.addEventListener("pointerup", function (e) {
+      if (!pDown) return;
+      pDown = false;
+      viewport.classList.remove("is-dragging");
+      if (Math.abs(pDelta) >= DRAG_MIN) {
+        goTo(active + (pDelta < 0 ? 1 : -1));
+      } else {
+        render(true);
+        /* Click — elementFromPoint é necessário porque setPointerCapture
+           redireciona o pointerup para o viewport, não para o card */
+        var el = document.elementFromPoint(e.clientX, e.clientY);
+        var clicked = el && el.closest(".vtest-card");
+        if (clicked) {
+          var idx = Array.from(track.children).indexOf(clicked);
+          if (idx >= 0) openVimeo(VIDEOS[idx].vimeoId);
+        }
+      }
+    });
+    viewport.addEventListener("pointercancel", function () {
+      pDown = false; viewport.classList.remove("is-dragging"); render(true);
+    });
+    viewport.addEventListener("dragstart", function (e) { e.preventDefault(); });
+
+    window.addEventListener("resize", function () { render(false); });
+    render(false);
+
+    function openVimeo(id) {
+      if (!vimeoModal || !vimeoModalIframe) return;
+      vimeoModalIframe.src = "https://player.vimeo.com/video/" + id + "?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
+      vimeoModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeVimeo() {
+      if (!vimeoModal) return;
+      vimeoModal.classList.remove("open");
+      vimeoModalIframe.src = "";
+      document.body.style.overflow = "";
+    }
+
+    if (vimeoModalClose) vimeoModalClose.addEventListener("click", closeVimeo);
+    if (vimeoModal) {
+      vimeoModal.addEventListener("click", function (e) {
+        if (e.target === vimeoModal) closeVimeo();
+      });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && vimeoModal && vimeoModal.classList.contains("open")) closeVimeo();
+    });
+  })();
+
+/* ── Pixel Canvas nos cards de resultados ── */
+  (function () {
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+
+    function createPixel(ctx, canvas, x, y, color, baseSpeed, delay) {
+      var p = {
+        x: x, y: y, color: color, ctx: ctx,
+        speed: rand(0.1, 0.9) * baseSpeed,
+        size: 0,
+        sizeStep: Math.random() * 0.4,
+        minSize: 0.5,
+        maxSizeInt: 2,
+        maxSize: rand(0.5, 2),
+        delay: delay,
+        counter: 0,
+        counterStep: Math.random() * 4 + (canvas.width + canvas.height) * 0.01,
+        isIdle: false,
+        isReverse: false,
+        isShimmer: false
+      };
+      p.draw = function () {
+        var offset = p.maxSizeInt * 0.5 - p.size * 0.5;
+        p.ctx.fillStyle = p.color;
+        p.ctx.fillRect(p.x + offset, p.y + offset, p.size, p.size);
+      };
+      p.shimmer = function () {
+        if (p.size >= p.maxSize) p.isReverse = true;
+        else if (p.size <= p.minSize) p.isReverse = false;
+        p.size += p.isReverse ? -p.speed : p.speed;
+      };
+      p.appear = function () {
+        p.isIdle = false;
+        if (p.counter <= p.delay) { p.counter += p.counterStep; return; }
+        if (p.size >= p.maxSize) p.isShimmer = true;
+        if (p.isShimmer) p.shimmer();
+        else p.size += p.sizeStep;
+        p.draw();
+      };
+      p.disappear = function () {
+        p.isShimmer = false;
+        p.counter = 0;
+        if (p.size <= 0) { p.isIdle = true; return; }
+        p.size -= 0.1;
+        p.draw();
+      };
+      return p;
+    }
+
+    function initPixelCanvas(card, colors, gap, speed, zIndex, opacity) {
+      var wrap = document.createElement('div');
+      var op = opacity != null ? 'opacity:' + opacity + ';' : '';
+      wrap.style.cssText = 'position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:' + (zIndex || 1) + ';border-radius:inherit;' + op;
+      var canvas = document.createElement('canvas');
+      canvas.style.display = 'block';
+      wrap.appendChild(canvas);
+      card.appendChild(wrap);
+
+      var pixels = [];
+      var animId = 0;
+      var lastFrame = performance.now();
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function init() {
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        var rect = wrap.getBoundingClientRect();
+        var w = Math.floor(rect.width);
+        var h = Math.floor(rect.height);
+        if (!w || !h) return;
+        canvas.width = w;
+        canvas.height = h;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        var spd = reducedMotion ? 0 : Math.min(speed, 100) * 0.001;
+        pixels = [];
+        for (var x = 0; x < w; x += gap) {
+          for (var y = 0; y < h; y += gap) {
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            var dx = x - w / 2;
+            var dy = y - h / 2;
+            var delay = reducedMotion ? 0 : Math.sqrt(dx * dx + dy * dy);
+            pixels.push(createPixel(ctx, canvas, x, y, color, spd, delay));
+          }
+        }
+      }
+
+      function animate(mode) {
+        cancelAnimationFrame(animId);
+        var frameInterval = 1000 / 60;
+        function loop() {
+          animId = requestAnimationFrame(loop);
+          var now = performance.now();
+          var elapsed = now - lastFrame;
+          if (elapsed < frameInterval) return;
+          lastFrame = now - (elapsed % frameInterval);
+          var ctx = canvas.getContext('2d');
+          if (!ctx) return;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          var allIdle = true;
+          for (var i = 0; i < pixels.length; i++) {
+            pixels[i][mode]();
+            if (!pixels[i].isIdle) allIdle = false;
+          }
+          if (allIdle) cancelAnimationFrame(animId);
+        }
+        animId = requestAnimationFrame(loop);
+      }
+
+      init();
+      var ro = new ResizeObserver(init);
+      ro.observe(wrap);
+      card.addEventListener('mouseenter', function () { animate('appear'); });
+      card.addEventListener('mouseleave', function () { animate('disappear'); });
+    }
+
+    var blueColors = [
+      'rgba(61,153,255,0.60)',
+      'rgba(61,153,255,0.25)',
+      'rgba(100,180,255,0.45)',
+      'rgba(61,153,255,0.15)',
+      'rgba(160,215,255,0.35)'
+    ];
+    var greenColors = [
+      'rgba(52,211,153,0.60)',
+      'rgba(52,211,153,0.25)',
+      'rgba(100,230,180,0.45)',
+      'rgba(52,211,153,0.15)',
+      'rgba(160,240,210,0.35)'
+    ];
+
+    document.querySelectorAll('.res-card').forEach(function (card) {
+      var colors = card.classList.contains('res-card--hero') ? greenColors : blueColors;
+      initPixelCanvas(card, colors, 10, 35);
+    });
+
+    document.querySelectorAll('.hcard').forEach(function (card) {
+      initPixelCanvas(card, blueColors, 12, 30, 0, 0.8);
+    });
+  })();
+
+  /* ── FAQ ───────────────────────────────── */
+  (function () {
+    document.querySelectorAll("details.faq").forEach(function (el) {
+      el.addEventListener("toggle", function () {
+        var icon = el.querySelector(".faq-icon");
+        if (icon) icon.style.transform = el.open ? "rotate(45deg)" : "";
+      });
+    });
   })();
 
 })();
