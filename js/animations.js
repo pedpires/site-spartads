@@ -688,6 +688,10 @@
     document.querySelectorAll('.hcard').forEach(function (card) {
       initPixelCanvas(card, blueColors, 12, 30, 0, 0.8);
     });
+
+    document.querySelectorAll('.stat-card').forEach(function (card) {
+      initPixelCanvas(card, blueColors, 12, 30, 1, 0.8);
+    });
   })();
 
   /* ── FAQ ───────────────────────────────── */
