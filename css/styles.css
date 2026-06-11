@@ -46,6 +46,16 @@ body {
   color: #ffffff;
 }
 
+/* ── Boska ───────────────────────────────── */
+.eyebrow {
+  font-family: 'Boska', Georgia, serif !important;
+  font-style: normal;
+}
+.accent-boska {
+  font-family: 'Boska', Georgia, serif;
+  font-style: italic;
+}
+
 .font-display {
   font-family: "Outfit", sans-serif;
   font-weight: 600;
