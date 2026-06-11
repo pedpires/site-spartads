@@ -1632,7 +1632,7 @@ details.faq>summary::-webkit-details-marker {
 /* Ícone grande atrás do conteúdo, recortado em cima e à direita */
 .scard-icon {
   position: absolute;
-  top: 0;
+  top: -10px;
   right: -56px;
   width: 290px;
   height: 290px;
@@ -1650,7 +1650,7 @@ details.faq>summary::-webkit-details-marker {
 
 @media (max-width: 768px) {
   .scard-icon {
-    top: 0;
+    top: -10px;
     right: -36px;
     width: 190px;
     height: 190px;

@@ -348,13 +348,18 @@
         testimonial: "Em menos de 3 meses o nosso custo por lead caiu mais de 50% e o volume duplicou. A equipa percebe o nosso negócio e ajusta a estratégia sem precisarmos de pedir.",
         author: "Cliente Serviços",
         role: "Lead Generation · Meta Ads"
+      },
+      {
+        testimonial: "Senti um grande aumento na notoriedade. Atualmente tenho a agenda cheia e o que mais valorizo é o facto de quererem genuinamente ajudar-nos a atingir os nossos objetivos. Nota-se que estão focados nos resultados do cliente.",
+        author: "Dra. Inês Pilar",
+        role: "Médica · Clínica Dra. Inês Pilar"
       }
     ];
 
     var container = document.getElementById("testimonials-stack");
     if (!container) return;
 
-    var positions = ["front", "middle", "back", "hidden"];
+    var positions = ["front", "middle", "back", "hidden", "hidden2"];
 
     function posStyle(pos) {
       var mobile = window.innerWidth < 640;
