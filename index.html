@@ -50,7 +50,6 @@
           <a href="#servicos" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Serviços</a>
           <a href="#resultados" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Resultados</a>
           <a href="#equipa" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">Equipa</a>
-          <a href="#faq" class="hidden md:inline text-[13px] text-[color:var(--text-dim)] hover:text-white px-3 py-2 transition">FAQ</a>
           <button type="button" data-open-modal class="btn-cta inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-[12px] ml-2">
             Agendar Sessão
             <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -637,82 +636,61 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="relative py-24 md:py-32" style="background:#000610;">
-      <div class="mx-auto max-w-4xl px-6">
-        <div class="reveal text-center">
-          <div class="text-[11px] uppercase tracking-[0.22em] text-[color:var(--brand-2)] font-medium">Perguntas frequentes</div>
-          <h2 class="font-head mt-4 text-4xl md:text-5xl text-white">
-            Respostas
-            <span class="text-[color:var(--brand-2)]">diretas.</span>
-          </h2>
-        </div>
+    <!-- AGENDAR -->
+    <section id="agendar" class="relative" style="padding-top:7rem;padding-bottom:5rem;background:#000308;">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="relative rounded-[28px]" style="border:1px solid rgba(255,255,255,0.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05),0 40px 80px -40px rgba(0,0,0,1);background:linear-gradient(135deg,rgba(0,80,200,0.18) 0%,rgba(0,20,60,0.55) 100%);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);">
 
-        <div class="mt-14 space-y-3">
-          <details class="faq reveal group card rounded-xl overflow-hidden">
-            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
-              <span class="text-[16px] font-medium text-white">Qual o investimento mínimo recomendado?</span>
-              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </summary>
-            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
-              Trabalhamos melhor com negócios a partir de <strong class="text-white">€3.000/mês em media spend</strong>. Abaixo disto, os algoritmos não têm dados suficientes para otimizar com previsibilidade. Se ainda não está neste patamar, falamos à mesma — e dizemos-lhe honestamente se vale a pena.
-            </div>
-          </details>
+          <!-- Mobile: foto em cima -->
+          <div class="md:hidden overflow-hidden rounded-t-[27px]">
+            <img src="assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
+                 class="w-full h-80 object-cover object-top" loading="lazy" />
+          </div>
 
-          <details class="faq reveal reveal-delay-1 group card rounded-xl overflow-hidden">
-            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
-              <span class="text-[16px] font-medium text-white">Em quanto tempo vejo resultados?</span>
-              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </summary>
-            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
-              As primeiras conversões aparecem tipicamente nos primeiros <strong class="text-white">14–30 dias</strong>. Resultados consistentes e escaláveis levam <strong class="text-white">60–90 dias</strong> — tempo necessário para testar criativos, audiências e calibrar o tracking. Não acreditamos em milagres de uma semana.
+          <!-- Conteúdo -->
+          <div class="md:ml-[45%] px-8 md:px-12 lg:px-14 py-14 md:py-20">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur px-3 py-1.5 text-[11px] tracking-[0.2em] uppercase text-white/80 font-medium">
+              <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--cta-2)] live-dot"></span>
+              Agenda aberta este mês
             </div>
-          </details>
 
-          <details class="faq reveal reveal-delay-2 group card rounded-xl overflow-hidden">
-            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
-              <span class="text-[16px] font-medium text-white">Em que setores têm mais experiência?</span>
-              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </summary>
-            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
-              <strong class="text-white">E-Commerce</strong> (farmácia, suplementação, dietética, ferramentas, moda), <strong class="text-white">Geração de Leads</strong> (consultoria, automóvel, restauração) e <strong class="text-white">Infoprodutos</strong>. Mas o método é transferível — se o seu nicho não encaixa, dizemos-lhe logo.
-            </div>
-          </details>
+            <h2 class="font-display-xl mt-7 text-4xl md:text-5xl lg:text-6xl text-white max-w-2xl text-balance">
+              O seu negócio está prestes
+              <span class="text-[color:var(--brand-2)]">a crescer.</span>
+            </h2>
+            <p class="mt-6 text-white/60 text-lg max-w-lg leading-relaxed">
+              Agende uma sessão estratégica de 30 minutos. Sem custo. Sem pitch. Só uma conversa séria sobre o seu próximo passo — e sai com um plano de ação, mesmo que não trabalhemos juntos.
+            </p>
 
-          <details class="faq reveal reveal-delay-3 group card rounded-xl overflow-hidden">
-            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
-              <span class="text-[16px] font-medium text-white">Como é o dia-a-dia de trabalho convosco?</span>
-              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </summary>
-            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
-              Um <strong class="text-white">PPC Manager senior</strong> dedicado, call semanal de performance, Slack/WhatsApp direto para respostas rápidas, e dashboard em tempo real. Sem intermediários — fala diretamente com quem executa.
+            <div class="mt-10 flex flex-wrap gap-3">
+              <button type="button" data-open-modal data-cta="footer-conversion" class="btn-cta inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+                Agendar Sessão Estratégica
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <a href="https://api.whatsapp.com/send?phone=351911901606" target="_blank" rel="noopener noreferrer" class="btn-whatsapp inline-flex items-center gap-2 px-7 py-4 rounded-full text-[15px]">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.14 1.6 5.95L.08 24l6.3-1.65a11.83 11.83 0 005.68 1.45h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.44-8.43z"/></svg>
+                Falar com a Beatriz
+              </a>
             </div>
-          </details>
 
-          <details class="faq reveal reveal-delay-4 group card rounded-xl overflow-hidden">
-            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
-              <span class="text-[16px] font-medium text-white">Também trabalham o mercado espanhol?</span>
-              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </summary>
-            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
-              Sim — temos experiência ativa em <strong class="text-white">Portugal, Espanha</strong> e outros mercados europeus. Alguns dos nossos melhores case studies vêm do mercado ES (ex: dietética com ROAS 1.6 → 17.5).
+            <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-white/50">
+              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Resposta em 24h</div>
+              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>100% confidencial</div>
+              <div class="flex items-center gap-2"><svg class="h-4 w-4 text-[color:var(--cta-2)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>Plano de ação grátis</div>
             </div>
-          </details>
+          </div>
 
-          <details class="faq reveal reveal-delay-5 group card rounded-xl overflow-hidden">
-            <summary class="px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition">
-              <span class="text-[16px] font-medium text-white">O que acontece na sessão estratégica?</span>
-              <svg class="faq-icon h-5 w-5 text-[color:var(--text-dimmer)] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </summary>
-            <div class="px-6 pb-6 text-[color:var(--text-dim)] leading-relaxed text-[15px]">
-              30 minutos, sem custo e sem pitch comercial. Analisamos o seu negócio, a concorrência e identificamos 2–3 alavancas concretas para crescer. Sai com um plano de ação, mesmo que não avancemos juntos.
-            </div>
-          </details>
+          <!-- Foto desktop: absoluta -->
+          <div class="hidden md:block absolute bottom-0 left-0 pointer-events-none" style="width:47%;height:130%;z-index:2;">
+            <img src="assets/beatriz.webp" alt="Beatriz Teixeira · Commercial Assistant SpartAds"
+                 class="w-full h-full object-contain object-bottom" loading="lazy" />
+          </div>
+
         </div>
       </div>
     </section>
-
-    <!-- FINAL CTA -->
 
     <!-- FOOTER -->
     <footer class="relative border-t border-white/[0.06] mt-0" style="background:#000308;">
