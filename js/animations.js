@@ -434,8 +434,7 @@
       { company: "Cuida",            vimeoId: "1194352605", thumb: "https://i.vimeocdn.com/video/2167552072-5c230e38b1b2242f496276c218897c6cfc072adc61810c108269e339ca6cc354-d_540x960", quote: "" },
       { company: "Salvador Caetano", vimeoId: "1194353129", thumb: "https://i.vimeocdn.com/video/2167552140-e80ee57e88965933a93eb6b5c035230338d15832ed8c5c4160e45090241af419-d_540x960", quote: "" },
       { company: "Fitness Park",     vimeoId: "1194353851", thumb: "https://i.vimeocdn.com/video/2167551911-064271633a3d364501dd4243fa9a4630666e3b78e33b3857b19eef33ee8778fb-d_540x960", quote: "" },
-      { company: "Carclasse",        vimeoId: "1194354245", thumb: "https://i.vimeocdn.com/video/2167551497-ade9c34c333d5435cdf714a44b8bc611f85665bb40c0b8b14f47fb180112447c-d_540x960", quote: "" },
-      { company: "Inês Pilar",       vimeoId: "1194354709", thumb: "https://i.vimeocdn.com/video/2167551407-d050f3be18febb540d1da1df084285e3e2ae181327867f15f1dce09b38da1536-d_540x960", quote: "" }
+      { company: "Carclasse",        vimeoId: "1194354245", thumb: "https://i.vimeocdn.com/video/2167551497-ade9c34c333d5435cdf714a44b8bc611f85665bb40c0b8b14f47fb180112447c-d_540x960", quote: "" }
     ];
 
     var viewport         = document.getElementById("vtestViewport");
