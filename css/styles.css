@@ -1500,6 +1500,45 @@ details.faq>summary::-webkit-details-marker {
   background: var(--brand-2);
 }
 
+/* ── Stats section ──────────────────────── */
+.stat-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 36px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.stat-card:hover {
+  border-color: rgba(61,153,255,0.3);
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6);
+}
+.stat-num {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: clamp(52px, 5.5vw, 72px);
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, rgba(61,153,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.65);
+}
+.stat-desc {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
 /* ── Results Bento ──────────────────────── */
 .res-bento {
   display: grid;

@@ -329,9 +329,9 @@
   (function () {
     var TESTIMONIALS = [
       {
-        testimonial: "Disponibilidade, profissionalismo e preocupação em atingir os melhores resultados. Competentes e interessados em fazer o melhor trabalho possível. Acreditamos que seja uma parceria a manter — agradecemos por tudo!",
-        author: "Cliente E-Commerce",
-        role: "Parceria activa · Google & Meta Ads"
+        testimonial: "Disponibilidade, profissionalismo e preocupação em atingir os melhores resultados. É assim que vemos a agência. Uma empresa competente e interessada em fazer o melhor trabalho possível. Acreditamos que seja uma parceria a manter no futuro, agradecemos por tudo!",
+        author: "Cláudia Lima",
+        role: "Digital Marketing Manager"
       },
       {
         testimonial: "Temos tido a oportunidade de trabalhar com a SpartAds em campanhas de Google em áreas muito específicas. A agência tem demonstrado ser muito ágil e competente! Obrigada pelo apoio.",
