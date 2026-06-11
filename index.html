@@ -70,7 +70,7 @@
       <!-- Vídeo de fundo -->
       <div class="hero-video-bg" aria-hidden="true">
         <video autoplay muted loop playsinline preload="auto">
-          <source src="assets/hero-bg-v2.mp4" type="video/mp4" />
+          <source src="assets/hero-bg-v2-loop.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -323,36 +323,6 @@
       </div>
     </section>
 
-    <!-- PHILOSOPHY / LETTER -->
-    <section id="sobre" class="relative py-24 md:py-32 border-y border-white/5 bg-[#05080f]">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div class="lg:col-span-5 reveal">
-            <h2 class="font-head mt-4 text-4xl md:text-5xl lg:text-[56px] text-white">
-              Vamos ter uma
-              <span class="accent-boska text-[color:var(--brand-2)]">conversa séria</span>
-              sobre negócios?
-            </h2>
-          </div>
-          <div class="lg:col-span-7 reveal reveal-delay-1 space-y-5 text-[color:var(--text-dim)] text-lg leading-relaxed">
-            <p class="text-white font-medium">De empresário para empresário: vender online não é fácil. Acredito que é simples — mas não é fácil.</p>
-            <p>Promessas irrealistas são feitas por quem mais nada tem a acrescentar. Aqui só prometemos <strong class="text-white">trabalho</strong>. Com método, conhecimento e comprometimento. Com integridade, honestidade e total transparência.</p>
-            <p>O Digital é um campo de batalha. Nós somos os seus guerreiros da linha da frente. Sem medos, sem virar a cara aos desafios. Focados em soluções. Comprometidos com os resultados.</p>
-            <p class="text-white font-medium">Somos SpartAds. O seu parceiro de Marketing e Vendas Online.</p>
-            <div class="pt-4 flex items-center gap-3">
-              <div class="h-12 w-12 rounded-full overflow-hidden border border-white/10 bg-[#1b2535]">
-                <img src="assets/rob.webp" alt="Roberto Cortez" class="h-full w-full object-cover" loading="lazy" />
-              </div>
-              <div>
-                <div class="text-[14px] font-semibold text-white">Roberto Cortez</div>
-                <div class="text-[13px] text-[color:var(--text-dimmer)]">Founder &amp; CMO · SpartAds</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- RESULTS -->
     <section id="resultados" class="relative py-24 md:py-32" style="background:#000610;">
       <div class="mx-auto max-w-6xl px-6">
@@ -520,6 +490,36 @@
       </div>
     </section>
 
+    <!-- PHILOSOPHY / LETTER -->
+    <section id="sobre" class="relative py-24 md:py-32 border-y border-white/5 bg-[#05080f]">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div class="lg:col-span-5 reveal">
+            <h2 class="font-head mt-4 text-4xl md:text-5xl lg:text-[56px] text-white">
+              Vamos ter uma
+              <span class="accent-boska text-[color:var(--brand-2)]">conversa séria</span>
+              sobre negócios?
+            </h2>
+          </div>
+          <div class="lg:col-span-7 reveal reveal-delay-1 space-y-5 text-[color:var(--text-dim)] text-lg leading-relaxed">
+            <p class="text-white font-medium">De empresário para empresário: vender online não é fácil. Acredito que é simples — mas não é fácil.</p>
+            <p>Promessas irrealistas são feitas por quem mais nada tem a acrescentar. Aqui só prometemos <strong class="text-white">trabalho</strong>. Com método, conhecimento e comprometimento. Com integridade, honestidade e total transparência.</p>
+            <p>O Digital é um campo de batalha. Nós somos os seus guerreiros da linha da frente. Sem medos, sem virar a cara aos desafios. Focados em soluções. Comprometidos com os resultados.</p>
+            <p class="text-white font-medium">Somos SpartAds. O seu parceiro de Marketing e Vendas Online.</p>
+            <div class="pt-4 flex items-center gap-3">
+              <div class="h-12 w-12 rounded-full overflow-hidden border border-white/10 bg-[#1b2535]">
+                <img src="assets/rob.webp" alt="Roberto Cortez" class="h-full w-full object-cover" loading="lazy" />
+              </div>
+              <div>
+                <div class="text-[14px] font-semibold text-white">Roberto Cortez</div>
+                <div class="text-[13px] text-[color:var(--text-dimmer)]">Founder &amp; CMO · SpartAds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TEAM -->
     <section id="equipa" class="relative py-24 md:py-32 overflow-hidden" style="background:#04070e;">
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
@@ -653,8 +653,14 @@
     </section>
 
     <!-- AGENDAR -->
-    <section id="agendar" class="relative" style="padding-top:7rem;padding-bottom:5rem;background:#000308;">
-      <div class="mx-auto max-w-6xl px-6">
+    <section id="agendar" class="relative" style="padding-top:7rem;padding-bottom:5rem;background:#000308;overflow:hidden;">
+      <!-- Vídeo de fundo (mask top → meio) -->
+      <div class="cta-video-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/hero-bg-v2-loop.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="relative z-[1] mx-auto max-w-6xl px-6">
         <div class="relative rounded-[28px]" style="border:1px solid rgba(255,255,255,0.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05),0 40px 80px -40px rgba(0,0,0,1);background:linear-gradient(135deg,rgba(0,80,200,0.18) 0%,rgba(0,20,60,0.55) 100%);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);">
 
           <!-- Mobile: foto em cima -->
