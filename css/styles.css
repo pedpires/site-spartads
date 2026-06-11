@@ -82,30 +82,45 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Gradient on all main headings */
+/* Headings: branco sólido (gradient com background-clip pintava
+   branco por trás dos spans coloridos) */
 h1,
 h2,
 h3 {
-  background: linear-gradient(to left, #ffffff 0%, #ffffff 60%, #c2c6d2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   padding-bottom: 0.12em;
-}
-
-h1 span,
-h2 span,
-h3 span {
-  -webkit-text-fill-color: currentColor;
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
 }
 
 /* ===== HERO ===== */
 .hero-gradient {
   background:
     radial-gradient(ellipse 90% 110% at -5% 50%, #0047cc 0%, #001a8a 28%, #000d2a 55%, #000818 100%);
+}
+
+/* Vídeo de fundo do hero (gradiente acima fica como fallback) */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 50%, transparent 100%);
+  mask-image: linear-gradient(180deg, black 0%, black 50%, transparent 100%);
+}
+
+.hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Véu escuro para manter o texto legível sobre o vídeo */
+.hero-video-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 6, 16, 0.55) 0%, rgba(0, 6, 16, 0.4) 50%, rgba(0, 8, 24, 0.85) 100%);
 }
 
 .hero-bg {
@@ -738,6 +753,34 @@ details.faq>summary::-webkit-details-marker {
   overflow: visible;
 }
 
+/* Mobile: VSL primeiro (horizontal), depois texto + CTA */
+@media (max-width: 899px) {
+  .hero-2col {
+    padding-top: 92px;
+    gap: 2rem;
+  }
+
+  .hero-right {
+    order: -1;
+    justify-content: center;
+  }
+
+  .hero-vsl-3d,
+  .hero-vsl-3d:hover {
+    transform: none;
+    max-width: 100%;
+  }
+
+  .hero-vsl-3d-img {
+    aspect-ratio: 16 / 9;
+    object-position: center;
+  }
+
+  .hero-vsl-stats {
+    padding: 24px 16px 12px;
+  }
+}
+
 /* Vídeo 3D */
 .hero-vsl-3d {
   position: relative;
@@ -745,6 +788,9 @@ details.faq>summary::-webkit-details-marker {
   max-width: 680px;
   border-radius: 16px;
   overflow: hidden;
+  /* fix Chrome: border-radius perde-se durante transição com transform 3D */
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
   transform: perspective(1100px) rotateY(-16deg) rotateX(3deg) rotateZ(1deg);
   transform-origin: left center;
   box-shadow:
@@ -775,6 +821,7 @@ details.faq>summary::-webkit-details-marker {
   aspect-ratio: 3/4;
   object-fit: cover;
   object-position: center top;
+  border-radius: 16px;
   filter: brightness(0.82);
   transition: filter 0.3s ease;
 }
@@ -991,8 +1038,8 @@ details.faq>summary::-webkit-details-marker {
   user-select: none;
   -webkit-user-select: none;
   touch-action: pan-y;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, black 0%, black 82%, transparent 100%);
+  mask-image: linear-gradient(90deg, black 0%, black 82%, transparent 100%);
 }
 
 .vtest-viewport.is-dragging {
@@ -1012,7 +1059,7 @@ details.faq>summary::-webkit-details-marker {
 
 @media (min-width: 640px) {
   .vtest-card {
-    width: 340px;
+    width: 315px;
   }
 }
 
@@ -1143,7 +1190,7 @@ details.faq>summary::-webkit-details-marker {
 /* ===== HORIZONTAL SCROLL SERVICES ===== */
 .hscroll-wrap {
   position: relative;
-  height: 420vh;
+  height: 280vh;
 }
 
 .hscroll-sticky {
@@ -1162,8 +1209,8 @@ details.faq>summary::-webkit-details-marker {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding-left: 6vw;
-  padding-right: 20vw;
+  padding-left: max(1.5rem, calc((100vw - 1104px) / 2));
+  padding-right: max(1.5rem, calc((100vw - 1104px) / 2));
   will-change: transform;
   z-index: 2;
 }
@@ -1529,6 +1576,83 @@ details.faq>summary::-webkit-details-marker {
   background: var(--brand-2);
 }
 
+/* ── Service Cards Grid ─────────────────── */
+.scard {
+  position: relative;
+  border-radius: 24px;
+  padding: 40px;
+  background: linear-gradient(180deg, #030c1c 0%, #010608 100%);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.scard:hover {
+  border-color: #2a3a55;
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.7);
+}
+.scard > * {
+  position: relative;
+  z-index: 3;
+}
+.scard-num {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.2);
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+/* Ícone grande atrás do conteúdo, recortado em cima e à direita */
+.scard-icon {
+  position: absolute;
+  top: 0;
+  right: -56px;
+  width: 290px;
+  height: 290px;
+  pointer-events: none;
+  z-index: 2;
+}
+.scard-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.6));
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 40%, black 75%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 40%, black 75%);
+}
+
+@media (max-width: 768px) {
+  .scard-icon {
+    top: 0;
+    right: -36px;
+    width: 190px;
+    height: 190px;
+  }
+}
+
+/* Scards dentro do horizontal scroll — exactamente 2 visíveis,
+   alinhados com o container do título (max-w-6xl = 1152px, px-6) */
+.hscroll-track .scard {
+  flex: 0 0 auto;
+  width: calc(min(100vw - 3rem, 1104px) / 2 - 1rem);
+  max-height: 82vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* % resolveria contra a pista (gigante) — usar valor fixo: ~20% do card */
+  padding-right: 110px;
+}
+
+@media (max-width: 768px) {
+  .hscroll-track .scard {
+    width: 84vw;
+    padding-right: 48px;
+  }
+}
+
 /* ── Stats section ──────────────────────── */
 .stat-card {
   position: relative;
@@ -1724,6 +1848,21 @@ details.faq>summary::-webkit-details-marker {
   height: 400px;
   width: 300px;
   margin-left: -90px;
+}
+
+/* Mobile: stack mais pequeno e contido no ecrã */
+@media (max-width: 640px) {
+  .testimonials-stack {
+    width: 250px;
+    height: 370px;
+    margin-left: -40px;
+  }
+
+  .testi-card {
+    width: 250px;
+    height: 370px;
+    padding: 22px;
+  }
 }
 
 .testi-card {

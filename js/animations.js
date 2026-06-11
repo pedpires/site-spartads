@@ -172,20 +172,21 @@
   /* ── Team Carousel ─────────────────────── */
   (function () {
     var MEMBERS = [
-      { name: "Roberto Cortez",   role: "Founder & CMO",       photo: "https://www.spartads.pt/hosted/images/64/d50b6e9c6c4ee09445dad7e919cce7/rob.png" },
-      { name: "Andreia Rocha",    role: "CEO",                  photo: "https://www.spartads.pt/hosted/images/41/e6e0d4db754cda90911e6a2555743d/andreia.png" },
-      { name: "Ana Leitão",       role: "Head of Operations",   photo: "https://www.spartads.pt/hosted/images/fa/2171166a8d47cb81e00ea9d13ef964/ana.png" },
-      { name: "Patrícia Silva",   role: "PPC Manager",          photo: "https://www.spartads.pt/hosted/images/00/6b574d658d4055ab5cdc32649d4d3b/pat.png" },
-      { name: "Bruno Matos",      role: "PPC Manager",          photo: "https://www.spartads.pt/hosted/images/53/394babd8d3467dafa3fe53119a8931/bruno.png" },
-      { name: "Eduarda Vale",     role: "PPC Manager",          photo: "https://www.spartads.pt/hosted/images/c7/4db12f358b43e7a8faa0085fcfdd52/edurada.png" },
-      { name: "Marcelo Carvalho", role: "PPC Manager",          photo: "https://www.spartads.pt/hosted/images/3f/947e9ad1384d67968f07a946b5b5c0/m.png" },
-      { name: "David Enes",       role: "PPC Manager",          photo: "https://www.spartads.pt/hosted/images/20/e31868243f40628420de6ebc8d94fb/david-e.png" },
-      { name: "Jeferson Pereira", role: "Growth Hacker",        photo: "https://www.spartads.pt/hosted/images/d1/dcdb3278b64fb69f6f3f5335c830ac/jef.png" },
-      { name: "Beatriz Teixeira", role: "Commercial Assistant", photo: "https://www.spartads.pt/hosted/images/2d/e60f75f8e245b6b1e5e3ab94bb2d6f/bea.png" },
-      { name: "Marcia Aguiar",    role: "Gestora de Projetos",  photo: "https://www.spartads.pt/hosted/images/2c/f8a3405f304d2cb3310015a3a48715/marciar.png" },
-      { name: "Pedro Pacheco",    role: "Vídeo & Fotografia",   photo: "https://www.spartads.pt/hosted/images/f4/e4ff5f05cc4a37b327e5c7e3f485a2/pedro.png" },
-      { name: "David Ferreira",   role: "Web Designer",         photo: "https://www.spartads.pt/hosted/images/bf/cef8d73c034257bd942d5f32b493ea/david.png" },
-      { name: "Pedro Pires",      role: "Web Designer",         photo: "https://www.spartads.pt/hosted/images/1a/caa66f055448a3bd3029db7c524b3c/pires.png" }
+      { name: "Roberto Cortez",   role: "Founder & CMO",       photo: "assets/rob.webp" },
+      { name: "Andreia Rocha",    role: "CEO",                  photo: "assets/andreia.webp" },
+      { name: "Ana Leitão",       role: "Head of Operations",   photo: "assets/ana.webp" },
+      { name: "Patrícia Silva",   role: "PPC Manager",          photo: "assets/pat.webp" },
+      { name: "Bruno Matos",      role: "PPC Manager",          photo: "assets/bruno.webp" },
+      { name: "Eduarda Vale",     role: "PPC Manager",          photo: "assets/edurada.webp" },
+      { name: "Marcelo Carvalho", role: "PPC Manager",          photo: "assets/m.webp" },
+      { name: "David Enes",       role: "PPC Manager",          photo: "assets/david-e.webp" },
+      { name: "Inês Freitas",     role: "PPC Manager",          photo: "assets/ines.webp" },
+      { name: "Jeferson Pereira", role: "Growth Hacker",        photo: "assets/jef.webp" },
+      { name: "Beatriz Teixeira", role: "Commercial Assistant", photo: "assets/bea.webp" },
+      { name: "Marcia Aguiar",    role: "Gestora de Projetos",  photo: "assets/marciar.webp" },
+      { name: "Pedro Pacheco",    role: "Vídeo & Fotografia",   photo: "assets/pedro.webp" },
+      { name: "David Ferreira",   role: "Web Designer",         photo: "assets/david.webp" },
+      { name: "Pedro Pires",      role: "Web Designer",         photo: "assets/pires.webp" }
     ];
 
     var GAP     = 16;
@@ -351,9 +352,12 @@
     var positions = ["front", "middle", "back"];
 
     function posStyle(pos) {
-      if (pos === "front")  return { zIndex: 2, transform: "rotate(-5deg) translateX(0%)",   opacity: 1 };
-      if (pos === "middle") return { zIndex: 1, transform: "rotate(0deg)  translateX(30%)",  opacity: 1 };
-      return                       { zIndex: 0, transform: "rotate(5deg)  translateX(60%)",  opacity: 1 };
+      var mobile = window.innerWidth < 640;
+      var mid = mobile ? "16%" : "30%";
+      var back = mobile ? "32%" : "60%";
+      if (pos === "front")  return { zIndex: 2, transform: "rotate(-5deg) translateX(0%)",          opacity: 1 };
+      if (pos === "middle") return { zIndex: 1, transform: "rotate(0deg)  translateX(" + mid + ")", opacity: 1 };
+      return                       { zIndex: 0, transform: "rotate(5deg)  translateX(" + back + ")", opacity: 1 };
     }
 
     var cards = [];
@@ -406,17 +410,21 @@
 
     var shuffleBtn = document.getElementById("testimonials-shuffle-btn");
     if (shuffleBtn) shuffleBtn.addEventListener("click", shuffle);
+
+    window.addEventListener("resize", function () {
+      cards.forEach(function (card, i) { applyPos(card, posStyle(positions[i])); });
+    });
   })();
 
   /* ── Video Testimonials Carousel ──────── */
   (function () {
     var VIDEOS = [
-      { company: "Bricomarché",      vimeoId: "1194350095", quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam." },
-      { company: "Cuida",            vimeoId: "1194352605", quote: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor." },
-      { company: "Salvador Caetano", vimeoId: "1194353129", quote: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat." },
-      { company: "Fitness Park",     vimeoId: "1194353851", quote: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis." },
-      { company: "Carclass",         vimeoId: "1194354245", quote: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa." },
-      { company: "Inês Pilar",       vimeoId: "1194354709", quote: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos ratione." }
+      { company: "Bricomarché",      vimeoId: "1194350292", thumb: "https://i.vimeocdn.com/video/2167552454-5d59e70f772fef1c7bc58a91109679dddf96073e7c5e2e05eb8949aeb56721d5-d_540x960", quote: "" },
+      { company: "Cuida",            vimeoId: "1194352605", thumb: "https://i.vimeocdn.com/video/2167552072-5c230e38b1b2242f496276c218897c6cfc072adc61810c108269e339ca6cc354-d_540x960", quote: "" },
+      { company: "Salvador Caetano", vimeoId: "1194353129", thumb: "https://i.vimeocdn.com/video/2167552140-e80ee57e88965933a93eb6b5c035230338d15832ed8c5c4160e45090241af419-d_540x960", quote: "" },
+      { company: "Fitness Park",     vimeoId: "1194353851", thumb: "https://i.vimeocdn.com/video/2167551911-064271633a3d364501dd4243fa9a4630666e3b78e33b3857b19eef33ee8778fb-d_540x960", quote: "" },
+      { company: "Carclass",         vimeoId: "1194354245", thumb: "https://i.vimeocdn.com/video/2167551497-ade9c34c333d5435cdf714a44b8bc611f85665bb40c0b8b14f47fb180112447c-d_540x960", quote: "" },
+      { company: "Inês Pilar",       vimeoId: "1194354709", thumb: "https://i.vimeocdn.com/video/2167551407-d050f3be18febb540d1da1df084285e3e2ae181327867f15f1dce09b38da1536-d_540x960", quote: "" }
     ];
 
     var viewport         = document.getElementById("vtestViewport");
@@ -440,7 +448,7 @@
       card.className = "vtest-card";
       card.innerHTML =
         '<div class="vtest-thumb">' +
-          '<img src="https://vumbnail.com/' + v.vimeoId + '.jpg" alt="' + v.company + '" loading="lazy" />' +
+          '<img src="' + v.thumb + '" alt="' + v.company + '" loading="lazy" />' +
           '<div class="vtest-play-icon">' +
             '<div class="vtest-play-circle">' +
               '<svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>' +
@@ -448,8 +456,7 @@
           '</div>' +
           '<div class="vtest-company">' + v.company + '</div>' +
         '</div>' +
-        '<p class="vtest-quote">&ldquo;' + v.quote + '&rdquo;</p>' +
-        '<div class="vtest-meta">' + v.company + '</div>';
+        (v.quote ? '<p class="vtest-quote">&ldquo;' + v.quote + '&rdquo;</p>' : '');
 
 
       track.appendChild(card);
@@ -685,8 +692,8 @@
       initPixelCanvas(card, colors, 10, 35);
     });
 
-    document.querySelectorAll('.hcard').forEach(function (card) {
-      initPixelCanvas(card, blueColors, 12, 30, 0, 0.8);
+    document.querySelectorAll('.scard').forEach(function (card) {
+      initPixelCanvas(card, blueColors, 12, 30, 1, 0.8);
     });
 
     document.querySelectorAll('.stat-card').forEach(function (card) {
