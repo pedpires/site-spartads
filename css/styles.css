@@ -857,7 +857,7 @@ details.faq>summary::-webkit-details-marker {
 .hero-vsl-3d-img {
   width: 100%;
   display: block;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   object-fit: cover;
   object-position: center top;
   border-radius: 16px;
@@ -1694,7 +1694,7 @@ details.faq>summary::-webkit-details-marker {
     align-items: flex-start;
   }
   .hscroll-track .scard {
-    width: 84vw;
+    width: calc(100vw - 3rem);
     padding-right: 48px;
     height: auto;
   }

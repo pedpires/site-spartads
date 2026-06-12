@@ -33,6 +33,14 @@
     <link rel="preconnect" href="https://api.fontshare.com" />
     <link href="https://api.fontshare.com/v2/css?f[]=boska@700,500,400&display=swap" rel="stylesheet" />
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NQ47LLQ');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -41,6 +49,11 @@
   </head>
 
   <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ47LLQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- NAV -->
     <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 py-3 px-4 md:px-6">
@@ -753,7 +766,7 @@
         <button type="button" class="modal-close" aria-label="Fechar" data-close-modal>
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6l-12 12" stroke-linecap="round"/></svg>
         </button>
-        <iframe class="modal-iframe" id="booking-iframe" title="Agendar sessão estratégica SpartAds" loading="lazy" allow="microphone; camera"></iframe>
+        <iframe class="modal-iframe" id="booking-iframe" title="Agendar sessão estratégica SpartAds" loading="lazy"></iframe>
       </div>
     </div>
 
@@ -786,5 +799,8 @@
         v.addEventListener("canplay", function() { v.playbackRate = 0.5; });
       });
     </script>
+
+    <!-- Analytix -->
+    <script defer src="https://analytix-black.vercel.app/tracker.js" data-lp="spartads"></script>
   </body>
 </html>
