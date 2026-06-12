@@ -780,5 +780,11 @@
 
     <!-- Scripts -->
     <script src="js/animations.js"></script>
+    <script>
+      document.querySelectorAll(".hero-video-bg video, .cta-video-bg video").forEach(function(v) {
+        v.playbackRate = 0.5;
+        v.addEventListener("canplay", function() { v.playbackRate = 0.5; });
+      });
+    </script>
   </body>
 </html>
