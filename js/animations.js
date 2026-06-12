@@ -48,7 +48,7 @@
 
   /* ── VSL: play button → lightbox Vimeo ── */
   (function () {
-    var VSL_VIMEO_ID   = "1165298780";
+    var VSL_VIMEO_ID   = "1126235654";
     var playBtn        = document.getElementById("vsl-play-btn");
     var vslModal       = document.getElementById("vsl-modal");
     var vslModalIframe = document.getElementById("vsl-modal-iframe");
