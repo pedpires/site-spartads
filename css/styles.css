@@ -807,11 +807,11 @@ details.faq>summary::-webkit-details-marker {
   .hero-vsl-3d,
   .hero-vsl-3d:hover {
     transform: none;
-    max-width: 100%;
+    max-width: 95%;
   }
 
   .hero-vsl-3d-img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4/3;
     object-position: center;
   }
 
@@ -857,7 +857,7 @@ details.faq>summary::-webkit-details-marker {
 .hero-vsl-3d-img {
   width: 100%;
   display: block;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/3;
   object-fit: cover;
   object-position: center top;
   border-radius: 16px;
