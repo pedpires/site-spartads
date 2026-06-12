@@ -31,6 +31,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: clip; /* clip não cria scroll container — não parte position:sticky */
 }
 
 body {
@@ -39,6 +40,7 @@ body {
   color: var(--text);
   font-weight: 400;
   letter-spacing: -0.005em;
+  overflow-x: clip; /* idem */
 }
 
 ::selection {
@@ -386,6 +388,8 @@ h3 {
 
 /* ===== BUTTONS ===== */
 .btn-cta {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(170deg, #dcea20 0%, #b8c800 55%, #c8d800 100%);
   color: #080808;
   text-transform: uppercase;
@@ -398,6 +402,11 @@ h3 {
     0 8px 28px rgba(175, 200, 0, 0.55),
     0 2px 6px rgba(0, 0, 0, 0.28);
   transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+/* Garante que texto e ícones ficam acima do pixel canvas */
+.btn-cta > * {
+  position: relative;
+  z-index: 2;
 }
 
 .btn-cta:hover {
@@ -738,12 +747,12 @@ details.faq>summary::-webkit-details-marker {
 .cert-badge {
   height: 48px;
   width: auto;
-  opacity: 0.88;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+  transition: transform 0.28s ease, opacity 0.28s ease;
 }
 
 .cert-badge:hover {
-  transform: scale(1.05);
+  transform: scale(1.18);
   opacity: 1;
 }
 
@@ -1214,7 +1223,7 @@ details.faq>summary::-webkit-details-marker {
 /* ===== HORIZONTAL SCROLL SERVICES ===== */
 .hscroll-wrap {
   position: relative;
-  height: 280vh;
+  min-height: calc(100vh + 90vw); /* fallback antes do JS calcular a altura exacta */
 }
 
 .hscroll-sticky {
@@ -1227,14 +1236,16 @@ details.faq>summary::-webkit-details-marker {
 
 .hscroll-track {
   position: absolute;
-  top: 0;
+  top: 30px;
   left: 0;
   height: 100%;
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  align-items: stretch;
+  padding-top: 7.5rem;
+  padding-bottom: 5rem;
   padding-left: max(1.5rem, calc((100vw - 1104px) / 2));
   padding-right: max(1.5rem, calc((100vw - 1104px) / 2));
+  gap: 2rem;
   will-change: transform;
   z-index: 2;
 }
@@ -1657,23 +1668,29 @@ details.faq>summary::-webkit-details-marker {
   }
 }
 
-/* Scards dentro do horizontal scroll — exactamente 2 visíveis,
-   alinhados com o container do título (max-w-6xl = 1152px, px-6) */
 .hscroll-track .scard {
   flex: 0 0 auto;
   width: calc(min(100vw - 3rem, 1104px) / 2 - 1rem);
-  max-height: 82vh;
+  max-height: 640px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  /* % resolveria contra a pista (gigante) — usar valor fixo: ~20% do card */
   padding-right: 110px;
 }
 
+/* resultado (case study) cola ao fundo do card */
+.hscroll-track .scard .hcard-case {
+  margin-top: auto;
+}
+
 @media (max-width: 768px) {
+  .hscroll-track {
+    align-items: flex-start;
+  }
   .hscroll-track .scard {
     width: 84vw;
     padding-right: 48px;
+    height: 430px;
   }
 }
 
@@ -1867,24 +1884,36 @@ details.faq>summary::-webkit-details-marker {
 }
 
 /* ── Testimonials (vanilla stack) ───────── */
+#testemunhos {
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  #testemunhos .flex.flex-col.items-center {
+    gap: 16px;
+  }
+}
+
 .testimonials-stack {
   position: relative;
   height: 400px;
   width: 300px;
+  touch-action: pan-y;
   margin-left: -90px;
 }
 
 /* Mobile: stack mais pequeno e contido no ecrã */
 @media (max-width: 640px) {
   .testimonials-stack {
-    width: 250px;
-    height: 370px;
-    margin-left: -40px;
+    width: 280px;
+    height: 360px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .testi-card {
-    width: 250px;
-    height: 370px;
+    width: 280px;
+    height: 360px;
     padding: 22px;
   }
 }

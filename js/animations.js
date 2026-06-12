@@ -46,20 +46,6 @@
     els.forEach(function (el) { io.observe(el); });
   })();
 
-  /* ── Sticky mobile CTA ─────────────────── */
-  (function () {
-    var sticky = document.getElementById("sticky-cta");
-    var hero   = document.getElementById("top");
-    if (!sticky || !hero) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) sticky.classList.add("visible");
-        else sticky.classList.remove("visible");
-      });
-    }, { threshold: 0 });
-    io.observe(hero);
-  })();
-
   /* ── VSL: play button → lightbox Vimeo ── */
   (function () {
     var VSL_VIMEO_ID   = "1165298780";
@@ -93,30 +79,33 @@
 
   /* ── Horizontal scroll — Serviços ─────── */
   (function () {
-    var wrap    = document.getElementById("hscroll-wrap");
-    var track   = document.getElementById("hscroll-track");
-    var fill    = document.getElementById("hscroll-progress-fill");
-    var counter = document.getElementById("hscroll-counter");
+    var wrap      = document.getElementById("hscroll-wrap");
+    var track     = document.getElementById("hscroll-track");
+    var fill      = document.getElementById("hscroll-progress-fill");
+    var counter   = document.getElementById("hscroll-counter");
     if (!wrap || !track) return;
 
-    var totalDistance = 0;
-    var sectionHeight = 0;
-    var ticking       = false;
-    var cardCount     = track.children.length;
+    var dist      = 0;   // pixels to travel horizontally
+    var sectH     = 0;   // pixels of vertical scroll = dist
+    var ticking   = false;
+    var cardCount = track.querySelectorAll(".scard").length;
 
     function measure() {
-      var viewportWidth  = window.innerWidth;
-      var trackScrollWidth = track.scrollWidth;
-      totalDistance = Math.max(0, trackScrollWidth - viewportWidth);
-      sectionHeight = wrap.offsetHeight - window.innerHeight;
+      /* reset transform so scrollWidth reflects natural layout */
+      track.style.transform = "translate3d(0,0,0)";
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      dist  = Math.max(0, track.scrollWidth - vw);
+      sectH = dist;
+      /* altura do wrap = viewport + distância horizontal → scroll 1:1 */
+      wrap.style.height = (vh + dist) + "px";
     }
 
     function update() {
-      var rect     = wrap.getBoundingClientRect();
-      var scrolled = -rect.top;
-      var progress = Math.max(0, Math.min(1, scrolled / sectionHeight));
-      var translateX = progress * totalDistance;
-      track.style.transform = "translate3d(" + (-translateX) + "px, 0, 0)";
+      if (sectH <= 0) { ticking = false; return; }
+      var scrolled = Math.max(0, -wrap.getBoundingClientRect().top);
+      var progress = Math.min(1, scrolled / sectH);
+      track.style.transform = "translate3d(" + (-(progress * dist)).toFixed(1) + "px,0,0)";
       if (fill)    fill.style.width = (progress * 100).toFixed(1) + "%";
       if (counter) {
         var idx = Math.min(cardCount, Math.floor(progress * cardCount) + 1);
@@ -129,13 +118,17 @@
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }
 
-    measure();
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", function () { measure(); update(); });
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () { measure(); update(); });
+    function init() { measure(); requestAnimationFrame(update); }
+
+    /* Medir imediatamente (o wrap precisa de altura para o sticky funcionar) */
+    init();
+    /* Re-medir depois de tudo carregado, caso algo mude */
+    if (document.readyState !== "complete") {
+      window.addEventListener("load", init);
     }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", function () { measure(); requestAnimationFrame(update); }, { passive: true });
   })();
 
   /* ── Booking Modal ─────────────────────── */
@@ -363,11 +356,11 @@
 
     function posStyle(pos) {
       var mobile = window.innerWidth < 640;
-      var mid = mobile ? "16%" : "30%";
-      var back = mobile ? "32%" : "60%";
-      if (pos === "front")  return { zIndex: 3, transform: "rotate(-5deg) translateX(0%)",          opacity: 1 };
-      if (pos === "middle") return { zIndex: 2, transform: "rotate(0deg)  translateX(" + mid + ")", opacity: 1 };
-      if (pos === "back")   return { zIndex: 1, transform: "rotate(5deg)  translateX(" + back + ")", opacity: 1 };
+      var mid = mobile ? "0%" : "30%";
+      var back = mobile ? "0%" : "60%";
+      if (pos === "front")  return { zIndex: 3, transform: "rotate(-4deg) translateX(0%)",          opacity: 1 };
+      if (pos === "middle") return { zIndex: 2, transform: "rotate(1deg)  translateX(" + mid + ")", opacity: mobile ? 0.20 : 1 };
+      if (pos === "back")   return { zIndex: 1, transform: "rotate(5deg)  translateX(" + back + ")", opacity: mobile ? 0.10 : 1 };
       return                       { zIndex: 0, transform: "rotate(5deg)  translateX(" + back + ")", opacity: 0 };
     }
 
@@ -411,13 +404,25 @@
       });
     }
 
-    var startX = 0;
-    cards[0].addEventListener("pointerdown", function (e) { startX = e.clientX; });
-    document.addEventListener("pointerup", function (e) {
-      if (startX && e.clientX - startX < -80) {
-        shuffle(); startX = 0;
-      }
+    var dragStartX = 0;
+    var isDragging = false;
+    container.addEventListener("pointerdown", function (e) {
+      if (e.target.closest("#testimonials-shuffle-btn")) return;
+      dragStartX = e.clientX;
+      isDragging = true;
+      container.setPointerCapture(e.pointerId);
     });
+    container.addEventListener("pointermove", function (e) {
+      if (!isDragging) return;
+      if (Math.abs(e.clientX - dragStartX) > 5) e.preventDefault();
+    });
+    container.addEventListener("pointerup", function (e) {
+      if (!isDragging) return;
+      isDragging = false;
+      if (Math.abs(e.clientX - dragStartX) > 60) shuffle();
+      dragStartX = 0;
+    });
+    container.addEventListener("pointercancel", function () { isDragging = false; dragStartX = 0; });
 
     var shuffleBtn = document.getElementById("testimonials-shuffle-btn");
     if (shuffleBtn) shuffleBtn.addEventListener("click", shuffle);
@@ -702,12 +707,24 @@
       initPixelCanvas(card, colors, 10, 35);
     });
 
-    document.querySelectorAll('.scard').forEach(function (card) {
+    document.querySelectorAll('.stat-card').forEach(function (card) {
       initPixelCanvas(card, blueColors, 12, 30, 1, 0.8);
     });
 
-    document.querySelectorAll('.stat-card').forEach(function (card) {
-      initPixelCanvas(card, blueColors, 12, 30, 1, 0.8);
+    var ctaBtnColors = [
+      'rgba(255,255,255,0.85)',
+      'rgba(210,255,185,0.70)',
+      'rgba(170,255,160,0.58)',
+      'rgba(255,255,255,0.45)',
+      'rgba(195,255,155,0.52)'
+    ];
+    document.querySelectorAll('.btn-cta').forEach(function (btn) {
+      /* Envolve o conteúdo existente num span com z-index superior ao canvas */
+      var inner = document.createElement('span');
+      inner.style.cssText = 'position:relative;z-index:2;display:inline-flex;align-items:inherit;gap:inherit;pointer-events:none;';
+      while (btn.firstChild) { inner.appendChild(btn.firstChild); }
+      btn.appendChild(inner);
+      initPixelCanvas(btn, ctaBtnColors, 7, 52, 1, 1);
     });
   })();
 
